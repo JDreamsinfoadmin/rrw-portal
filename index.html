@@ -11,11 +11,11 @@
       --bg: #f8fafc;
       --card-bg: #ffffff;
       --text: #0f172a;
-      --border: #e2e8f0;
+      --border: #cbd5e1;
     }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       background-color: var(--bg);
       color: var(--text);
       margin: 0;
@@ -24,20 +24,17 @@
       flex-direction: column;
       align-items: center;
       min-height: 100vh;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none; /* Lockdown script protection */
     }
 
     .container {
       width: 100%;
-      max-width: 700px;
+      max-width: 650px;
       background: var(--card-bg);
-      padding: 30px;
+      padding: 32px;
       border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
       border: 1px solid var(--border);
+      box-sizing: border-box;
     }
 
     .header {
@@ -48,13 +45,13 @@
     .header img {
       max-width: 180px;
       height: auto;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
 
     .header h1 {
-      font-size: 1.4rem;
+      font-size: 1.35rem;
       color: var(--primary);
-      margin: 5px 0;
+      margin: 0 0 6px 0;
     }
 
     .header p {
@@ -63,35 +60,58 @@
       margin: 0;
     }
 
-    .code-box {
-      margin: 20px 0;
+    .section-box {
       background: #f1f5f9;
+      border: 1px solid #e2e8f0;
       padding: 20px;
       border-radius: 8px;
-      text-align: center;
+      margin-bottom: 20px;
     }
 
-    .code-box label {
-      display: block;
-      font-weight: 600;
-      margin-bottom: 8px;
-      color: var(--primary);
-    }
-
-    .code-box input {
-      width: 80%;
-      padding: 12px;
-      font-size: 1.1rem;
-      text-align: center;
-      letter-spacing: 2px;
+    .section-title {
+      font-size: 0.85rem;
+      font-weight: 700;
       text-transform: uppercase;
-      border: 2px solid var(--border);
-      border-radius: 6px;
-      outline: none;
+      color: var(--primary);
+      letter-spacing: 0.5px;
+      margin-bottom: 12px;
+      display: block;
     }
 
-    .code-box input:focus {
-      border-color: var(--secondary);
+    .input-group {
+      margin-bottom: 12px;
+    }
+
+    .input-group label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: #334155;
+    }
+
+    .input-group input, .input-group select {
+      width: 100%;
+      padding: 10px 12px;
+      font-size: 0.95rem;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      box-sizing: border-box;
+      background: #ffffff;
+    }
+
+    .help-link {
+      display: block;
+      margin-top: 8px;
+      font-size: 0.8rem;
+      color: var(--secondary);
+      text-decoration: none;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .help-link:hover {
+      text-decoration: underline;
     }
 
     .btn {
@@ -101,39 +121,66 @@
       color: white;
       border: none;
       border-radius: 6px;
-      font-size: 1rem;
+      font-size: 0.95rem;
       font-weight: 600;
       cursor: pointer;
-      margin-top: 10px;
+      margin-top: 8px;
     }
 
     .btn:hover {
       background-color: #1e40af;
     }
 
-    .role-preview {
-      display: none;
-      margin-top: 25px;
-      padding-top: 20px;
-      border-top: 1px solid var(--border);
+    .training-card {
+      border: 1px dashed var(--border);
+      background: #fafafa;
+      padding: 16px;
+      border-radius: 8px;
+      margin-top: 20px;
     }
 
-    .badge {
-      display: inline-block;
-      padding: 4px 10px;
-      background: #ccfbf1;
-      color: #0f766e;
-      border-radius: 12px;
-      font-size: 0.8rem;
-      font-weight: 600;
-      margin-bottom: 10px;
+    .training-card h3 {
+      margin: 0 0 6px 0;
+      font-size: 0.95rem;
+      color: var(--primary);
+    }
+
+    .training-card p {
+      margin: 0 0 10px 0;
+      font-size: 0.825rem;
+      color: #64748b;
+      line-height: 1.4;
+    }
+
+    .btn-disabled {
+      background-color: #cbd5e1;
+      color: #64748b;
+      cursor: not-allowed;
     }
 
     .footer-note {
       text-align: center;
-      margin-top: 30px;
+      margin-top: 24px;
       font-size: 0.75rem;
       color: #94a3b8;
+    }
+
+    #accessCodeStep {
+      display: none;
+      border-top: 2px solid #e2e8f0;
+      padding-top: 20px;
+      margin-top: 20px;
+    }
+
+    .alert-box {
+      display: none;
+      padding: 10px;
+      background: #fef2f2;
+      border: 1px solid #fecaca;
+      color: #991b1b;
+      font-size: 0.825rem;
+      border-radius: 6px;
+      margin-top: 10px;
     }
   </style>
 </head>
@@ -142,68 +189,130 @@
   <div class="container">
     <div class="header">
       <img src="logo.png" alt="Jan's Dreams Logo" onerror="this.style.display='none'">
-      <h1>Retention-Ready Workplace™</h1>
-      <p>System Portal & Multi-Funder Demonstration</p>
+      <h1>Retention-Ready Workplace™ Portal</h1>
+      <p>Jan's Dreams Administration & System Gateway</p>
     </div>
 
-    <div class="code-box">
-      <label for="accessCode">ENTER YOUR ACCESS CODE</label>
-      <input type="text" id="accessCode" placeholder="e.g., CNP, CNEA, CNS" maxlength="10">
-      <button class="btn" onclick="validateCode()">Launch Portal Instance</button>
-    </div>
-
-    <div id="roleView" class="role-preview">
-      <span class="badge" id="roleBadge">ACTIVE ROLE IDENTIFIED</span>
-      <h3 id="roleTitle" style="color: var(--primary); margin-top: 5px;"></h3>
-      <p id="roleDesc" style="font-size: 0.95rem; line-height: 1.5; color: #334155;"></p>
+    <!-- ENTRY ITEM 1: SEARCH OR ENTER CONFIRMATION -->
+    <div class="section-box">
+      <span class="section-title">Item 1: Portal Entry & Status Check</span>
       
-      <div id="actionArea" style="margin-top: 15px; padding: 15px; background: #fafafa; border-radius: 6px; border: 1px dashed var(--border);">
-        <strong style="font-size: 0.85rem; color: #475569;">AVAILABLE DEMO ACTION:</strong>
-        <p id="actionText" style="font-size: 0.9rem; margin: 5px 0 0 0; color: #0f172a;"></p>
+      <div class="input-group">
+        <label for="entryType">Select Search Method:</label>
+        <select id="entryType" onchange="toggleEntryField()">
+          <option value="employer">Search Employer (Branch / Location)</option>
+          <option value="confirmation">Enter Confirmation Number</option>
+        </select>
+      </div>
+
+      <!-- Employer Search -->
+      <div class="input-group" id="employerField">
+        <label for="employerSearch">Employer Name or Location:</label>
+        <input type="text" id="employerSearch" placeholder="Type employer name or city..." list="employerList">
+        <datalist id="employerList">
+          <option value="Albuquerque Housing Authority - Main Branch">
+          <option value="City of Albuquerque - Behavioral Health">
+          <option value="State of NM - DWS Workforce Hub">
+          <option value="Community Health Partners - Central">
+        </datalist>
+      </div>
+
+      <!-- Confirmation Number Field -->
+      <div class="input-group" id="confirmationField" style="display: none;">
+        <label for="confNum">Confirmation Number:</label>
+        <input type="text" id="confNum" placeholder="e.g., RRW-2026-8941">
+      </div>
+
+      <a class="help-link" onclick="showHelpNotice()">Lost Confirmation Number / Don't Know Employer?</a>
+      <div id="helpAlert" class="alert-box">
+        Help Desk Request: In production, this routes a secure support ticket to Jan's Dreams team. (Disabled for demo).
+      </div>
+
+      <button class="btn" onclick="proceedToAccessCode()">Continue to Verification</button>
+    </div>
+
+    <!-- ACCESS CODE VERIFICATION STEP -->
+    <div id="accessCodeStep" class="section-box">
+      <span class="section-title">Step 2: Enter Access Code</span>
+      <p style="font-size: 0.85rem; color: #475569; margin: 0 0 12px 0;">
+        Please enter your assigned Access Code to verify your role and permissions.
+      </p>
+      
+      <div class="input-group">
+        <label for="accessCode">Access Code:</label>
+        <input type="text" id="accessCode" placeholder="Enter code (e.g., CNEA, CNS, CNP, EMP)" style="text-transform: uppercase;">
+      </div>
+
+      <button class="btn" style="background-color: var(--secondary);" onclick="verifyCode()">Verify Code & Launch Portal</button>
+
+      <div id="roleResult" style="display:none; margin-top: 15px; padding: 12px; background: #ffffff; border-radius: 6px; border: 1px solid var(--border);">
+        <strong id="roleTitle" style="color: var(--primary); font-size: 0.9rem;"></strong>
+        <p id="roleDesc" style="font-size: 0.825rem; color: #334155; margin: 6px 0 0 0;"></p>
       </div>
     </div>
 
+    <!-- ENTRY ITEM 2: TRAINING LINK (DISABLED FOR DEMO) -->
+    <div class="training-card">
+      <h3>Retention-Ready Ecosystem™ Training Curriculum</h3>
+      <p>Access SHRM-accredited training tracks for Retention-Ready Workplace Certification™ and Retention-Ready Workforce™.</p>
+      <button class="btn btn-disabled" disabled>Training Track Offline (Demo Mode)</button>
+    </div>
+
     <div class="footer-note">
-      Protected System Architecture • Confidential Multi-Source Ledger Integration
+      Protected System Gateway • Retention-Ready Ecosystem™ Architecture
     </div>
   </div>
 
   <script>
-    function validateCode() {
+    function toggleEntryField() {
+      const type = document.getElementById('entryType').value;
+      const empField = document.getElementById('employerField');
+      const confField = document.getElementById('confirmationField');
+
+      if (type === 'employer') {
+        empField.style.display = 'block';
+        confField.style.display = 'none';
+      } else {
+        empField.style.display = 'none';
+        confField.style.display = 'block';
+      }
+    }
+
+    function showHelpNotice() {
+      const alertBox = document.getElementById('helpAlert');
+      alertBox.style.display = alertBox.style.display === 'block' ? 'none' : 'block';
+    }
+
+    function proceedToAccessCode() {
+      document.getElementById('accessCodeStep').style.display = 'block';
+      document.getElementById('accessCodeStep').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function verifyCode() {
       const code = document.getElementById('accessCode').value.trim().toUpperCase();
-      const roleView = document.getElementById('roleView');
-      const badge = document.getElementById('roleBadge');
-      const title = document.getElementById('roleTitle');
-      const desc = document.getElementById('roleDesc');
-      const actionText = document.getElementById('actionText');
+      const roleResult = document.getElementById('roleResult');
+      const roleTitle = document.getElementById('roleTitle');
+      const roleDesc = document.getElementById('roleDesc');
 
       if (!code) {
         alert('Please enter a valid Access Code.');
         return;
       }
 
-      roleView.style.display = 'block';
+      roleResult.style.display = 'block';
 
-      if (code === 'CNP') {
-        badge.innerText = 'ROLE 1: CNP';
-        title.innerText = 'Network Partner Support Liaison / Peer Support';
-        desc.innerText = 'Access non-clinical interaction logs, warm handoff tracking, and barrier-resolution sub-tickets operating free of employer PII exposure.';
-        actionText.innerText = 'Peer Support Non-Clinical Interaction Log & Warm Handoff Tracker is LIVE for this instance.';
-      } else if (code === 'CNEA') {
-        badge.innerText = 'ROLE 2: CNEA';
-        title.innerText = 'Enterprise Employer Admin';
-        desc.innerText = 'Access systemic risk management, multi-source ledger exports, compliance tracking, and infrastructure evaluations.';
-        actionText.innerText = 'Master Enterprise Infrastructure Evaluation & Multi-Funder Ledger Export is LIVE for this instance.';
+      if (code === 'CNEA') {
+        roleTitle.innerText = 'ROLE VERIFIED: CNEA (Enterprise Employer Admin / Scaling Partner)';
+        roleDesc.innerText = 'Permissions: High-level status metadata, multi-funder ledger exports. PII details hidden.';
       } else if (code === 'CNS') {
-        badge.innerText = 'ROLE 3: CNS';
-        title.innerText = 'Enterprise Supervisor / Manager';
-        desc.innerText = 'Access objective behavioral observation checklists, ADA compliance guidance, and restorative manager scripts.';
-        actionText.innerText = 'Objective Behavioral Observation Checklist & Restorative Script Template A is LIVE for this instance.';
+        roleTitle.innerText = 'ROLE VERIFIED: CNS (Enterprise Supervisor / Manager)';
+        roleDesc.innerText = 'Permissions: Objective behavioral observations & restorative script templates.';
+      } else if (code === 'CNP') {
+        roleTitle.innerText = 'ROLE VERIFIED: CNP (Peer Support / Network Partner Liaison)';
+        roleDesc.innerText = 'Permissions: Full incident access, status modification, internal Jan\'s Dreams notes.';
       } else {
-        badge.innerText = 'DEMO ACCESS UNLOCKED';
-        title.innerText = 'General Talent & Partner Access';
-        desc.innerText = 'Viewing generalized portal options under Access Code: ' + code;
-        actionText.innerText = 'Standard interactive case study form enabled.';
+        roleTitle.innerText = 'ROLE VERIFIED: Anonymous Employee / General Talent';
+        roleDesc.innerText = 'Permissions: Full details for your specific submission, cancellation, or follow-up.';
       }
     }
   </script>

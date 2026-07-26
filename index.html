@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Retention-Ready Workplace™ Portal</title>
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --secondary: #0d9488;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #0f172a;
+      --border: #e2e8f0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none; /* Lockdown script protection */
+    }
+
+    .container {
+      width: 100%;
+      max-width: 700px;
+      background: var(--card-bg);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      border: 1px solid var(--border);
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .header img {
+      max-width: 180px;
+      height: auto;
+      margin-bottom: 10px;
+    }
+
+    .header h1 {
+      font-size: 1.4rem;
+      color: var(--primary);
+      margin: 5px 0;
+    }
+
+    .header p {
+      color: #64748b;
+      font-size: 0.9rem;
+      margin: 0;
+    }
+
+    .code-box {
+      margin: 20px 0;
+      background: #f1f5f9;
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .code-box label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--primary);
+    }
+
+    .code-box input {
+      width: 80%;
+      padding: 12px;
+      font-size: 1.1rem;
+      text-align: center;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      border: 2px solid var(--border);
+      border-radius: 6px;
+      outline: none;
+    }
+
+    .code-box input:focus {
+      border-color: var(--secondary);
+    }
+
+    .btn {
+      width: 100%;
+      padding: 12px;
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .btn:hover {
+      background-color: #1e40af;
+    }
+
+    .role-preview {
+      display: none;
+      margin-top: 25px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 4px 10px;
+      background: #ccfbf1;
+      color: #0f766e;
+      border-radius: 12px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .footer-note {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 0.75rem;
+      color: #94a3b8;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="header">
+      <img src="logo.png" alt="Jan's Dreams Logo" onerror="this.style.display='none'">
+      <h1>Retention-Ready Workplace™</h1>
+      <p>System Portal & Multi-Funder Demonstration</p>
+    </div>
+
+    <div class="code-box">
+      <label for="accessCode">ENTER YOUR ACCESS CODE</label>
+      <input type="text" id="accessCode" placeholder="e.g., CNP, CNEA, CNS" maxlength="10">
+      <button class="btn" onclick="validateCode()">Launch Portal Instance</button>
+    </div>
+
+    <div id="roleView" class="role-preview">
+      <span class="badge" id="roleBadge">ACTIVE ROLE IDENTIFIED</span>
+      <h3 id="roleTitle" style="color: var(--primary); margin-top: 5px;"></h3>
+      <p id="roleDesc" style="font-size: 0.95rem; line-height: 1.5; color: #334155;"></p>
+      
+      <div id="actionArea" style="margin-top: 15px; padding: 15px; background: #fafafa; border-radius: 6px; border: 1px dashed var(--border);">
+        <strong style="font-size: 0.85rem; color: #475569;">AVAILABLE DEMO ACTION:</strong>
+        <p id="actionText" style="font-size: 0.9rem; margin: 5px 0 0 0; color: #0f172a;"></p>
+      </div>
+    </div>
+
+    <div class="footer-note">
+      Protected System Architecture • Confidential Multi-Source Ledger Integration
+    </div>
+  </div>
+
+  <script>
+    function validateCode() {
+      const code = document.getElementById('accessCode').value.trim().toUpperCase();
+      const roleView = document.getElementById('roleView');
+      const badge = document.getElementById('roleBadge');
+      const title = document.getElementById('roleTitle');
+      const desc = document.getElementById('roleDesc');
+      const actionText = document.getElementById('actionText');
+
+      if (!code) {
+        alert('Please enter a valid Access Code.');
+        return;
+      }
+
+      roleView.style.display = 'block';
+
+      if (code === 'CNP') {
+        badge.innerText = 'ROLE 1: CNP';
+        title.innerText = 'Network Partner Support Liaison / Peer Support';
+        desc.innerText = 'Access non-clinical interaction logs, warm handoff tracking, and barrier-resolution sub-tickets operating free of employer PII exposure.';
+        actionText.innerText = 'Peer Support Non-Clinical Interaction Log & Warm Handoff Tracker is LIVE for this instance.';
+      } else if (code === 'CNEA') {
+        badge.innerText = 'ROLE 2: CNEA';
+        title.innerText = 'Enterprise Employer Admin';
+        desc.innerText = 'Access systemic risk management, multi-source ledger exports, compliance tracking, and infrastructure evaluations.';
+        actionText.innerText = 'Master Enterprise Infrastructure Evaluation & Multi-Funder Ledger Export is LIVE for this instance.';
+      } else if (code === 'CNS') {
+        badge.innerText = 'ROLE 3: CNS';
+        title.innerText = 'Enterprise Supervisor / Manager';
+        desc.innerText = 'Access objective behavioral observation checklists, ADA compliance guidance, and restorative manager scripts.';
+        actionText.innerText = 'Objective Behavioral Observation Checklist & Restorative Script Template A is LIVE for this instance.';
+      } else {
+        badge.innerText = 'DEMO ACCESS UNLOCKED';
+        title.innerText = 'General Talent & Partner Access';
+        desc.innerText = 'Viewing generalized portal options under Access Code: ' + code;
+        actionText.innerText = 'Standard interactive case study form enabled.';
+      }
+    }
+  </script>
+</body>
+</html>

@@ -109,51 +109,24 @@
       <p>Jan's Dreams Administration & System Gateway</p>
     </div>
 
-    <!-- Step 1 & 2 Gateway -->
     <div class="section-box">
-      <span class="section-title">Portal Entry & Status Check</span>
-      <label>Enter Employee Confirmation Number or Access Code:</label>
-      <input type="text" id="accessCode" placeholder="e.g., NMDWS-SANTAFE-01">
-      <button class="btn" onclick="verifyCode()">Continue to Verification</button>
+      <span class="section-title">Employer & Organization Authentication</span>
+      <label>Enter Assigned Access Code:</label>
+      <input type="text" id="accessCode" value="NMDWS-SANTAFE-01">
+      <button class="btn" onclick="openDashboard()">Enter Portal</button>
     </div>
-
-    <div id="roleResult" style="display: none;" class="section-box"></div>
   </div>
 
   <script>
-    const accessDatabase = {
-      "NMDWS-SANTAFE-01": { org: "NMDWS - Santa Fe Hub", role: "Employer All" },
-      "DEMO-GOV": { org: "Governor's Office Review Committee", role: "Compliance Auditor" }
-    };
-
-    function verifyCode() {
-      const codeInput = document.getElementById('accessCode').value.trim().toUpperCase();
-      const roleResult = document.getElementById('roleResult');
-
-      if (!codeInput) {
-        alert('Please enter a valid Access Code.');
-        return;
-      }
-
-      const record = accessDatabase[codeInput] || { org: "NMDWS - Santa Fe Hub (Default Verified)", role: "Employer All" };
-      
-      roleResult.style.display = 'block';
-      roleResult.innerHTML = `
-        <h4 style="color: var(--primary); margin: 0 0 10px 0; font-size: 1rem;">Verify Your Access Profile</h4>
-        <p style="margin: 4px 0;"><strong>Company / Organization:</strong> ${record.org}</p>
-        <p style="margin: 4px 0;"><strong>Assigned Role:</strong> ${record.role}</p>
-        <p style="margin: 10px 0 15px 0; font-size: 0.85rem; color: #16a34a; font-weight: 600;">Is this your company & is this your role?</p>
-        <button class="btn" style="background-color: #16a34a;" onclick="renderDashboard('${record.org}')">Yes, Enter Portal</button>
-      `;
-    }
-
-    function renderDashboard(orgName) {
+    function openDashboard() {
+      const codeInput = document.getElementById('accessCode').value.trim() || "NMDWS - Santa Fe Hub";
       const container = document.getElementById('mainContainer');
+      
       container.innerHTML = `
         <div class="header">
           <img src="Logo Designed.png" alt="Jan's Dreams Logo" onerror="this.style.display='none'">
           <h1>Retention-Ready Ecosystem™ Dashboard</h1>
-          <p>Active Organization: <strong>${orgName}</strong></p>
+          <p>Active Organization: <strong>${codeInput}</strong></p>
         </div>
 
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px;">
@@ -189,7 +162,7 @@
           </table>
         </div>
 
-        <button class="btn" style="background-color: #64748b; margin-top: 10px;" onclick="location.reload()">Log Out / Return to Entry</button>
+        <button class="btn" style="background-color: #64748b; margin-top: 10px;" onclick="location.reload()">Log Out / Reset Portal</button>
       `;
     }
   </script>

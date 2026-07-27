@@ -30,13 +30,17 @@
       border-radius: 12px;
       box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
       width: 100%;
-      max-width: 650px;
+      max-width: 750px;
       padding: 30px;
       box-sizing: border-box;
     }
     .header {
       text-align: center;
       margin-bottom: 25px;
+    }
+    .header img {
+      max-height: 55px;
+      margin-bottom: 12px;
     }
     .header h1 {
       font-size: 1.25rem;
@@ -70,7 +74,7 @@
       font-weight: 600;
       margin-bottom: 6px;
     }
-    input[type="text"], select {
+    input[type="text"] {
       width: 100%;
       padding: 10px;
       border: 1px solid var(--border);
@@ -110,56 +114,203 @@
       font-weight: 600;
       color: var(--primary);
     }
+    .sub-item-box {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 15px;
+      margin-top: 15px;
+      font-size: 0.85rem;
+    }
+    .alert-box {
+      background: #fef2f2;
+      border: 1px solid #fecaca;
+      color: #991b1b;
+      padding: 12px;
+      border-radius: 6px;
+      font-size: 0.825rem;
+      margin-top: 12px;
+    }
+    .script-box {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      color: #166534;
+      padding: 15px;
+      border-radius: 6px;
+      font-size: 0.825rem;
+      margin-top: 12px;
+      line-height: 1.5;
+    }
   </style>
 </head>
 <body>
 
   <div class="container">
     <div class="header">
+      <img src="Logo Designed.png" alt="Jan's Dreams Logo" onerror="this.style.display='none'">
       <h1>Jan's Dreams Administration & System Gateway</h1>
       <p>Select Portal Entry Method</p>
     </div>
 
-    <!-- Option 1 -->
-    <div class="section-box" style="opacity: 0.6;">
-      <span class="section-title">1. Retention-Ready Certification™</span>
-      <p style="font-size: 0.8rem; color: #64748b; margin: 0 0 10px 0;">Status: Disabled in Demo Mode</p>
-      <input type="text" placeholder="Enter Access Code (Locked)" disabled>
-    </div>
-
-    <!-- Option 2 -->
-    <div class="section-box" style="border-color: var(--secondary); background: #f0fdfa;">
-      <span class="section-title" style="color: var(--secondary);">2. Retention-Ready Ecosystem™</span>
-      <label>Enter Access Code:</label>
-      <input type="text" id="accessCode" value="NMDWS-SANTAFE-01">
-      
-      <label style="margin-top: 15px;">Confirm Role and Employer Associated:</label>
-      <div style="background: #fff; border: 1px solid var(--border); padding: 12px; border-radius: 6px; font-size: 0.85rem; margin-bottom: 12px;">
-        <strong>Employer:</strong> NMDWS - Santa Fe Hub<br>
-        <strong>Role:</strong> Supervisor
+    <!-- VIEW 1: HOME / LANDING SCREEN -->
+    <div id="homeView">
+      <!-- Option 1 -->
+      <div class="section-box" style="opacity: 0.6;">
+        <span class="section-title">1. Retention-Ready Certification™</span>
+        <p style="font-size: 0.8rem; color: #64748b; margin: 0 0 10px 0;">Status: Disabled in Demo Mode</p>
+        <input type="text" placeholder="Enter Access Code (Locked)" disabled>
       </div>
-      
-      <button class="btn" style="background-color: var(--secondary);" onclick="showDemoView()">Yes, Confirm & Enter</button>
+
+      <!-- Option 2 -->
+      <div class="section-box" style="border-color: var(--secondary); background: #f0fdfa;">
+        <span class="section-title" style="color: var(--secondary);">2. Retention-Ready Ecosystem™</span>
+        <label>Enter Access Code:</label>
+        <input type="text" id="accessCode" value="NMDWS-SANTAFE-01">
+        
+        <label style="margin-top: 15px;">Confirm Role and Employer Associated:</label>
+        <div style="background: #fff; border: 1px solid var(--border); padding: 12px; border-radius: 6px; font-size: 0.85rem; margin-bottom: 12px;">
+          <strong>Employer:</strong> NMDWS - Santa Fe Hub<br>
+          <strong>Select Role to Test:</strong>
+          <select id="roleSelector" style="width: 100%; margin-top: 8px; padding: 8px; border: 1px solid var(--border); border-radius: 4px; font-size: 0.85rem;">
+            <option value="EE">EE (Employee)</option>
+            <option value="ER">ER (Employer)</option>
+            <option value="Peer">Peer (Peer Support)</option>
+            <option value="Supervisor" selected>Supervisor</option>
+            <option value="CNP">CNP (Network Provider)</option>
+            <option value="Partner">Partner</option>
+          </select>
+        </div>
+        
+        <button class="btn" style="background-color: var(--secondary);" onclick="enterPortal()">Yes, Confirm & Enter</button>
+      </div>
     </div>
 
-    <!-- Dynamic Role View (Pre-filled for Supervisor demo look) -->
-    <div id="roleDemoView" class="section-box" style="display: none; border-color: var(--primary);">
-      <span class="section-title">Active Role Dashboard: Supervisor</span>
-      <p style="font-size: 0.825rem; color: #64748b; margin-bottom: 15px;">Available Actions for Your Profile:</p>
-      
-      <ul class="option-list">
-        <li>1. Submit Incident Report</li>
-        <li>2. Access Compliance Steps</li>
-        <li>3. Review Restorative Script</li>
-      </ul>
+    <!-- VIEW 2: DYNAMIC ROLE DASHBOARD -->
+    <div id="dashboardView" style="display: none;">
+      <div class="section-box" style="border-color: var(--primary);">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+          <span class="section-title" id="dashTitle" style="margin-bottom: 0;">Active Role Dashboard</span>
+          <span style="font-size: 0.75rem; background: #e2e8f0; padding: 4px 8px; border-radius: 4px; font-weight: 600;" id="dashRoleTag">Role: Supervisor</span>
+        </div>
+        <p style="font-size: 0.825rem; color: #64748b; margin-bottom: 15px;">Associated Document & Guidance Workspace:</p>
+        
+        <!-- Menu list generated dynamically -->
+        <div id="roleContentArea"></div>
 
-      <button class="btn" style="background-color: #64748b; margin-top: 15px;" onclick="location.reload()">Reset View</button>
+        <button class="btn" style="background-color: #64748b; margin-top: 20px;" onclick="returnHome()">Return Home / Enter New Access Code</button>
+      </div>
     </div>
   </div>
 
   <script>
-    function showDemoView() {
-      document.getElementById('roleDemoView').style.display = 'block';
+    function enterPortal() {
+      const role = document.getElementById('roleSelector').value;
+      const contentArea = document.getElementById('roleContentArea');
+      const dashTitle = document.getElementById('dashTitle');
+      const dashRoleTag = document.getElementById('dashRoleTag');
+
+      dashRoleTag.innerText = "Role: " + role;
+      
+      let htmlContent = '';
+
+      if (role === 'EE') {
+        dashTitle.innerText = "Employee Self-Advocacy Portal";
+        htmlContent = `
+          <ul class="option-list">
+            <li>1. Submit Request for Service (Demo Mode)</li>
+          </ul>
+          <div class="sub-item-box">
+            <strong>Guidance Document: Self-Service Support Request</strong>
+            <p style="margin: 8px 0 0 0; color: #475569;">Allows workers to confidentially flag administrative barriers, onboarding lags, or workplace support requirements without fear of retaliation.</p>
+          </div>
+        `;
+      } else if (role === 'ER') {
+        dashTitle.innerText = "Employer Administration Portal";
+        htmlContent = `
+          <ul class="option-list">
+            <li>1. View Ledgers</li>
+          </ul>
+          <div class="sub-item-box">
+            <strong>Guidance Document: Master Organizational Compliance Ledger</strong>
+            <p style="margin: 8px 0 0 0; color: #475569;">Tracks privacy-masked organizational accommodation metrics, compliance audits, and WIOA Sec. 188 threshold metrics.</p>
+          </div>
+        `;
+      } else if (role === 'Peer') {
+        dashTitle.innerText = "Internal Peer Support Portal";
+        htmlContent = `
+          <ul class="option-list">
+            <li>1. View Peer Log</li>
+          </ul>
+          <div class="sub-item-box">
+            <strong>Guidance Document: Peer Support Engagement Log</strong>
+            <p style="margin: 8px 0 0 0; color: #475569;">Maintains records of non-clinical peer touchpoints, coaching touchpoints, and employee-led advocacy sessions.</p>
+          </div>
+        `;
+      } else if (role === 'Supervisor') {
+        dashTitle.innerText = "Objective Behavioral Observation & Intercept Form";
+        htmlContent = `
+          <ul class="option-list">
+            <li>1. Submit Incident Report</li>
+            <li>2. Access Compliance Steps</li>
+            <li>3. Review Restorative Script</li>
+          </ul>
+
+          <div class="sub-item-box">
+            <strong>Worker Identifier / Status</strong><br>
+            <span style="color: #64748b; font-size: 0.8rem;">Department / Facility: NMDWS Santa Fe Hub</span>
+            
+            <div style="margin-top: 12px; font-weight: 600;">Observed Workspace Impacts:</div>
+            <div style="font-size: 0.8rem; color: #334155; margin-top: 4px;">
+              [✔] Personal Hygiene / Clothing State Shift Observed<br>
+              <span style="color: #64748b; font-size: 0.75rem; margin-left: 15px;">Triggers objective accommodation workflow instead of character-based write-up.</span><br>
+              [✔] Altered Responsiveness / Unresponsive During Morning Briefing<br>
+              <span style="color: #64748b; font-size: 0.75rem; margin-left: 15px;">Screens for trauma or medication reaction vs. deliberate insubordination.</span>
+            </div>
+
+            <div class="alert-box">
+              <strong>🛡️ SYSTEM COMPLIANCE INTERCEPT ENGAGED</strong><br>
+              Automatic 90-day probationary termination is LOCKED OUT. Under WIOA Sec. 188 & Title I ADA regulations, terminating employees for physical symptoms of an unaddressed barrier opens $900k legal lawsuit exposure.<br><br>
+              <strong>System Action Executed:</strong> Generated Privacy-Masked Entry in Master Audit Ledger ("EE Declined Self-Identification").
+            </div>
+
+            <div class="script-box">
+              <strong>📄 Restorative Dialogue Script (Supervisor Deployable):</strong><br><br>
+              "Thank you for taking a moment to sit down with me. I want to address a few recent workplace observations directly. Over the past few days, we noted specific changes in engagement that impact daily workflow. I want to be entirely clear: I am not making diagnoses, assumptions, or character judgments.<br><br>
+              Our goal is keeping you on the team. If there is an administrative accommodation or support resource we can align for you, we want to address that before any disciplinary path is taken."
+            </div>
+          </div>
+        `;
+      } else if (role === 'CNP') {
+        dashTitle.innerText = "Network Provider Portal";
+        htmlContent = `
+          <ul class="option-list">
+            <li>1. Update Service Request Status</li>
+          </ul>
+          <div class="sub-item-box">
+            <strong>Guidance Document: Provider Status Tracking Sheet</strong>
+            <p style="margin: 8px 0 0 0; color: #475569;">Enables community partners to update fulfillment milestones for active employee service requests.</p>
+          </div>
+        `;
+      } else if (role === 'Partner') {
+        dashTitle.innerText = "Network Liaison & Partner Portal";
+        htmlContent = `
+          <ul class="option-list">
+            <li>1. View Ledger</li>
+          </ul>
+          <div class="sub-item-box">
+            <strong>Guidance Document: Shared Ecosystem Liaison Ledger</strong>
+            <p style="margin: 8px 0 0 0; color: #475569;">Provides high-level visibility across regional service tiers and collaborative partner metrics.</p>
+          </div>
+        `;
+      }
+
+      document.getElementById('homeView').style.display = 'none';
+      document.getElementById('dashboardView').style.display = 'block';
+    }
+
+    function returnHome() {
+      document.getElementById('dashboardView').style.display = 'none';
+      document.getElementById('homeView').style.display = 'block';
     }
   </script>
 

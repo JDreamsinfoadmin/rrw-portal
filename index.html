@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Retention-Ready Workplace™ Portal</title>
+  <title>Retention-Ready Workplace™ Portal | Jan's Dreams</title>
   <style>
     :root {
       --primary: #1e3a8a;
@@ -133,11 +133,6 @@
       color: #64748b;
       line-height: 1.4;
     }
-    .btn-disabled {
-      background-color: #cbd5e1;
-      color: #64748b;
-      cursor: not-allowed;
-    }
     .footer-note {
       text-align: center;
       margin-top: 24px;
@@ -165,6 +160,7 @@
 <body>
   <div class="container">
     <div class="header">
+      <!-- Ensure Logo Designed.png is in the same local folder -->
       <img src="Logo Designed.png" alt="Jan's Dreams Logo" onerror="this.style.display='none'">
       <h1>Retention-Ready Workplace™ Portal</h1>
       <p>Jan's Dreams Administration & System Gateway</p>
@@ -172,13 +168,13 @@
 
     <!-- ENTRY ITEM 1: SEARCH OR ENTER CONFIRMATION -->
     <div class="section-box">
-      <span class="section-title">Item 1: Portal Entry & Status Check</span>
+      <span class="section-title">Portal Entry & Status Check</span>
       
       <div class="input-group">
-        <label for="entryType">Select Search Method:</label>
+        <label for="entryType">Select Verification Method:</label>
         <select id="entryType" onchange="toggleEntryField()">
-          <option value="employer">Search Employer (Branch / Location)</option>
-          <option value="confirmation">Enter Confirmation Number</option>
+          <option value="employer">Search Employer Hub / Location</option>
+          <option value="confirmation">Enter Employee Confirmation Number</option>
         </select>
       </div>
 
@@ -187,10 +183,10 @@
         <label for="employerSearch">Employer Name or Location:</label>
         <input type="text" id="employerSearch" placeholder="Type employer name or city..." list="employerList">
         <datalist id="employerList">
-          <option value="Albuquerque Housing Authority - Main Branch">
-          <option value="City of Albuquerque - Behavioral Health">
-          <option value="State of NM - DWS Workforce Hub">
-          <option value="Community Health Partners - Central">
+          <option value="NMDWS - Santa Fe Hub">
+          <option value="DWS - Bernalillo Branch">
+          <option value="No Hunger - Roswell">
+          <option value="Franks Auto - Tijeras">
         </datalist>
       </div>
 
@@ -202,7 +198,7 @@
 
       <a class="help-link" onclick="showHelpNotice()">Lost Confirmation Number / Don't Know Employer?</a>
       <div id="helpAlert" class="alert-box">
-        Help Desk Request: Routes a secure support ticket to Jan's Dreams team.
+        Help Desk Request: Routes a secure support ticket directly to the Jan's Dreams administrative team.
       </div>
 
       <button class="btn" onclick="proceedToAccessCode()">Continue to Verification</button>
@@ -225,11 +221,11 @@
       <div id="roleResult" style="display:none; margin-top: 15px; padding: 12px; background: #ffffff; border-radius: 6px; border: 1px solid var(--border);"></div>
     </div>
 
-    <!-- ENTRY ITEM 2: TRAINING LINK -->
+    <!-- TRAINING CURRICULUM CARD -->
     <div class="training-card">
       <h3>Retention-Ready Ecosystem™ Training Curriculum</h3>
-      <p>Access SHRM-accredited training tracks for Retention-Ready Workplace Certification™ and Retention-Ready Workforce™.</p>
-      <button class="btn btn-disabled" disabled>Training Track Offline (Demo Mode)</button>
+      <p>Access SHRM-accredited training tracks, supervisor toolkits, and compliance modules aligned with Department of Labor standards.</p>
+      <button class="btn" style="background-color: #64748b;" onclick="alert('Launching Training Module Curriculum...')">Access Training Track</button>
     </div>
 
     <div class="footer-note">
@@ -238,13 +234,12 @@
   </div>
 
   <script>
-    // Database of access codes mapping directly to your spreadsheet records
+    // Embedded sample mapping corresponding to your database records for the demo
     const accessDatabase = {
-      "ERDWSDEMO2026": { org: "State of NM - DWS Workforce Hub", role: "Employer All" },
+      "ERDWSMODEL2026": { org: "NMDWS - Santa Fe Hub", role: "Employer All" },
+      "ERDWSDEMO2026": { org: "NMDWS - Santa Fe Hub", role: "Employer All" },
       "DEMO": { org: "Jan's Dreams Administration", role: "Administrator" },
-      // You can add more valid access codes here as needed:
-      "AHA2026": { org: "Albuquerque Housing Authority - Main Branch", role: "Housing Liaison" },
-      "CABQBH": { org: "City of Albuquerque - Behavioral Health", role: "Behavioral Health Lead" }
+      "EADWSDEMO2026": { org: "NMDWS - Santa Fe Hub", role: "Employer Admin" }
     };
 
     function toggleEntryField() {
@@ -281,7 +276,6 @@
       }
 
       roleResult.style.display = 'block';
-      
       const record = accessDatabase[codeInput];
 
       if (record) {
@@ -291,11 +285,11 @@
             <p style="margin: 4px 0;"><strong>Company / Organization:</strong> ${record.org}</p>
             <p style="margin: 4px 0;"><strong>Assigned Role:</strong> ${record.role}</p>
             <p style="margin: 10px 0 15px 0; font-size: 0.85rem; color: #15803d; font-weight: 600;">Is this your company & is this your role?</p>
-            <button class="btn" style="background-color: #16a34a; margin-top: 0; padding: 10px;" onclick="alert('Verification confirmed! Opening portal view for ${record.org}.')">Yes, Enter Portal</button>
+            <button class="btn" style="background-color: #16a34a; margin-top: 0; padding: 10px;" onclick="alert('Verification confirmed! Opening administrative ledger view for ${record.org}.')">Yes, Enter Portal</button>
           </div>
         `;
       } else {
-        roleResult.innerHTML = `<p style="color: #991b1b; margin: 0;">Access code not recognized. Please check your code and try again.</p>`;
+        roleResult.innerHTML = `<p style="color: #991b1b; margin: 0;">Access code not recognized. Please check your code or use your employer-linked access code.</p>`;
       }
     }
   </script>

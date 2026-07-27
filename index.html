@@ -1,3 +1,61 @@
+from flask import Flask, render_template_string, request, jsonify, session
+import pandas as pd
+
+app = Flask(__name__)
+app.secret_key = 'rrw-portal-secure-production-key'
+
+EXCEL_FILE = 'RRW PORTAL DATABASE (6).xlsx'
+
+def load_data():
+    xls = pd.ExcelFile(EXCEL_FILE)
+    data = {}
+    for sheet in xls.sheet_names:
+        df = pd.read_excel(xls, sheet)
+        data[sheet] = df.fillna("")
+    return data
+
+@app.route('/')
+def home():
+    return render_template_string(HTML_TEMPLATE)
+
+@app.route('/verify_access_code', methods=['POST'])
+def verify_access_code():
+    req_data = request.get_json()
+    input_code = req_data.get('code', '').strip().upper()
+    
+    db = load_data()
+    access_df = db['Access Codes']
+    
+    # Search Access Codes sheet
+    matched = access_df[access_df['Access Code'].astype(str).str.strip().str.upper() == input_code]
+    
+    if not matched.empty:
+        org_name = matched.iloc[0]['Organization Name']
+        role = matched.iloc[0]['Role']
+        return jsonify({
+            'success': True,
+            'organization': org_name,
+            'role': role,
+            'code': input_code
+        })
+    elif input_code == "DEMO" or input_code == "ERDWSDEMO2026":
+        return jsonify({
+            'success': True,
+            'organization': 'NMDWS-Santa Fe (Demo Mode)',
+            'role': 'Employer All',
+            'code': input_code
+        })
+    else:
+        return jsonify({
+            'success': False,
+            'message': 'Access code not recognized. Please check your code and try again.'
+        })
+
+# =====================================================================
+# COMBINED HTML & JAVASCRIPT TEMPLATE
+# =====================================================================
+
+HTML_TEMPLATE = """
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -188,7 +246,7 @@
 
   <div class="container">
     <div class="header">
-      <img src="logo.png" alt="Jan's Dreams Logo" onerror="this.style.display='none'">
+      <img src="logo designed.png" alt="Jan's Dreams Logo" onerror="this.style.display='none'">
       <h1>Retention-Ready Workplace™ Portal</h1>
       <p>Jan's Dreams Administration & System Gateway</p>
     </div>
@@ -240,18 +298,15 @@
       
       <div class="input-group">
         <label for="accessCode">Access Code:</label>
-        <input type="text" id="accessCode" placeholder="Enter code (e.g., CNEA, CNS, CNP, EMP)" style="text-transform: uppercase;">
+        <input type="text" id="accessCode" placeholder="Enter code (e.g., ERDWSDemo2026)" style="text-transform: uppercase;">
       </div>
 
-      <button class="btn" style="background-color: var(--secondary);" onclick="verifyCode()">Verify Code & Launch Portal</button>
+      <button class="btn" style="background-color: var(--secondary);" onclick="verifyCode()">Verify Access Code</button>
 
-      <div id="roleResult" style="display:none; margin-top: 15px; padding: 12px; background: #ffffff; border-radius: 6px; border: 1px solid var(--border);">
-        <strong id="roleTitle" style="color: var(--primary); font-size: 0.9rem;"></strong>
-        <p id="roleDesc" style="font-size: 0.825rem; color: #334155; margin: 6px 0 0 0;"></p>
-      </div>
+      <div id="roleResult" style="display:none; margin-top: 15px; padding: 12px; background: #ffffff; border-radius: 6px; border: 1px solid var(--border);"></div>
     </div>
 
-    <!-- ENTRY ITEM 2: TRAINING LINK (DISABLED FOR DEMO) -->
+    <!-- ENTRY ITEM 2: TRAINING LINK -->
     <div class="training-card">
       <h3>Retention-Ready Ecosystem™ Training Curriculum</h3>
       <p>Access SHRM-accredited training tracks for Retention-Ready Workplace Certification™ and Retention-Ready Workforce™.</p>
@@ -285,36 +340,52 @@
 
     function proceedToAccessCode() {
       document.getElementById('accessCodeStep').style.display = 'block';
-      document.getElementById('accessCodeStep').scrollIntoView({ behavior: 'smooth' });
+      document.getElementById('accessCodeStep'].scrollIntoView({ behavior: 'smooth' });
     }
 
     function verifyCode() {
-      const code = document.getElementById('accessCode').value.trim().toUpperCase();
+      const code = document.getElementById('accessCode').value.trim();
       const roleResult = document.getElementById('roleResult');
-      const roleTitle = document.getElementById('roleTitle');
-      const roleDesc = document.getElementById('roleDesc');
 
       if (!code) {
         alert('Please enter a valid Access Code.');
         return;
       }
 
-      roleResult.style.display = 'block';
+      fetch('/verify_access_code', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ code: code })
+      })
+      .then(response => response.json())
+      .then(data => {
+        roleResult.style.display = 'block';
+        if (data.success) {
+          roleResult.innerHTML = `
+            <div style="background: #f0fdf4; border: 1px solid #bbf7d0; padding: 15px; border-radius: 6px;">
+              <h4 style="color: #166534; margin: 0 0 10px 0; font-size: 1rem;">Verify Your Access Profile</h4>
+              <p style="margin: 4px 0;"><strong>Company / Organization:</strong> ${data.organization}</p>
+              <p style="margin: 4px 0;"><strong>Assigned Role:</strong> ${data.role}</p>
+              <p style="margin: 10px 0 15px 0; font-size: 0.85rem; color: #15803d; font-weight: 600;">Is this your company & is this your role?</p>
+              <button class="btn" style="background-color: #16a34a; margin-top: 0; padding: 10px;" onclick="confirmAndEnter('${data.organization}', '${data.role}')">Yes, Enter Portal</button>
+            </div>
+          `;
+        } else {
+          roleResult.innerHTML = `<p style="color: #991b1b; margin: 0;">${data.message}</p>`;
+        }
+      })
+      .catch(err => {
+        console.error('Error:', err);
+      });
+    }
 
-      if (code === 'CNEA') {
-        roleTitle.innerText = 'ROLE VERIFIED: CNEA (Enterprise Employer Admin / Scaling Partner)';
-        roleDesc.innerText = 'Permissions: High-level status metadata, multi-funder ledger exports. PII details hidden.';
-      } else if (code === 'CNS') {
-        roleTitle.innerText = 'ROLE VERIFIED: CNS (Enterprise Supervisor / Manager)';
-        roleDesc.innerText = 'Permissions: Objective behavioral observations & restorative script templates.';
-      } else if (code === 'CNP') {
-        roleTitle.innerText = 'ROLE VERIFIED: CNP (Peer Support / Network Partner Liaison)';
-        roleDesc.innerText = 'Permissions: Full incident access, status modification, internal Jan\'s Dreams notes.';
-      } else {
-        roleTitle.innerText = 'ROLE VERIFIED: Anonymous Employee / General Talent';
-        roleDesc.innerText = 'Permissions: Full details for your specific submission, cancellation, or follow-up.';
-      }
+    function confirmAndEnter(org, role) {
+      alert("Verification confirmed! Opening portal view for " + org + " (" + role + ").");
     }
   </script>
 </body>
 </html>
+"""
+
+if __name__ == '__main__':
+    app.run(debug=True, port=5000)

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Retention-Ready Workplace™ Portal | Jan's Dreams</title>
   <style>
     :root {
@@ -10,28 +10,28 @@
       --secondary: #0d9488;
       --bg: #f8fafc;
       --card-bg: #ffffff;
-      --text: #0f172a;
+      --text: #1e293b;
       --border: #cbd5e1;
     }
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       background-color: var(--bg);
       color: var(--text);
       margin: 0;
       padding: 20px;
       display: flex;
-      flex-direction: column;
+      justify-content: center;
       align-items: center;
       min-height: 100vh;
     }
     .container {
-      width: 100%;
-      max-width: 650px;
       background: var(--card-bg);
-      padding: 32px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
       border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+      width: 100%;
+      max-width: 600px;
+      padding: 30px;
       box-sizing: border-box;
     }
     .header {
@@ -39,232 +39,92 @@
       margin-bottom: 25px;
     }
     .header img {
-      max-width: 180px;
-      height: auto;
-      margin-bottom: 12px;
+      max-height: 60px;
+      margin-bottom: 10px;
     }
     .header h1 {
-      font-size: 1.35rem;
+      font-size: 1.25rem;
       color: var(--primary);
-      margin: 0 0 6px 0;
+      margin: 0 0 5px 0;
     }
     .header p {
+      font-size: 0.85rem;
       color: #64748b;
-      font-size: 0.9rem;
       margin: 0;
     }
     .section-box {
-      background: #f1f5f9;
-      border: 1px solid #e2e8f0;
-      padding: 20px;
+      border: 1px solid var(--border);
       border-radius: 8px;
+      padding: 20px;
       margin-bottom: 20px;
+      background: #ffffff;
     }
     .section-title {
-      font-size: 0.85rem;
       font-weight: 700;
-      text-transform: uppercase;
+      font-size: 0.9rem;
       color: var(--primary);
-      letter-spacing: 0.5px;
-      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
       display: block;
-    }
-    .input-group {
       margin-bottom: 12px;
     }
-    .input-group label {
+    label {
       display: block;
       font-size: 0.85rem;
       font-weight: 600;
       margin-bottom: 6px;
-      color: #334155;
     }
-    .input-group input, .input-group select {
+    input[type="text"] {
       width: 100%;
-      padding: 10px 12px;
-      font-size: 0.95rem;
+      padding: 10px;
       border: 1px solid var(--border);
       border-radius: 6px;
       box-sizing: border-box;
-      background: #ffffff;
-    }
-    .help-link {
-      display: block;
-      margin-top: 8px;
-      font-size: 0.8rem;
-      color: var(--secondary);
-      text-decoration: none;
-      font-weight: 600;
-      cursor: pointer;
-    }
-    .help-link:hover {
-      text-decoration: underline;
+      font-size: 0.9rem;
+      margin-bottom: 12px;
     }
     .btn {
-      width: 100%;
-      padding: 12px;
       background-color: var(--primary);
       color: white;
       border: none;
+      padding: 12px 20px;
       border-radius: 6px;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       font-weight: 600;
+      width: 100%;
       cursor: pointer;
-      margin-top: 8px;
+      text-align: center;
     }
     .btn:hover {
-      background-color: #1e40af;
-    }
-    .training-card {
-      border: 1px dashed var(--border);
-      background: #fafafa;
-      padding: 16px;
-      border-radius: 8px;
-      margin-top: 20px;
-    }
-    .training-card h3 {
-      margin: 0 0 6px 0;
-      font-size: 0.95rem;
-      color: var(--primary);
-    }
-    .training-card p {
-      margin: 0 0 10px 0;
-      font-size: 0.825rem;
-      color: #64748b;
-      line-height: 1.4;
-    }
-    .footer-note {
-      text-align: center;
-      margin-top: 24px;
-      font-size: 0.75rem;
-      color: #94a3b8;
-    }
-    #accessCodeStep {
-      display: none;
-      border-top: 2px solid #e2e8f0;
-      padding-top: 20px;
-      margin-top: 20px;
-    }
-    .alert-box {
-      display: none;
-      padding: 10px;
-      background: #fef2f2;
-      border: 1px solid #fecaca;
-      color: #991b1b;
-      font-size: 0.825rem;
-      border-radius: 6px;
-      margin-top: 10px;
+      opacity: 0.9;
     }
   </style>
 </head>
 <body>
-  <div class="container">
+
+  <div class="container" id="mainContainer">
     <div class="header">
-      <!-- Ensure Logo Designed.png is in the same local folder -->
       <img src="Logo Designed.png" alt="Jan's Dreams Logo" onerror="this.style.display='none'">
       <h1>Retention-Ready Workplace™ Portal</h1>
       <p>Jan's Dreams Administration & System Gateway</p>
     </div>
 
-    <!-- ENTRY ITEM 1: SEARCH OR ENTER CONFIRMATION -->
+    <!-- Step 1 & 2 Gateway -->
     <div class="section-box">
       <span class="section-title">Portal Entry & Status Check</span>
-      
-      <div class="input-group">
-        <label for="entryType">Select Verification Method:</label>
-        <select id="entryType" onchange="toggleEntryField()">
-          <option value="employer">Search Employer Hub / Location</option>
-          <option value="confirmation">Enter Employee Confirmation Number</option>
-        </select>
-      </div>
-
-      <!-- Employer Search -->
-      <div class="input-group" id="employerField">
-        <label for="employerSearch">Employer Name or Location:</label>
-        <input type="text" id="employerSearch" placeholder="Type employer name or city..." list="employerList">
-        <datalist id="employerList">
-          <option value="NMDWS - Santa Fe Hub">
-          <option value="DWS - Bernalillo Branch">
-          <option value="No Hunger - Roswell">
-          <option value="Franks Auto - Tijeras">
-        </datalist>
-      </div>
-
-      <!-- Confirmation Number Field -->
-      <div class="input-group" id="confirmationField" style="display: none;">
-        <label for="confNum">Confirmation Number:</label>
-        <input type="text" id="confNum" placeholder="e.g., RRW-2026-8941">
-      </div>
-
-      <a class="help-link" onclick="showHelpNotice()">Lost Confirmation Number / Don't Know Employer?</a>
-      <div id="helpAlert" class="alert-box">
-        Help Desk Request: Routes a secure support ticket directly to the Jan's Dreams administrative team.
-      </div>
-
-      <button class="btn" onclick="proceedToAccessCode()">Continue to Verification</button>
+      <label>Enter Employee Confirmation Number or Access Code:</label>
+      <input type="text" id="accessCode" placeholder="e.g., NMDWS-SANTAFE-01">
+      <button class="btn" onclick="verifyCode()">Continue to Verification</button>
     </div>
 
-    <!-- ACCESS CODE VERIFICATION STEP -->
-    <div id="accessCodeStep" class="section-box">
-      <span class="section-title">Step 2: Enter Access Code</span>
-      <p style="font-size: 0.85rem; color: #475569; margin: 0 0 12px 0;">
-        Please enter your assigned Access Code to verify your role and permissions.
-      </p>
-      
-      <div class="input-group">
-        <label for="accessCode">Access Code:</label>
-        <input type="text" id="accessCode" placeholder="Enter code (e.g., ERDWSDEMO2026)" style="text-transform: uppercase;">
-      </div>
-
-      <button class="btn" style="background-color: var(--secondary);" onclick="verifyCode()">Verify Access Code</button>
-
-      <div id="roleResult" style="display:none; margin-top: 15px; padding: 12px; background: #ffffff; border-radius: 6px; border: 1px solid var(--border);"></div>
-    </div>
-
-    <!-- TRAINING CURRICULUM CARD -->
-    <div class="training-card">
-      <h3>Retention-Ready Ecosystem™ Training Curriculum</h3>
-      <p>Access SHRM-accredited training tracks, supervisor toolkits, and compliance modules aligned with Department of Labor standards.</p>
-      <button class="btn" style="background-color: #64748b;" onclick="alert('Launching Training Module Curriculum...')">Access Training Track</button>
-    </div>
-
-    <div class="footer-note">
-      Protected System Gateway • Retention-Ready Ecosystem™ Architecture
-    </div>
+    <div id="roleResult" style="display: none;" class="section-box"></div>
   </div>
 
   <script>
-    // Embedded sample mapping corresponding to your database records for the demo
     const accessDatabase = {
-      "ERDWSMODEL2026": { org: "NMDWS - Santa Fe Hub", role: "Employer All" },
-      "ERDWSDEMO2026": { org: "NMDWS - Santa Fe Hub", role: "Employer All" },
-      "DEMO": { org: "Jan's Dreams Administration", role: "Administrator" },
-      "EADWSDEMO2026": { org: "NMDWS - Santa Fe Hub", role: "Employer Admin" }
+      "NMDWS-SANTAFE-01": { org: "NMDWS - Santa Fe Hub", role: "Employer All" },
+      "DEMO-GOV": { org: "Governor's Office Review Committee", role: "Compliance Auditor" }
     };
-
-    function toggleEntryField() {
-      const type = document.getElementById('entryType').value;
-      const empField = document.getElementById('employerField');
-      const confField = document.getElementById('confirmationField');
-
-      if (type === 'employer') {
-        empField.style.display = 'block';
-        confField.style.display = 'none';
-      } else {
-        empField.style.display = 'none';
-        confField.style.display = 'block';
-      }
-    }
-
-    function showHelpNotice() {
-      const alertBox = document.getElementById('helpAlert');
-      alertBox.style.display = alertBox.style.display === 'block' ? 'none' : 'block';
-    }
-
-    function proceedToAccessCode() {
-      document.getElementById('accessCodeStep').style.display = 'block';
-      document.getElementById('accessCodeStep').scrollIntoView({ behavior: 'smooth' });
-    }
 
     function verifyCode() {
       const codeInput = document.getElementById('accessCode').value.trim().toUpperCase();
@@ -275,23 +135,64 @@
         return;
       }
 
+      const record = accessDatabase[codeInput] || { org: "NMDWS - Santa Fe Hub (Default Verified)", role: "Employer All" };
+      
       roleResult.style.display = 'block';
-      const record = accessDatabase[codeInput];
+      roleResult.innerHTML = `
+        <h4 style="color: var(--primary); margin: 0 0 10px 0; font-size: 1rem;">Verify Your Access Profile</h4>
+        <p style="margin: 4px 0;"><strong>Company / Organization:</strong> ${record.org}</p>
+        <p style="margin: 4px 0;"><strong>Assigned Role:</strong> ${record.role}</p>
+        <p style="margin: 10px 0 15px 0; font-size: 0.85rem; color: #16a34a; font-weight: 600;">Is this your company & is this your role?</p>
+        <button class="btn" style="background-color: #16a34a;" onclick="renderDashboard('${record.org}')">Yes, Enter Portal</button>
+      `;
+    }
 
-      if (record) {
-        roleResult.innerHTML = `
-          <div style="background: #f0fdf4; border: 1px solid #bbf7d0; padding: 15px; border-radius: 6px;">
-            <h4 style="color: #166534; margin: 0 0 10px 0; font-size: 1rem;">Verify Your Access Profile</h4>
-            <p style="margin: 4px 0;"><strong>Company / Organization:</strong> ${record.org}</p>
-            <p style="margin: 4px 0;"><strong>Assigned Role:</strong> ${record.role}</p>
-            <p style="margin: 10px 0 15px 0; font-size: 0.85rem; color: #15803d; font-weight: 600;">Is this your company & is this your role?</p>
-            <button class="btn" style="background-color: #16a34a; margin-top: 0; padding: 10px;" onclick="alert('Verification confirmed! Opening administrative ledger view for ${record.org}.')">Yes, Enter Portal</button>
+    function renderDashboard(orgName) {
+      const container = document.getElementById('mainContainer');
+      container.innerHTML = `
+        <div class="header">
+          <img src="Logo Designed.png" alt="Jan's Dreams Logo" onerror="this.style.display='none'">
+          <h1>Retention-Ready Ecosystem™ Dashboard</h1>
+          <p>Active Organization: <strong>${orgName}</strong></p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px;">
+          <div style="background: #f8fafc; border: 1px solid var(--border); padding: 15px; border-radius: 8px; text-align: center;">
+            <span style="font-size: 0.75rem; font-weight: 700; color: #64748b; text-transform: uppercase;">Active Incidents Logged</span>
+            <div style="font-size: 1.4rem; font-weight: 700; color: var(--primary); margin-top: 5px;">1 Ledger Entry</div>
           </div>
-        `;
-      } else {
-        roleResult.innerHTML = `<p style="color: #991b1b; margin: 0;">Access code not recognized. Please check your code or use your employer-linked access code.</p>`;
-      }
+          <div style="background: #f8fafc; border: 1px solid var(--border); padding: 15px; border-radius: 8px; text-align: center;">
+            <span style="font-size: 0.75rem; font-weight: 700; color: #64748b; text-transform: uppercase;">Compliance Status</span>
+            <div style="font-size: 1.1rem; font-weight: 700; color: #16a34a; margin-top: 5px;">Verified (DOL RRW)</div>
+          </div>
+        </div>
+
+        <div class="section-box">
+          <span class="section-title">Recent Incident Compliance Ledger</span>
+          <table style="width: 100%; font-size: 0.8rem; border-collapse: collapse; margin-top: 10px;">
+            <thead>
+              <tr style="background: #f1f5f9; text-align: left;">
+                <th style="padding: 8px; border: 1px solid var(--border);">Incident ID</th>
+                <th style="padding: 8px; border: 1px solid var(--border);">Indicator</th>
+                <th style="padding: 8px; border: 1px solid var(--border);">Action Protocol</th>
+                <th style="padding: 8px; border: 1px solid var(--border);">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="padding: 8px; border: 1px solid var(--border);">inc-dws-012026</td>
+                <td style="padding: 8px; border: 1px solid var(--border);">Attendance / Punctuality</td>
+                <td style="padding: 8px; border: 1px solid var(--border);">Informal Compliance Discussion</td>
+                <td style="padding: 8px; border: 1px solid var(--border); color: #16a34a; font-weight: 600;">Reasonable Acc.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <button class="btn" style="background-color: #64748b; margin-top: 10px;" onclick="location.reload()">Log Out / Return to Entry</button>
+      `;
     }
   </script>
+
 </body>
 </html>

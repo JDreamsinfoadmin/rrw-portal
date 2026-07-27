@@ -30,17 +30,13 @@
       border-radius: 12px;
       box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
       width: 100%;
-      max-width: 600px;
+      max-width: 650px;
       padding: 30px;
       box-sizing: border-box;
     }
     .header {
       text-align: center;
       margin-bottom: 25px;
-    }
-    .header img {
-      max-height: 60px;
-      margin-bottom: 10px;
     }
     .header h1 {
       font-size: 1.25rem;
@@ -74,7 +70,7 @@
       font-weight: 600;
       margin-bottom: 6px;
     }
-    input[type="text"] {
+    input[type="text"], select {
       width: 100%;
       padding: 10px;
       border: 1px solid var(--border);
@@ -82,6 +78,7 @@
       box-sizing: border-box;
       font-size: 0.9rem;
       margin-bottom: 12px;
+      background: #fff;
     }
     .btn {
       background-color: var(--primary);
@@ -98,72 +95,71 @@
     .btn:hover {
       opacity: 0.9;
     }
+    .option-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .option-list li {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      padding: 12px 15px;
+      border-radius: 6px;
+      margin-bottom: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--primary);
+    }
   </style>
 </head>
 <body>
 
-  <div class="container" id="mainContainer">
+  <div class="container">
     <div class="header">
-      <img src="Logo Designed.png" alt="Jan's Dreams Logo" onerror="this.style.display='none'">
-      <h1>Retention-Ready Workplace™ Portal</h1>
-      <p>Jan's Dreams Administration & System Gateway</p>
+      <h1>Jan's Dreams Administration & System Gateway</h1>
+      <p>Select Portal Entry Method</p>
     </div>
 
-    <div class="section-box">
-      <span class="section-title">Employer & Organization Authentication</span>
-      <label>Enter Assigned Access Code:</label>
+    <!-- Option 1 -->
+    <div class="section-box" style="opacity: 0.6;">
+      <span class="section-title">1. Retention-Ready Certification™</span>
+      <p style="font-size: 0.8rem; color: #64748b; margin: 0 0 10px 0;">Status: Disabled in Demo Mode</p>
+      <input type="text" placeholder="Enter Access Code (Locked)" disabled>
+    </div>
+
+    <!-- Option 2 -->
+    <div class="section-box" style="border-color: var(--secondary); background: #f0fdfa;">
+      <span class="section-title" style="color: var(--secondary);">2. Retention-Ready Ecosystem™</span>
+      <label>Enter Access Code:</label>
       <input type="text" id="accessCode" value="NMDWS-SANTAFE-01">
-      <button class="btn" onclick="openDashboard()">Enter Portal</button>
+      
+      <label style="margin-top: 15px;">Confirm Role and Employer Associated:</label>
+      <div style="background: #fff; border: 1px solid var(--border); padding: 12px; border-radius: 6px; font-size: 0.85rem; margin-bottom: 12px;">
+        <strong>Employer:</strong> NMDWS - Santa Fe Hub<br>
+        <strong>Role:</strong> Supervisor
+      </div>
+      
+      <button class="btn" style="background-color: var(--secondary);" onclick="showDemoView()">Yes, Confirm & Enter</button>
+    </div>
+
+    <!-- Dynamic Role View (Pre-filled for Supervisor demo look) -->
+    <div id="roleDemoView" class="section-box" style="display: none; border-color: var(--primary);">
+      <span class="section-title">Active Role Dashboard: Supervisor</span>
+      <p style="font-size: 0.825rem; color: #64748b; margin-bottom: 15px;">Available Actions for Your Profile:</p>
+      
+      <ul class="option-list">
+        <li>1. Submit Incident Report</li>
+        <li>2. Access Compliance Steps</li>
+        <li>3. Review Restorative Script</li>
+      </ul>
+
+      <button class="btn" style="background-color: #64748b; margin-top: 15px;" onclick="location.reload()">Reset View</button>
     </div>
   </div>
 
   <script>
-    function openDashboard() {
-      const codeInput = document.getElementById('accessCode').value.trim() || "NMDWS - Santa Fe Hub";
-      const container = document.getElementById('mainContainer');
-      
-      container.innerHTML = `
-        <div class="header">
-          <img src="Logo Designed.png" alt="Jan's Dreams Logo" onerror="this.style.display='none'">
-          <h1>Retention-Ready Ecosystem™ Dashboard</h1>
-          <p>Active Organization: <strong>${codeInput}</strong></p>
-        </div>
-
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px;">
-          <div style="background: #f8fafc; border: 1px solid var(--border); padding: 15px; border-radius: 8px; text-align: center;">
-            <span style="font-size: 0.75rem; font-weight: 700; color: #64748b; text-transform: uppercase;">Active Incidents Logged</span>
-            <div style="font-size: 1.4rem; font-weight: 700; color: var(--primary); margin-top: 5px;">1 Ledger Entry</div>
-          </div>
-          <div style="background: #f8fafc; border: 1px solid var(--border); padding: 15px; border-radius: 8px; text-align: center;">
-            <span style="font-size: 0.75rem; font-weight: 700; color: #64748b; text-transform: uppercase;">Compliance Status</span>
-            <div style="font-size: 1.1rem; font-weight: 700; color: #16a34a; margin-top: 5px;">Verified (DOL RRW)</div>
-          </div>
-        </div>
-
-        <div class="section-box">
-          <span class="section-title">Recent Incident Compliance Ledger</span>
-          <table style="width: 100%; font-size: 0.8rem; border-collapse: collapse; margin-top: 10px;">
-            <thead>
-              <tr style="background: #f1f5f9; text-align: left;">
-                <th style="padding: 8px; border: 1px solid var(--border);">Incident ID</th>
-                <th style="padding: 8px; border: 1px solid var(--border);">Indicator</th>
-                <th style="padding: 8px; border: 1px solid var(--border);">Action Protocol</th>
-                <th style="padding: 8px; border: 1px solid var(--border);">Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td style="padding: 8px; border: 1px solid var(--border);">inc-dws-012026</td>
-                <td style="padding: 8px; border: 1px solid var(--border);">Attendance / Punctuality</td>
-                <td style="padding: 8px; border: 1px solid var(--border);">Informal Compliance Discussion</td>
-                <td style="padding: 8px; border: 1px solid var(--border); color: #16a34a; font-weight: 600;">Reasonable Acc.</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <button class="btn" style="background-color: #64748b; margin-top: 10px;" onclick="location.reload()">Log Out / Reset Portal</button>
-      `;
+    function showDemoView() {
+      document.getElementById('roleDemoView').style.display = 'block';
     }
   </script>
 

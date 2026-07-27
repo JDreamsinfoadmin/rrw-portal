@@ -1,303 +1,489 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Retention-Ready Workplace™ Portal</title>
-  <style>
-    :root {
-      --primary: #1e3a8a;
-      --secondary: #0d9488;
-      --bg: #f8fafc;
-      --card-bg: #ffffff;
-      --text: #0f172a;
-      --border: #cbd5e1;
-    }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background-color: var(--bg);
-      color: var(--text);
-      margin: 0;
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-height: 100vh;
-    }
-    .container {
-      width: 100%;
-      max-width: 650px;
-      background: var(--card-bg);
-      padding: 32px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-      border: 1px solid var(--border);
-      box-sizing: border-box;
-    }
-    .header {
-      text-align: center;
-      margin-bottom: 25px;
-    }
-    .header img {
-      max-width: 180px;
-      height: auto;
-      margin-bottom: 12px;
-    }
-    .header h1 {
-      font-size: 1.35rem;
-      color: var(--primary);
-      margin: 0 0 6px 0;
-    }
-    .header p {
-      color: #64748b;
-      font-size: 0.9rem;
-      margin: 0;
-    }
-    .section-box {
-      background: #f1f5f9;
-      border: 1px solid #e2e8f0;
-      padding: 20px;
-      border-radius: 8px;
-      margin-bottom: 20px;
-    }
-    .section-title {
-      font-size: 0.85rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      color: var(--primary);
-      letter-spacing: 0.5px;
-      margin-bottom: 12px;
-      display: block;
-    }
-    .input-group {
-      margin-bottom: 12px;
-    }
-    .input-group label {
-      display: block;
-      font-size: 0.85rem;
-      font-weight: 600;
-      margin-bottom: 6px;
-      color: #334155;
-    }
-    .input-group input, .input-group select {
-      width: 100%;
-      padding: 10px 12px;
-      font-size: 0.95rem;
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      box-sizing: border-box;
-      background: #ffffff;
-    }
-    .help-link {
-      display: block;
-      margin-top: 8px;
-      font-size: 0.8rem;
-      color: var(--secondary);
-      text-decoration: none;
-      font-weight: 600;
-      cursor: pointer;
-    }
-    .help-link:hover {
-      text-decoration: underline;
-    }
-    .btn {
-      width: 100%;
-      padding: 12px;
-      background-color: var(--primary);
-      color: white;
-      border: none;
-      border-radius: 6px;
-      font-size: 0.95rem;
-      font-weight: 600;
-      cursor: pointer;
-      margin-top: 8px;
-    }
-    .btn:hover {
-      background-color: #1e40af;
-    }
-    .training-card {
-      border: 1px dashed var(--border);
-      background: #fafafa;
-      padding: 16px;
-      border-radius: 8px;
-      margin-top: 20px;
-    }
-    .training-card h3 {
-      margin: 0 0 6px 0;
-      font-size: 0.95rem;
-      color: var(--primary);
-    }
-    .training-card p {
-      margin: 0 0 10px 0;
-      font-size: 0.825rem;
-      color: #64748b;
-      line-height: 1.4;
-    }
-    .btn-disabled {
-      background-color: #cbd5e1;
-      color: #64748b;
-      cursor: not-allowed;
-    }
-    .footer-note {
-      text-align: center;
-      margin-top: 24px;
-      font-size: 0.75rem;
-      color: #94a3b8;
-    }
-    #accessCodeStep {
-      display: none;
-      border-top: 2px solid #e2e8f0;
-      padding-top: 20px;
-      margin-top: 20px;
-    }
-    .alert-box {
-      display: none;
-      padding: 10px;
-      background: #fef2f2;
-      border: 1px solid #fecaca;
-      color: #991b1b;
-      font-size: 0.825rem;
-      border-radius: 6px;
-      margin-top: 10px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retention-Ready Workplace™ I.M.P.A.C.T. Portal</title>
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --primary-light: #3b82f6;
+            --accent: #d97706;
+            --bg-dark: #0f172a;
+            --bg-card: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border: #334155;
+            --success: #10b981;
+            --danger: #ef4444;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background-color: rgba(15, 23, 42, 0.95);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .brand-logo-img {
+            height: 48px;
+            max-width: 220px;
+            object-fit: contain;
+        }
+
+        .brand-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            color: var(--text-main);
+        }
+
+        .brand-title span { color: var(--accent); }
+
+        .session-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .badge {
+            background-color: var(--border);
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--accent);
+            border: 1px solid var(--accent);
+        }
+
+        .btn-logout {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-logout:hover {
+            border-color: var(--danger);
+            color: var(--danger);
+        }
+
+        main {
+            flex: 1;
+            padding: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .login-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2.5rem;
+            max-width: 550px;
+            margin: 3rem auto;
+            text-align: center;
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.5);
+        }
+
+        .login-card h2 { margin-bottom: 0.5rem; color: #fff; }
+        .login-card p { color: var(--text-muted); margin-bottom: 1.5rem; font-size: 0.95rem; }
+
+        .input-group {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        input[type="text"] {
+            flex: 1;
+            padding: 0.75rem 1rem;
+            background-color: var(--bg-dark);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            color: #fff;
+            font-size: 1rem;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            border-color: var(--primary-light);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        .btn-primary:hover { opacity: 0.9; }
+
+        .quick-codes {
+            text-align: left;
+            margin-top: 2rem;
+            border-top: 1px solid var(--border);
+            padding-top: 1.5rem;
+        }
+
+        .quick-codes h4 { font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; margin-bottom: 0.75rem; }
+
+        .code-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .chip {
+            background-color: var(--bg-dark);
+            border: 1px solid var(--border);
+            padding: 0.4rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            font-family: monospace;
+            color: var(--primary-light);
+        }
+
+        .chip:hover { border-color: var(--accent); color: var(--accent); }
+
+        .toggle-box {
+            display: flex;
+            gap: 1rem;
+            background: var(--bg-card);
+            padding: 0.5rem;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            margin-bottom: 1.5rem;
+        }
+
+        .toggle-btn {
+            flex: 1;
+            padding: 0.6rem;
+            border: none;
+            background: transparent;
+            color: var(--text-muted);
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .toggle-btn.active {
+            background-color: var(--primary);
+            color: #fff;
+        }
+
+        .matrix-table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: var(--bg-card);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            margin-bottom: 2rem;
+        }
+
+        .matrix-table th, .matrix-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+            vertical-align: top;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .matrix-table th {
+            background-color: rgba(30, 58, 138, 0.4);
+            color: #fff;
+            font-weight: 700;
+        }
+
+        .matrix-table td.legacy { color: #fca5a5; background-color: rgba(239, 68, 68, 0.05); }
+        .matrix-table td.rrw { color: #6ee7b7; background-color: rgba(16, 185, 129, 0.05); }
+        .matrix-table td.curriculum { color: #fde047; font-weight: 500; }
+
+        .doc-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .doc-code {
+            font-family: monospace;
+            background: var(--accent);
+            color: #000;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        .script-box {
+            background: var(--bg-dark);
+            border-left: 4px solid var(--accent);
+            padding: 1rem;
+            margin: 1rem 0;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #e2e8f0;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .hidden { display: none !important; }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <div class="header">
-      <img src="Logo Designed.png" alt="Jan's Dreams Logo" onerror="this.style.display='none'">
-      <h1>Retention-Ready Workplace™ Portal</h1>
-      <p>Jan's Dreams Administration & System Gateway</p>
-    </div>
 
-    <!-- ENTRY ITEM 1: SEARCH OR ENTER CONFIRMATION -->
-    <div class="section-box">
-      <span class="section-title">Item 1: Portal Entry & Status Check</span>
-      
-      <div class="input-group">
-        <label for="entryType">Select Search Method:</label>
-        <select id="entryType" onchange="toggleEntryField()">
-          <option value="employer">Search Employer (Branch / Location)</option>
-          <option value="confirmation">Enter Confirmation Number</option>
-        </select>
-      </div>
+    <header>
+        <div class="logo-container">
+            <!-- Uses your exact logo file name -->
+            <img src="logo designed.png" alt="Retention-Ready Logo" class="brand-logo-img" onerror="this.style.display='none';" />
+            <div class="brand-title">Retention-Ready™ <span>I.M.P.A.C.T. Portal</span></div>
+        </div>
+        <div class="session-info" id="sessionNav" style="display: none;">
+            <span id="orgBadge" class="badge">NMDWS-Santa Fe</span>
+            <span id="roleDisplay" style="color: var(--text-muted);">Role: Enterprise Admin</span>
+            <button class="btn-logout" onclick="logout()">Exit Portal</button>
+        </div>
+    </header>
 
-      <!-- Employer Search -->
-      <div class="input-group" id="employerField">
-        <label for="employerSearch">Employer Name or Location:</label>
-        <input type="text" id="employerSearch" placeholder="Type employer name or city..." list="employerList">
-        <datalist id="employerList">
-          <option value="Albuquerque Housing Authority - Main Branch">
-          <option value="City of Albuquerque - Behavioral Health">
-          <option value="State of NM - DWS Workforce Hub">
-          <option value="Community Health Partners - Central">
-        </datalist>
-      </div>
+    <main>
+        <!-- LOGIN SCREEN -->
+        <div id="loginScreen" class="login-card">
+            <h2>Portal Access</h2>
+            <p>Select a pre-loaded access code or enter your organizational code.</p>
+            
+            <div class="input-group">
+                <input type="text" id="accessCodeInput" placeholder="e.g. EADWSDemo2026" autofocus />
+                <button class="btn-primary" onclick="processLogin()">Enter Portal</button>
+            </div>
 
-      <!-- Confirmation Number Field -->
-      <div class="input-group" id="confirmationField" style="display: none;">
-        <label for="confNum">Confirmation Number:</label>
-        <input type="text" id="confNum" placeholder="e.g., RRW-2026-8941">
-      </div>
+            <div class="quick-codes">
+                <h4>Quick Access Codes (Your Database)</h4>
+                <div class="code-chips">
+                    <span class="chip" onclick="quickLogin('EADWSDemo2026')">EADWSDemo2026 (Employer Admin)</span>
+                    <span class="chip" onclick="quickLogin('SupNMDWSDemo2021')">SupNMDWSDemo2021 (Supervisor)</span>
+                    <span class="chip" onclick="quickLogin('erpeernmdwsdemo2026')">erpeernmdwsdemo2026 (Peer Support)</span>
+                    <span class="chip" onclick="quickLogin('cnpdws1234')">cnpdws1234 (Network Liaison)</span>
+                    <span class="chip" onclick="quickLogin('EENMDWSDemo2026')">EENMDWSDemo2026 (Employee)</span>
+                </div>
+            </div>
+        </div>
 
-      <a class="help-link" onclick="showHelpNotice()">Lost Confirmation Number / Don't Know Employer?</a>
-      <div id="helpAlert" class="alert-box">
-        Help Desk Request: Routes a secure support ticket to Jan's Dreams team.
-      </div>
+        <!-- PORTAL DASHBOARD VIEW -->
+        <div id="portalDashboard" class="hidden">
+            
+            <div class="toggle-box">
+                <button class="toggle-btn active" id="btnCaseStudy" onclick="switchTab('caseStudy')">1. The Contrast: Demo Case Study (Curriculum)</button>
+                <button class="toggle-btn" id="btnLiveDoc" onclick="switchTab('liveDoc')">2. Live System Document & Workflow</button>
+            </div>
 
-      <button class="btn" onclick="proceedToAccessCode()">Continue to Verification</button>
-    </div>
+            <!-- TAB 1: DEMO CASE STUDY MATRIX -->
+            <div id="tabCaseStudy">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
+                    <h3>Case Study Matrix - Demo Curriculum Framework</h3>
+                    <span style="font-size: 0.85rem; color: var(--text-muted);">*Document used during demonstration only. Not in standard live model.</span>
+                </div>
 
-    <!-- ACCESS CODE VERIFICATION STEP -->
-    <div id="accessCodeStep" class="section-box">
-      <span class="section-title">Step 2: Enter Access Code</span>
-      <p style="font-size: 0.85rem; color: #475569; margin: 0 0 12px 0;">
-        Please enter your assigned Access Code to verify your role and permissions.
-      </p>
-      
-      <div class="input-group">
-        <label for="accessCode">Access Code:</label>
-        <input type="text" id="accessCode" placeholder="Enter code (e.g., ERDWSDEMO2026)" style="text-transform: uppercase;">
-      </div>
+                <table class="matrix-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 20%;">Evaluation Dimension</th>
+                            <th style="width: 28%;">Legacy HR Framework</th>
+                            <th style="width: 28%;">Retention-Ready™ Framework</th>
+                            <th style="width: 24%;">Curriculum Mapping</th>
+                        </tr>
+                    </thead>
+                    <tbody id="matrixBody"></tbody>
+                </table>
+            </div>
 
-      <button class="btn" style="background-color: var(--secondary);" onclick="verifyCode()">Verify Access Code</button>
+            <!-- TAB 2: LIVE SYSTEM DOCUMENT VIEW -->
+            <div id="tabLiveDoc" class="hidden">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
+                    <h3>Active System Document: Role-Based Response & Compliance</h3>
+                    <span id="docCodeDisplay" class="doc-code">Code: CNEA</span>
+                </div>
 
-      <div id="roleResult" style="display:none; margin-top: 15px; padding: 12px; background: #ffffff; border-radius: 6px; border: 1px solid var(--border);"></div>
-    </div>
+                <div class="doc-card" id="liveDocumentContent"></div>
+            </div>
 
-    <!-- ENTRY ITEM 2: TRAINING LINK -->
-    <div class="training-card">
-      <h3>Retention-Ready Ecosystem™ Training Curriculum</h3>
-      <p>Access SHRM-accredited training tracks for Retention-Ready Workplace Certification™ and Retention-Ready Workforce™.</p>
-      <button class="btn btn-disabled" disabled>Training Track Offline (Demo Mode)</button>
-    </div>
+        </div>
+    </main>
 
-    <div class="footer-note">
-      Protected System Gateway • Retention-Ready Ecosystem™ Architecture
-    </div>
-  </div>
+    <script>
+        const accessCodeDB = {
+            "EADWSDemo2026": { role: "Employer Admin", org: "NMDWS-Santa Fe", employerId: "DEMO", code: "CNEA" },
+            "SupNMDWSDemo2021": { role: "Supervisor", org: "NMDWS-Santa Fe", employerId: "DEMO", code: "CNS" },
+            "erpeernmdwsdemo2026": { role: "Peer Support", org: "NMDWS-Santa Fe", employerId: "DEMO", code: "CNP-Internal" },
+            "cnpdws1234": { role: "Network Liaison", org: "NMDWS-Santa Fe", employerId: "DEMO", code: "CNP-External", profile: "Deborah L." },
+            "EENMDWSDemo2026": { role: "Employee", org: "NMDWS-Santa Fe", employerId: "DEMO", code: "CNE" },
+            "2026eaDWSDEMO": { role: "Employer Admin", org: "DWS-Bernalillo", employerId: "DEMO1", code: "CNEA" },
+            "2026cnPWSDEMO": { role: "Network Liaison", org: "DWS-Bernalillo", employerId: "DEMO1", code: "CNP-External", profile: "Ben F." }
+        };
 
-  <script>
-    // Database of access codes mapping directly to your spreadsheet records
-    const accessDatabase = {
-      "ERDWSDEMO2026": { org: "State of NM - DWS Workforce Hub", role: "Employer All" },
-      "DEMO": { org: "Jan's Dreams Administration", role: "Administrator" },
-      // You can add more valid access codes here as needed:
-      "AHA2026": { org: "Albuquerque Housing Authority - Main Branch", role: "Housing Liaison" },
-      "CABQBH": { org: "City of Albuquerque - Behavioral Health", role: "Behavioral Health Lead" }
-    };
+        const matrixData = {
+            "Employer Admin": [
+                { dim: "Operational Action", legacy: "Punitive, defensive, immediate 5 PM Friday termination under 90-day probationary window.", rrw: "Manages systemic risk, flags 30-day payroll lag, enforces direct deposit, deploys retention capacity.", curr: "Module 201: Infrastructure & Financial Onboarding" },
+                { dim: "Federal Compliance", legacy: "Uses 'no-cause at-will probation' to hide disability discrimination, opening $900k lawsuit exposure.", rrw: "WIOA Sec. 188 & ADA Title I Shield: Privacy-masked audit ledger exports.", curr: "Module 205: Audit Ledger & Non-Discrimination" },
+                { dim: "System Vibe & Safety", legacy: "Low-trust environment where workers hide starvation and trauma until performance crashes.", rrw: "Psychological Safety Champion: Cultural leader of I.M.P.A.C.T. values.", curr: "Module 202: Psychologically Safe Workplace Cultures" }
+            ],
+            "Supervisor": [
+                { dim: "Operational Action", legacy: "Culture Keeper Trap: Publicly shames odor, calls trauma stupor 'rude,' uses write-ups to weed out workers.", rrw: "Objective Behavioral Tracking: Strips personal attacks, limiting documentation strictly to observable workspace impacts.", curr: "Module 203: Objective Behavioral Observation" },
+                { dim: "Federal Compliance", legacy: "Documents physical symptoms of known disability as character flaws, creating civil rights liability.", rrw: "Structured Compliance Guidance: Locks down arbitrary firing and generates Reasonable Accommodation forms.", curr: "Module 204: Compliance Through Compassion" },
+                { dim: "System Vibe & Safety", legacy: "Confrontational, diagnostic, and punitive.", rrw: "Impartial, Supportive, Prepared: Uses pre-approved restorative scripts to maintain production safely.", curr: "Module 208: Restorative Manager Scripts" }
+            ],
+            "Peer Support": [
+                { dim: "Operational Action", legacy: "Does not exist in legacy HR. Staff isolates worker and reports him as 'inattentive.'", rrw: "Internal Outreach: Validates worker experience without scolding or diagnosing; logs warm handoff.", curr: "Module 101: Non-Clinical Peer Engagement" },
+                { dim: "System Vibe & Safety", legacy: "Worker suffers alone until crisis leads to public breakdown.", rrw: "Immediate Psychological Safety: Trusted internal bridge, ambassador on the shop floor.", curr: "Module 102: Creating Psychological Safety" }
+            ],
+            "Network Liaison": [
+                { dim: "Operational Action", legacy: "Does not exist in legacy HR. Worker left on bench without ID or housing.", rrw: "Empathic Stabilization Network: External connection handling rapid housing, food, and ID recovery.", curr: "Module 301: Rapid Housing & Barrier Stabilization" },
+                { dim: "Federal Compliance", legacy: "N/A", rrw: "System-Guided Professional Excellence: Aligns community resources under WIOA Sec. 188 guidelines without exposing PII.", curr: "Module 304: WIOA Sub-Grantee Compliance" }
+            ],
+            "Employee": [
+                { dim: "Operational Action", legacy: "Fills out disability 'Yes' but accommodation 'No'; suffers starvation & flat tire in isolation.", rrw: "Anonymous Barrier Request: Enters tracking code to access external stabilization without fear of termination.", curr: "Module 102: Barrier Identification & Self-Advocacy" }
+            ]
+        };
 
-    function toggleEntryField() {
-      const type = document.getElementById('entryType').value;
-      const empField = document.getElementById('employerField');
-      const confField = document.getElementById('confirmationField');
+        let currentSession = null;
 
-      if (type === 'employer') {
-        empField.style.display = 'block';
-        confField.style.display = 'none';
-      } else {
-        empField.style.display = 'none';
-        confField.style.display = 'block';
-      }
-    }
+        function quickLogin(code) {
+            document.getElementById('accessCodeInput').value = code;
+            processLogin();
+        }
 
-    function showHelpNotice() {
-      const alertBox = document.getElementById('helpAlert');
-      alertBox.style.display = alertBox.style.display === 'block' ? 'none' : 'block';
-    }
+        function processLogin() {
+            const inputCode = document.getElementById('accessCodeInput').value.trim();
+            currentSession = accessCodeDB[inputCode] || { role: "Employer Admin", org: "NMDWS-Santa Fe", employerId: "DEMO", code: "CNEA" };
 
-    function proceedToAccessCode() {
-      document.getElementById('accessCodeStep').style.display = 'block';
-      document.getElementById('accessCodeStep').scrollIntoView({ behavior: 'smooth' });
-    }
+            document.getElementById('orgBadge').innerText = currentSession.org;
+            document.getElementById('roleDisplay').innerText = `Role: ${currentSession.role}`;
+            document.getElementById('sessionNav').style.display = 'flex';
 
-    function verifyCode() {
-      const codeInput = document.getElementById('accessCode').value.trim().toUpperCase();
-      const roleResult = document.getElementById('roleResult');
+            document.getElementById('loginScreen').classList.add('hidden');
+            document.getElementById('portalDashboard').classList.remove('hidden');
 
-      if (!codeInput) {
-        alert('Please enter a valid Access Code.');
-        return;
-      }
+            loadRoleData();
+        }
 
-      roleResult.style.display = 'block';
-      
-      const record = accessDatabase[codeInput];
+        function logout() {
+            document.getElementById('loginScreen').classList.remove('hidden');
+            document.getElementById('portalDashboard').classList.add('hidden');
+            document.getElementById('sessionNav').style.display = 'none';
+            document.getElementById('accessCodeInput').value = '';
+        }
 
-      if (record) {
-        roleResult.innerHTML = `
-          <div style="background: #f0fdf4; border: 1px solid #bbf7d0; padding: 15px; border-radius: 6px;">
-            <h4 style="color: #166534; margin: 0 0 10px 0; font-size: 1rem;">Verify Your Access Profile</h4>
-            <p style="margin: 4px 0;"><strong>Company / Organization:</strong> ${record.org}</p>
-            <p style="margin: 4px 0;"><strong>Assigned Role:</strong> ${record.role}</p>
-            <p style="margin: 10px 0 15px 0; font-size: 0.85rem; color: #15803d; font-weight: 600;">Is this your company & is this your role?</p>
-            <button class="btn" style="background-color: #16a34a; margin-top: 0; padding: 10px;" onclick="alert('Verification confirmed! Opening portal view for ${record.org}.')">Yes, Enter Portal</button>
-          </div>
-        `;
-      } else {
-        roleResult.innerHTML = `<p style="color: #991b1b; margin: 0;">Access code not recognized. Please check your code and try again.</p>`;
-      }
-    }
-  </script>
+        function switchTab(tab) {
+            if (tab === 'caseStudy') {
+                document.getElementById('tabCaseStudy').classList.remove('hidden');
+                document.getElementById('tabLiveDoc').classList.add('hidden');
+                document.getElementById('btnCaseStudy').classList.add('active');
+                document.getElementById('btnLiveDoc').classList.remove('active');
+            } else {
+                document.getElementById('tabCaseStudy').classList.add('hidden');
+                document.getElementById('tabLiveDoc').classList.remove('hidden');
+                document.getElementById('btnCaseStudy').classList.remove('active');
+                document.getElementById('btnLiveDoc').classList.add('active');
+            }
+        }
+
+        function loadRoleData() {
+            const role = currentSession.role;
+            const matrixRows = matrixData[role] || matrixData["Employer Admin"];
+            const tbody = document.getElementById('matrixBody');
+            tbody.innerHTML = '';
+
+            matrixRows.forEach(row => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td><strong>${row.dim}</strong></td>
+                    <td class="legacy">${row.legacy}</td>
+                    <td class="rrw">${row.rrw}</td>
+                    <td class="curriculum">${row.curr || 'Module 100'}</td>
+                `;
+                tbody.appendChild(tr);
+            });
+
+            const docContainer = document.getElementById('liveDocumentContent');
+            document.getElementById('docCodeDisplay').innerText = `Code: ${currentSession.code}`;
+
+            if (role === 'Supervisor') {
+                docContainer.innerHTML = `
+                    <h4>Document: Objective Behavioral Observation Checklist (Code: CNS)</h4>
+                    <p style="color: var(--text-muted); margin: 0.5rem 0 1rem 0;">Replaces subjective character judgment with objective workspace impact tracking.</p>
+                    <div style="background: var(--bg-dark); padding: 1rem; border-radius: 6px; margin-bottom: 1rem;">
+                        <strong>System Intercept Execution:</strong>
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem; color: #6ee7b7;">
+                            <li>Probationary Termination Locked Down</li>
+                            <li>Audit Ledger Entry Generated: <em>"EE Declined Self-Identification"</em></li>
+                            <li>Physical Directive: Print 2 copies of Reasonable Accommodation Form for private medical file.</li>
+                        </ul>
+                    </div>
+                    <strong>Deploy Restorative Script Template A (Initial Intervention):</strong>
+                    <div class="script-box">
+                        "Thank you for sitting down with me. I want to address some recent workplace observations clearly... Over the past few days, we documented specific items—specifically changes in workplace engagement—that directly impact daily operations. I want to be clear: I am making no assumptions, diagnoses, or accusations regarding what is causing these sudden shifts. If there is an adjustment or scheduling adaptation we can make administratively to assist you, please allow us to work with you..."
+                    </div>
+                `;
+            } else if (role === 'Employer Admin') {
+                docContainer.innerHTML = `
+                    <h4>Document: Master Enterprise Infrastructure Evaluation & System Authorization Form (Code: CNEA)</h4>
+                    <p style="color: var(--text-muted); margin: 0.5rem 0 1rem 0;">Houses master, privacy-masked compliance ledger exports and flags operational gaps.</p>
+                    <div class="script-box">
+                        <strong>Compliance Next Steps (Legal Shield):</strong><br>
+                        WIOA Section 188 & Title I ADA audit ledger updated. Placeholder entry "EE Declined Self-Identification" active to protect medical privacy while fulfilling good-faith requirements.
+                    </div>
+                `;
+            } else if (role === 'Network Liaison') {
+                docContainer.innerHTML = `
+                    <h4>Document: Network Partner Liaison Rapid Stabilization Log (Code: CNP)</h4>
+                    <p style="color: var(--text-muted); margin: 0.5rem 0 1rem 0;">Assigned Provider: <strong>${currentSession.profile || 'Deborah L.'}</strong></p>
+                    <div class="script-box">
+                        <strong>Active Sub-Tickets:</strong> Housing Instability, Transit Voucher, ID Recovery.<br>
+                        <em>Note: External care routing executed without exposing participant personal trauma or medical details to corporate HR.</em>
+                    </div>
+                `;
+            } else {
+                docContainer.innerHTML = `
+                    <h4>Document: Non-Clinical Peer Interaction Log (Code: CNP-Internal)</h4>
+                    <p style="color: var(--text-muted); margin: 0.5rem 0 1rem 0;">Internal Peer Support Bridge</p>
+                    <div class="script-box">
+                        Safe, non-punitive internal connection recorded. Immediate psychological safety offered; warm handoff routed to external network liaisons.
+                    </div>
+                `;
+            }
+        }
+    </script>
 </body>
 </html>

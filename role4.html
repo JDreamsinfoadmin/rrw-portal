@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Role #4: Peer Support / Peer Navigator Portal | Jan's Dreams</title>
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --secondary: #0d9488;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #1e293b;
+      --border: #cbd5e1;
+    }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .container {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+      width: 100%;
+      max-width: 900px;
+      padding: 30px;
+      box-sizing: border-box;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .header h1 {
+      font-size: 1.25rem;
+      color: var(--primary);
+      margin: 0 0 5px 0;
+    }
+    .header p {
+      font-size: 0.85rem;
+      color: #64748b;
+      margin: 0;
+    }
+    .demo-notice {
+      background: #fef3c7;
+      border: 1px solid #f59e0b;
+      color: #92400e;
+      padding: 10px 15px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      margin-bottom: 20px;
+      text-align: center;
+      font-weight: 500;
+    }
+    .role-blurb {
+      background: #f8fafc;
+      border-left: 4px solid var(--secondary);
+      padding: 15px;
+      border-radius: 0 6px 6px 0;
+      margin-bottom: 20px;
+      font-size: 0.85rem;
+      color: #334155;
+      line-height: 1.4;
+    }
+    .action-menu {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+    .action-card {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px;
+      background: #ffffff;
+      text-align: center;
+    }
+    .action-card h3 {
+      font-size: 0.95rem;
+      color: var(--primary);
+      margin: 0 0 8px 0;
+    }
+    .action-card p {
+      font-size: 0.8rem;
+      color: #64748b;
+      margin: 0 0 15px 0;
+    }
+    .btn {
+      background-color: var(--secondary);
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .btn-primary { background-color: var(--primary); }
+    .btn:hover { opacity: 0.9; }
+    
+    /* Interactive View Panels */
+    .view-panel {
+      display: none;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px;
+      background: #ffffff;
+      margin-bottom: 20px;
+    }
+    .view-panel h3 {
+      color: var(--primary);
+      font-size: 1rem;
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.72rem;
+      margin-top: 10px;
+      margin-bottom: 15px;
+    }
+    th, td {
+      border: 1px solid var(--border);
+      padding: 7px;
+      text-align: left;
+    }
+    th {
+      background: #f1f5f9;
+      color: var(--primary);
+    }
+    .privacy-box {
+      background: #f0fdfa;
+      border: 1px solid var(--secondary);
+      padding: 12px;
+      border-radius: 6px;
+      font-size: 0.78rem;
+      color: #0f766e;
+      margin-bottom: 15px;
+      line-height: 1.4;
+    }
+    .form-group { margin-bottom: 12px; }
+    label { display: block; font-size: 0.8rem; font-weight: 600; margin-bottom: 4px; color: #475569; }
+    select, input { width: 100%; padding: 8px; border: 1px solid var(--border); border-radius: 6px; font-size: 0.85rem; box-sizing: border-box; background: #f8fafc; }
+    
+    .nav-footer {
+      text-align: center;
+      margin-top: 25px;
+      padding-top: 15px;
+      border-top: 1px solid var(--border);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="header">
+      <h1>Jan's Dreams Enterprise System</h1>
+      <p>Role #4: Peer Support / Peer Navigator Portal (CNP-Internal)</p>
+    </div>
+
+    <!-- Demo Mode Notice -->
+    <div class="demo-notice">
+      Notice: Simulated environment. Certain live data exports are restricted in demo mode.
+    </div>
+
+    <!-- Role Blurb -->
+    <div class="role-blurb" id="mainMenuArea">
+      <strong>About this role in the RRW Universe:</strong> 
+      Peer Navigators operate under strict non-clinical rules (POL-RRW-004) with zero evaluation of work performance and zero medical inquiries. Their sole purpose is to establish psychological safety, validate experiences, and initiate warm handoffs to the external CNP-External SME network.
+    </div>
+
+    <!-- Action Menu Selection -->
+    <div class="action-menu" id="actionMenuArea">
+      
+      <!-- Action 1 -->
+      <div class="action-card">
+        <h3>1. Peer Outreach Encounter Log (LOG-PEER-001)</h3>
+        <p>Record non-clinical validation encounters, identify barriers without judgment, and initiate external SME warm handoffs.</p>
+        <button class="btn" onclick="showView('encounterLogView')">Open Encounter Log</button>
+      </div>
+
+      <!-- Action 2 -->
+      <div class="action-card">
+        <h3>2. Quality & Compliance Review Matrix (REV-PEER-001)</h3>
+        <p>Inspect read-only contrast frameworks, firewall integrity benchmarks, and zero-scold adherence metrics.</p>
+        <button class="btn btn-primary" onclick="showView('qualityMatrixView')">Open Quality Matrix</button>
+      </div>
+
+    </div>
+
+    <!-- VIEW 1: Encounter Log Form -->
+    <div id="encounterLogView" class="view-panel">
+      <h3>Peer Outreach Encounter Log — Non-Clinical Validation (LOG-PEER-001)</h3>
+      
+      <div class="privacy-box">
+        <strong>Mandatory Rules of Engagement (POL-RRW-004):</strong> Never scold, never evaluate work performance, and never share notes with HR Management. Record only touchpoint occurrence and warm handoff status.
+      </div>
+
+      <div class="form-group">
+        <label>Encounter Reference ID & Timestamp</label>
+        <input type="text" value="PEER-2026-0419 | 2026-07-29 09:30 AM" readonly>
+      </div>
+
+      <div class="form-group">
+        <label>Assigned Peer Navigator ID</label>
+        <input type="text" value="PEER-NAV-001 (Certified Peer Specialist)" readonly>
+      </div>
+
+      <div class="form-group">
+        <label>Masked Worker ID (CNP-ID)</label>
+        <input type="text" value="CNP-2026-8912">
+      </div>
+
+      <div class="form-group">
+        <label>Internal Outreach Trigger / Referral Source</label>
+        <select>
+          <option selected>Self-Requested Trust Touchpoint</option>
+          <option>Manager Early Observation Flag (Non-Punitive)</option>
+          <option>Peer Referral / Voluntary Check-In</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Primary Non-Clinical Barrier Identified</label>
+        <select>
+          <option selected>Transportation Distress (Vehicle / Transit Breakdown)</option>
+          <option>Workplace Fatigue / Stress</option>
+          <option>Housing / Life Instability</option>
+          <option>Family / Dependent Strain</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Initiate External Warm Handoff?</label>
+        <select>
+          <option selected>Yes - Routed to CNP-External Network Liaison (Auto/Transit SME)</option>
+          <option>No - Internal Stabilization Complete</option>
+        </select>
+      </div>
+
+      <button class="btn" onclick="alert('Encounter LOG-PEER-001 successfully recorded and warm handoff dispatched!')">Submit Encounter & Dispatch Warm Handoff</button>
+      <button class="btn btn-primary" style="background-color: #64748b; margin-top: 8px;" onclick="returnToRole()">Return to Role</button>
+    </div>
+
+    <!-- VIEW 2: Quality & Compliance Review Matrix -->
+    <div id="qualityMatrixView" class="view-panel">
+      <h3>Peer Engagement & Non-Clinical Quality Review Matrix (REV-PEER-001)</h3>
+      <p style="font-size: 0.78rem; color: #64748b; margin-bottom: 12px;">READ-ONLY Quality & Compliance Review Dashboard for Peer Navigators.</p>
+      
+      <div style="overflow-x: auto;">
+        <table>
+          <thead>
+            <tr>
+              <th>Evaluation Dimension</th>
+              <th>Legacy HR Framework</th>
+              <th>Retention-Ready™ Framework</th>
+              <th>Compliance Alignment</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Worker Distress</strong></td>
+              <td>Isolates worker; reports as 'unfit'.</td>
+              <td>Validates experience without scolding.</td>
+              <td>Module 101 Peer Engagement</td>
+            </tr>
+            <tr>
+              <td><strong>Psychological Safety</strong></td>
+              <td>Punitively scrutinizes behavior.</td>
+              <td>Offers zero-penalty empathetic validation.</td>
+              <td>POL-RRW-004 Rules of Engagement</td>
+            </tr>
+            <tr>
+              <td><strong>Medical Disclosure</strong></td>
+              <td>Demands medical notes or fitness exams.</td>
+              <td>Zero medical inquiries; barrier focused.</td>
+              <td>42 CFR Part 2 / HIPAA Isolation</td>
+            </tr>
+            <tr>
+              <td><strong>Handoff Workflow</strong></td>
+              <td>Escalates to disciplinary write-up.</td>
+              <td>Connects directly to external SME network.</td>
+              <td>Module 301 Rapid Stabilization</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div style="font-size: 0.78rem; color: #0f766e; background: #f0fdfa; padding: 10px; border-radius: 6px; margin-bottom: 15px;">
+        <strong>Live Quality Benchmarks:</strong> Zero-Scold Adherence: <strong>100% (PASS)</strong> | Handoff Routing Speed: <strong>98.1% (PASS)</strong> | HR Firewall Isolation: <strong>100% (PASS)</strong>
+      </div>
+
+      <button class="btn" onclick="returnToRole()">Return to Role</button>
+    </div>
+
+    <!-- Universal Home Navigation Footer -->
+    <div class="nav-footer">
+      <a href="index.html" class="btn" style="background-color: #64748b; width: 100%;">Return to Home Page / Role Gateway</a>
+    </div>
+
+  </div>
+
+  <script>
+    function showView(viewId) {
+      document.getElementById('actionMenuArea').style.display = 'none';
+      document.getElementById('mainMenuArea').style.display = 'none';
+      document.getElementById('encounterLogView').style.display = 'none';
+      document.getElementById('qualityMatrixView').style.display = 'none';
+      
+      document.getElementById(viewId).style.display = 'block';
+    }
+
+    function returnToRole() {
+      document.getElementById('encounterLogView').style.display = 'none';
+      document.getElementById('qualityMatrixView').style.display = 'none';
+      
+      document.getElementById('actionMenuArea').style.display = 'grid';
+      document.getElementById('mainMenuArea').style.display = 'block';
+    }
+  </script>
+
+</body>
+</html>

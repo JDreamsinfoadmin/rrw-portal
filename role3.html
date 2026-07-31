@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Role #3: Supervisor / Frontline Lead Portal | Jan's Dreams</title>
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --secondary: #0d9488;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #1e293b;
+      --border: #cbd5e1;
+    }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .container {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+      width: 100%;
+      max-width: 900px;
+      padding: 30px;
+      box-sizing: border-box;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .header h1 {
+      font-size: 1.25rem;
+      color: var(--primary);
+      margin: 0 0 5px 0;
+    }
+    .header p {
+      font-size: 0.85rem;
+      color: #64748b;
+      margin: 0;
+    }
+    .compliance-warning {
+      background: #fef2f2;
+      border: 1px solid #ef4444;
+      color: #991b1b;
+      padding: 12px 15px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      margin-bottom: 20px;
+      line-height: 1.4;
+    }
+    .compliance-warning strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 0.85rem;
+    }
+    .role-blurb {
+      background: #f8fafc;
+      border-left: 4px solid var(--secondary);
+      padding: 15px;
+      border-radius: 0 6px 6px 0;
+      margin-bottom: 20px;
+      font-size: 0.85rem;
+      color: #334155;
+      line-height: 1.4;
+    }
+    .action-menu {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+    .action-card {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px;
+      background: #ffffff;
+      text-align: center;
+    }
+    .action-card h3 {
+      font-size: 0.95rem;
+      color: var(--primary);
+      margin: 0 0 8px 0;
+    }
+    .action-card p {
+      font-size: 0.8rem;
+      color: #64748b;
+      margin: 0 0 15px 0;
+    }
+    .btn {
+      background-color: var(--secondary);
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .btn-primary { background-color: var(--primary); }
+    .btn:hover { opacity: 0.9; }
+    
+    /* Interactive View Panels */
+    .view-panel {
+      display: none;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px;
+      background: #ffffff;
+      margin-bottom: 20px;
+    }
+    .view-panel h3 {
+      color: var(--primary);
+      font-size: 1rem;
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.72rem;
+      margin-top: 10px;
+      margin-bottom: 15px;
+    }
+    th, td {
+      border: 1px solid var(--border);
+      padding: 7px;
+      text-align: left;
+    }
+    th {
+      background: #f1f5f9;
+      color: var(--primary);
+    }
+    .script-box {
+      background: #f0fdfa;
+      border: 1px solid var(--secondary);
+      padding: 12px;
+      border-radius: 6px;
+      font-size: 0.78rem;
+      color: #0f766e;
+      margin-bottom: 15px;
+      line-height: 1.4;
+    }
+    .form-group { margin-bottom: 12px; }
+    label { display: block; font-size: 0.8rem; font-weight: 600; margin-bottom: 4px; color: #475569; }
+    select, input { width: 100%; padding: 8px; border: 1px solid var(--border); border-radius: 6px; font-size: 0.85rem; box-sizing: border-box; background: #f8fafc; }
+    
+    .nav-footer {
+      text-align: center;
+      margin-top: 25px;
+      padding-top: 15px;
+      border-top: 1px solid var(--border);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="header">
+      <h1>Jan's Dreams Enterprise System</h1>
+      <p>Role #3: Supervisor / Frontline Lead Portal (SUP-Internal)</p>
+    </div>
+
+    <!-- Active Compliance Warning Banner -->
+    <div class="compliance-warning">
+      <strong>⚠️ ACTIVE COMPLIANCE MANDATE (POL-RRW-005):</strong>
+      Role 3 Supervisors act as early support detectors, <strong>not disciplinarians</strong>. When you notice worker fatigue, tardiness, or stress, you must execute a restorative check-in and log the support request. <em>Under no circumstances shall supervisors initiate punitive write-ups or demand medical disclosures.</em>
+    </div>
+
+    <!-- Role Blurb -->
+    <div class="role-blurb" id="mainMenuArea">
+      <strong>About this role in the RRW Universe:</strong> 
+      Frontline Supervisors bridge daily operations and worker stability. By prioritizing supportive, non-confrontational check-ins over automatic policy penalties, you protect headcount, prevent turnover, and uphold psychological safety.
+    </div>
+
+    <!-- Action Menu Selection -->
+    <div class="action-menu" id="actionMenuArea">
+      
+      <!-- Action 1 -->
+      <div class="action-card">
+        <h3>1. Early Observation & Support Routing Log (LOG-SUP-001)</h3>
+        <p>Record early distress flags, execute restorative check-ins, and route workers to non-punitive internal/external support.</p>
+        <button class="btn" onclick="showView('observationLogView')">Open Observation Log</button>
+      </div>
+
+      <!-- Action 2 -->
+      <div class="action-card">
+        <h3>2. Frontline Quality Review Matrix (REV-SUP-001)</h3>
+        <p>Inspect read-only contrast frameworks, Module 201 curriculum standards, and unit retention performance benchmarks.</p>
+        <button class="btn btn-primary" onclick="showView('qualityReviewView')">Open Quality Review</button>
+      </div>
+
+    </div>
+
+    <!-- VIEW 1: Observation Log Form -->
+    <div id="observationLogView" class="view-panel">
+      <h3>Frontline Early Observation & Support Routing Log (LOG-SUP-001)</h3>
+      
+      <div class="script-box">
+        <strong>💬 Reminder: Restorative Script Protocol (Module 201)</strong><br>
+        <em>"Hey [First Name], thanks for pulling off to the side. I noticed you seemed a bit off today, and I wanted to check in. I'm not here to write you up or grill you on attendance. My priority is making sure you're doing okay and have what you need to succeed."</em>
+      </div>
+
+      <div class="form-group">
+        <label>Observation Record ID & Timestamp</label>
+        <input type="text" value="OBS-2026-0814 | 2026-07-29 08:15 AM" readonly>
+      </div>
+
+      <div class="form-group">
+        <label>Assigned Supervisor ID & Department</label>
+        <input type="text" value="SUP-LEAD-001 (Fleet Maintenance Production Floor)" readonly>
+      </div>
+
+      <div class="form-group">
+        <label>Masked Worker ID (CNP-ID)</label>
+        <input type="text" value="CNP-2026-4402">
+      </div>
+
+      <div class="form-group">
+        <label>Observed Early Distress Flag</label>
+        <select>
+          <option selected>Uncharacteristic Tardiness & Acute Fatigue</option>
+          <option>Workplace Inattention / Stress</option>
+          <option>Acute Strain / Agitation</option>
+          <option>Safety Protocol Hesitation</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Supervisor Check-In Conducted?</label>
+        <select>
+          <option selected>Yes - Supportive Check-In Executed Using Module 201 Script</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Support Pathway Selected</label>
+        <select>
+          <option selected>Route to CNP-External SME Network (Transportation & Transit Support)</option>
+          <option>Route to CNP-Internal Peer Navigator</option>
+          <option>Internal Workplace Adjustment</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Mandatory Supervisor Firewall Attestation (POL-RRW-005)</label>
+        <select>
+          <option selected>Attested: No write-up issued; early observation logged exclusively for support routing.</option>
+        </select>
+      </div>
+
+      <button class="btn" onclick="alert('Observation LOG-SUP-001 successfully submitted. Support routing active; write-up block enforced.')">Submit Observation & Trigger Support</button>
+      <button class="btn btn-primary" style="background-color: #64748b; margin-top: 8px;" onclick="returnToRole()">Return to Role</button>
+    </div>
+
+    <!-- VIEW 2: Quality Review Matrix -->
+    <div id="qualityReviewView" class="view-panel">
+      <h3>Frontline Leadership Quality Review Matrix (REV-SUP-001)</h3>
+      <p style="font-size: 0.78rem; color: #64748b; margin-bottom: 12px;">READ-ONLY Quality & Operational Review Matrix for Role 3 Supervisors.</p>
+      
+      <div style="overflow-x: auto;">
+        <table>
+          <thead>
+            <tr>
+              <th>Evaluation Dimension</th>
+              <th>Legacy HR Framework</th>
+              <th>Retention-Ready™ Framework</th>
+              <th>Operational Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Early Distress / Fatigue</strong></td>
+              <td>Issues immediate written warning.</td>
+              <td>Executes restorative check-in; logs support.</td>
+              <td>Module 201 Restorative Intervention</td>
+            </tr>
+            <tr>
+              <td><strong>Communication Style</strong></td>
+              <td>Punitive and interrogative.</td>
+              <td>Empathetic and barrier-focused.</td>
+              <td>POL-RRW-005 Frontline Leadership</td>
+            </tr>
+            <tr>
+              <td><strong>Medical / Personal</strong></td>
+              <td>Demands medical/personal explanations.</td>
+              <td>Zero inquiries; offers support pathways.</td>
+              <td>HIPAA / 42 CFR Part 2 Non-Inquiry</td>
+            </tr>
+            <tr>
+              <td><strong>Retention Outcome</strong></td>
+              <td>Escalates turnover and fear.</td>
+              <td>Stabilizes worker and preserves headcount.</td>
+              <td>Module 301 Rapid Stabilization</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div style="font-size: 0.78rem; color: #0f766e; background: #f0fdfa; padding: 10px; border-radius: 6px; margin-bottom: 15px;">
+        <strong>Live Unit Performance Benchmarks:</strong> Early Support Routing Rate: <strong>94.2% (PASS)</strong> | Script Adherence: <strong>100% (PASS)</strong> | 90-Day Retention Rate: <strong>92.8% (PASS)</strong>
+      </div>
+
+      <button class="btn" onclick="returnToRole()">Return to Role</button>
+    </div>
+
+    <!-- Universal Home Navigation Footer -->
+    <div class="nav-footer">
+      <a href="index.html" class="btn" style="background-color: #64748b; width: 100%;">Return to Home Page / Role Gateway</a>
+    </div>
+
+  </div>
+
+  <script>
+    function showView(viewId) {
+      document.getElementById('actionMenuArea').style.display = 'none';
+      document.getElementById('mainMenuArea').style.display = 'none';
+      document.getElementById('observationLogView').style.display = 'none';
+      document.getElementById('qualityReviewView').style.display = 'none';
+      
+      document.getElementById(viewId).style.display = 'block';
+    }
+
+    function returnToRole() {
+      document.getElementById('observationLogView').style.display = 'none';
+      document.getElementById('qualityReviewView').style.display = 'none';
+      
+      document.getElementById('actionMenuArea').style.display = 'grid';
+      document.getElementById('mainMenuArea').style.display = 'block';
+    }
+  </script>
+
+</body>
+</html>

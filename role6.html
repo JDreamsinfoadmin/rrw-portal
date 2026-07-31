@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Role #6: Certified Network Liaison (CNP) Portal | Jan's Dreams</title>
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --secondary: #0d9488;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #1e293b;
+      --border: #cbd5e1;
+    }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .container {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+      width: 100%;
+      max-width: 900px;
+      padding: 30px;
+      box-sizing: border-box;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .header h1 {
+      font-size: 1.25rem;
+      color: var(--primary);
+      margin: 0 0 5px 0;
+    }
+    .header p {
+      font-size: 0.85rem;
+      color: #64748b;
+      margin: 0;
+    }
+    .demo-notice {
+      background: #fef3c7;
+      border: 1px solid #f59e0b;
+      color: #92400e;
+      padding: 10px 15px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      margin-bottom: 20px;
+      text-align: center;
+      font-weight: 500;
+    }
+    .role-blurb {
+      background: #f8fafc;
+      border-left: 4px solid var(--secondary);
+      padding: 15px;
+      border-radius: 0 6px 6px 0;
+      margin-bottom: 20px;
+      font-size: 0.85rem;
+      color: #334155;
+      line-height: 1.4;
+    }
+    .action-menu {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+    .action-card {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px;
+      background: #ffffff;
+      text-align: center;
+    }
+    .action-card h3 {
+      font-size: 0.95rem;
+      color: var(--primary);
+      margin: 0 0 8px 0;
+    }
+    .action-card p {
+      font-size: 0.8rem;
+      color: #64748b;
+      margin: 0 0 15px 0;
+    }
+    .btn {
+      background-color: var(--secondary);
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .btn-primary { background-color: var(--primary); }
+    .btn:hover { opacity: 0.9; }
+    
+    /* Interactive View Panels */
+    .view-panel {
+      display: none;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px;
+      background: #ffffff;
+      margin-bottom: 20px;
+    }
+    .view-panel h3 {
+      color: var(--primary);
+      font-size: 1rem;
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.7rem;
+      margin-top: 10px;
+      margin-bottom: 15px;
+    }
+    th, td {
+      border: 1px solid var(--border);
+      padding: 6px;
+      text-align: left;
+    }
+    th {
+      background: #f1f5f9;
+      color: var(--primary);
+    }
+    .privacy-box {
+      background: #f0fdfa;
+      border: 1px solid var(--secondary);
+      padding: 12px;
+      border-radius: 6px;
+      font-size: 0.78rem;
+      color: #0f766e;
+      margin-bottom: 15px;
+      line-height: 1.4;
+    }
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 15px;
+    }
+    .metric-card {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      padding: 12px;
+      border-radius: 6px;
+      text-align: center;
+    }
+    .metric-card h4 {
+      margin: 0 0 5px 0;
+      font-size: 0.75rem;
+      color: #64748b;
+      text-transform: uppercase;
+    }
+    .metric-card .val {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin: 0;
+    }
+    .form-group { margin-bottom: 12px; }
+    label { display: block; font-size: 0.8rem; font-weight: 600; margin-bottom: 4px; color: #475569; }
+    select, input { width: 100%; padding: 8px; border: 1px solid var(--border); border-radius: 6px; font-size: 0.85rem; box-sizing: border-box; background: #f8fafc; }
+    
+    .nav-footer {
+      text-align: center;
+      margin-top: 25px;
+      padding-top: 15px;
+      border-top: 1px solid var(--border);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="header">
+      <h1>Jan's Dreams Enterprise System</h1>
+      <p>Role #6: Certified Network Liaison (CNP) Industry SME Portal</p>
+    </div>
+
+    <!-- Demo Mode Notice -->
+    <div class="demo-notice">
+      Notice: Simulated environment. Certain live data exports are restricted in demo mode.
+    </div>
+
+    <!-- Role Blurb -->
+    <div class="role-blurb" id="mainMenuArea">
+      <strong>About this role in the RRW Universe:</strong> 
+      Instead of expecting central HR to understand every industry vertical, CNPs act as specialized Industry Subject Matter Experts (SMEs). When an employee requests support (e.g., auto financing, safety gear, clinical navigation), the matching CNL provides peer wisdom, handles substantive details <strong>strictly offline</strong>, and updates only the system status ledger.
+    </div>
+
+    <!-- Action Menu Selection -->
+    <div class="action-menu" id="actionMenuArea">
+      
+      <!-- Action 1 -->
+      <div class="action-card">
+        <h3>1. Update Service Request (FRM-CNS-001)</h3>
+        <p>Review incoming de-identified industry SME requests, update system status flags, and log offline handoffs.</p>
+        <button class="btn" onclick="showView('requestUpdateView')">Open Request Manager</button>
+      </div>
+
+      <!-- Action 2 -->
+      <div class="action-card">
+        <h3>2. View Personal Metrics (LGD-CNS-001)</h3>
+        <p>Inspect master tracking ledger volume, resolution speed, and anonymous employee satisfaction feedback ratings.</p>
+        <button class="btn btn-primary" onclick="showView('metricsView')">Open Ledger & Metrics</button>
+      </div>
+
+    </div>
+
+    <!-- VIEW 1: Update Service Request -->
+    <div id="requestUpdateView" class="view-panel">
+      <h3>Distributed CNL SME Service Request Management</h3>
+      
+      <div class="privacy-box">
+        <strong>Mandatory Offline Firewall Notice:</strong> All substantive casework, releases (SUP-PRV-001), and personal details must occur strictly offline directly between the employee and the assigned CNL. Update on-ledger status only.
+      </div>
+
+      <div class="form-group">
+        <label>Select Active Request ID to Update</label>
+        <select id="activeReqSelect" onchange="loadRequestData()">
+          <option value="REQ-2026-0104">REQ-2026-0104 | Apex Auto Fleet Group (Transportation)</option>
+          <option value="REQ-2026-0105">REQ-2026-0105 | Hope Housing Alliance (Housing Nav)</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Masked Participant ID</label>
+        <input type="text" id="maskedIdDisplay" value="CNP-7304" readonly>
+      </div>
+
+      <div class="form-group">
+        <label>Update System Status Indicator</label>
+        <select id="statusIndicator">
+          <option>Open / Unassigned</option>
+          <option selected>Acknowledged - Taken Offline</option>
+          <option>Follow-Up Required</option>
+          <option>Resolved / Closed</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Offline Contact & Release Attestation</label>
+        <select>
+          <option selected>Yes - Offline Contact & Releases Handled Direct with Employee</option>
+          <option>Pending Direct Contact</option>
+        </select>
+      </div>
+
+      <button class="btn" onclick="alert('Ledger status successfully updated and timestamped!')">Save Ledger Status Update</button>
+      <button class="btn btn-primary" style="background-color: #64748b; margin-top: 8px;" onclick="returnToRole()">Return to Role</button>
+    </div>
+
+    <!-- VIEW 2: View Personal Metrics & Ledger -->
+    <div id="metricsView" class="view-panel">
+      <h3>CNL Request Volume & Resolution Performance Ledger (LGD-CNS-001)</h3>
+      <p style="font-size: 0.78rem; color: #64748b; margin-bottom: 12px;">Master operational tracking for Profile1 (CNL-Auto) — Apex Auto Fleet Group.</p>
+      
+      <div class="metric-grid">
+        <div class="metric-card">
+          <h4>Total Handled YTD</h4>
+          <p class="val">42</p>
+        </div>
+        <div class="metric-card">
+          <h4>Avg Resolution Time</h4>
+          <p class="val">3.2 Days</p>
+        </div>
+        <div class="metric-card">
+          <h4>Avg Feedback</h4>
+          <p class="val">4.9 / 5.0</p>
+        </div>
+      </div>
+
+      <div style="overflow-x: auto;">
+        <table>
+          <thead>
+            <tr>
+              <th>Request ID</th>
+              <th>Date</th>
+              <th>Masked ID</th>
+              <th>Category</th>
+              <th>Status</th>
+              <th>Days Open</th>
+              <th>Release?</th>
+              <th>Feedback</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>REQ-2026-0101</td>
+              <td>07/01</td>
+              <td>CNP-4012</td>
+              <td>Auto Buying</td>
+              <td><span style="color: green; font-weight: bold;">Resolved</span></td>
+              <td>3</td>
+              <td>Yes</td>
+              <td>5 - Excellent</td>
+            </tr>
+            <tr>
+              <td>REQ-2026-0104</td>
+              <td>07/18</td>
+              <td>CNP-7304</td>
+              <td>Transportation</td>
+              <td><span style="color: #0d9488; font-weight: bold;">Acknowledged</span></td>
+              <td>4 (Active)</td>
+              <td>Yes</td>
+              <td>Pending</td>
+            </tr>
+            <tr>
+              <td>REQ-2026-0112</td>
+              <td>07/22</td>
+              <td>CNP-9201</td>
+              <td>Fleet Transit</td>
+              <td><span style="color: green; font-weight: bold;">Resolved</span></td>
+              <td>2</td>
+              <td>Yes</td>
+              <td>5 - Excellent</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <button class="btn" onclick="returnToRole()">Return to Role</button>
+    </div>
+
+    <!-- Universal Home Navigation Footer -->
+    <div class="nav-footer">
+      <a href="index.html" class="btn" style="background-color: #64748b; width: 100%;">Return to Home Page / Role Gateway</a>
+    </div>
+
+  </div>
+
+  <script>
+    function showView(viewId) {
+      document.getElementById('actionMenuArea').style.display = 'none';
+      document.getElementById('mainMenuArea').style.display = 'none';
+      document.getElementById('requestUpdateView').style.display = 'none';
+      document.getElementById('metricsView').style.display = 'none';
+      
+      document.getElementById(viewId).style.display = 'block';
+    }
+
+    function returnToRole() {
+      document.getElementById('requestUpdateView').style.display = 'none';
+      document.getElementById('metricsView').style.display = 'none';
+      
+      document.getElementById('actionMenuArea').style.display = 'grid';
+      document.getElementById('mainMenuArea').style.display = 'block';
+    }
+
+    function loadRequestData() {
+      const selectElem = document.getElementById('activeReqSelect');
+      const maskedDisplay = document.getElementById('maskedIdDisplay');
+      if (selectElem.value === 'REQ-2026-0104') {
+        maskedDisplay.value = 'CNP-7304';
+      } else {
+        maskedDisplay.value = 'CNP-8119';
+      }
+    }
+  </script>
+
+</body>
+</html>

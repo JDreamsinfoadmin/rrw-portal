@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Retention-Ready Workplace™ Portal | Jan's Dreams</title>
+  <title>Role Gateway & Home | Jan's Dreams Mission Guardian™ Network</title>
   <style>
     :root {
       --primary: #1e3a8a;
@@ -30,116 +30,131 @@
       border-radius: 12px;
       box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
       width: 100%;
-      max-width: 750px;
+      max-width: 950px;
       padding: 30px;
       box-sizing: border-box;
     }
     .header {
       text-align: center;
-      margin-bottom: 25px;
-    }
-    .header img {
-      max-height: 55px;
-      margin-bottom: 12px;
+      margin-bottom: 20px;
     }
     .header h1 {
-      font-size: 1.25rem;
+      font-size: 1.4rem;
       color: var(--primary);
       margin: 0 0 5px 0;
     }
     .header p {
-      font-size: 0.85rem;
+      font-size: 0.9rem;
       color: #64748b;
       margin: 0;
     }
-    .section-box {
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 20px;
-      margin-bottom: 20px;
-      background: #ffffff;
-    }
-    .section-title {
-      font-weight: 700;
-      font-size: 0.9rem;
-      color: var(--primary);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      display: block;
-      margin-bottom: 12px;
-    }
-    label {
-      display: block;
-      font-size: 0.85rem;
-      font-weight: 600;
-      margin-bottom: 6px;
-    }
-    input[type="text"] {
-      width: 100%;
-      padding: 10px;
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      box-sizing: border-box;
-      font-size: 0.9rem;
-      margin-bottom: 12px;
-      background: #fff;
-    }
-    .btn {
-      background-color: var(--primary);
-      color: white;
-      border: none;
-      padding: 12px 20px;
-      border-radius: 6px;
-      font-size: 0.9rem;
-      font-weight: 600;
-      width: 100%;
-      cursor: pointer;
-      text-align: center;
-    }
-    .btn:hover {
-      opacity: 0.9;
-    }
-    .option-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    .option-list li {
-      background: #f8fafc;
-      border: 1px solid var(--border);
+    
+    /* Notices & Banners */
+    .crisis-banner {
+      background: #eff6ff;
+      border: 1px solid #3b82f6;
+      color: #1e40af;
       padding: 12px 15px;
       border-radius: 6px;
-      margin-bottom: 8px;
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: var(--primary);
+      font-size: 0.82rem;
+      margin-bottom: 15px;
+      text-align: center;
+      font-weight: 500;
     }
-    .sub-item-box {
-      background: #f8fafc;
+    .demo-notice {
+      background: #fef3c7;
+      border: 1px solid #f59e0b;
+      color: #92400e;
+      padding: 10px 15px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+    .accessibility-notice {
+      background: #f1f5f9;
       border: 1px solid var(--border);
+      color: #475569;
+      padding: 10px 15px;
       border-radius: 6px;
-      padding: 15px;
-      margin-top: 15px;
-      font-size: 0.85rem;
+      font-size: 0.78rem;
+      margin-bottom: 20px;
+      text-align: center;
     }
-    .alert-box {
-      background: #fef2f2;
-      border: 1px solid #fecaca;
-      color: #991b1b;
-      padding: 12px;
-      border-radius: 6px;
-      font-size: 0.825rem;
-      margin-top: 12px;
+
+    .section-title {
+      font-size: 1.05rem;
+      color: var(--primary);
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 6px;
+      margin-top: 25px;
+      margin-bottom: 15px;
     }
-    .script-box {
-      background: #f0fdf4;
-      border: 1px solid #bbf7d0;
-      color: #166534;
-      padding: 15px;
+
+    /* Role Grid Layout */
+    .role-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+    .role-card {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 18px;
+      background: #ffffff;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .role-card h3 {
+      font-size: 0.95rem;
+      color: var(--primary);
+      margin: 0 0 6px 0;
+    }
+    .role-card p {
+      font-size: 0.8rem;
+      color: #64748b;
+      margin: 0 0 15px 0;
+      line-height: 1.4;
+    }
+    
+    /* Card States */
+    .role-card.disabled {
+      background: #f1f5f9;
+      opacity: 0.65;
+      border-style: dashed;
+    }
+    .role-card.disabled h3 {
+      color: #64748b;
+    }
+
+    .btn {
+      background-color: var(--secondary);
+      color: white;
+      border: none;
+      padding: 9px 14px;
       border-radius: 6px;
-      font-size: 0.825rem;
-      margin-top: 12px;
-      line-height: 1.5;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .btn-primary { background-color: var(--primary); }
+    .btn-disabled { background-color: #94a3b8; cursor: not-allowed; }
+    .btn:hover:not(.btn-disabled) { opacity: 0.9; }
+
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      padding-top: 15px;
+      border-top: 1px solid var(--border);
+      font-size: 0.78rem;
+      color: #64748b;
     }
   </style>
 </head>
@@ -147,172 +162,119 @@
 
   <div class="container">
     <div class="header">
-      <img src="Logo Designed.png" alt="Jan's Dreams Logo" onerror="this.style.display='none'">
-      <h1>Jan's Dreams Administration & System Gateway</h1>
-      <p>Select Portal Entry Method</p>
+      <h1>Jan's Dreams Mission Guardian™ Network</h1>
+      <p>Retention-Ready™ Enterprise Architecture & Role Gateway</p>
     </div>
 
-    <!-- VIEW 1: HOME / LANDING SCREEN -->
-    <div id="homeView">
-      <!-- Option 1 -->
-      <div class="section-box" style="opacity: 0.6;">
-        <span class="section-title">1. Retention-Ready Certification™</span>
-        <p style="font-size: 0.8rem; color: #64748b; margin: 0 0 10px 0;">Status: Disabled in Demo Mode</p>
-        <input type="text" placeholder="Enter Access Code (Locked)" disabled>
-      </div>
-
-      <!-- Option 2 -->
-      <div class="section-box" style="border-color: var(--secondary); background: #f0fdfa;">
-        <span class="section-title" style="color: var(--secondary);">2. Retention-Ready Ecosystem™</span>
-        <label>Enter Access Code:</label>
-        <input type="text" id="accessCode" value="NMDWS-SANTAFE-01">
-        
-        <label style="margin-top: 15px;">Confirm Role and Employer Associated:</label>
-        <div style="background: #fff; border: 1px solid var(--border); padding: 12px; border-radius: 6px; font-size: 0.85rem; margin-bottom: 12px;">
-          <strong>Employer:</strong> NMDWS - Santa Fe Hub<br>
-          <strong>Select Role to Test:</strong>
-          <select id="roleSelector" style="width: 100%; margin-top: 8px; padding: 8px; border: 1px solid var(--border); border-radius: 4px; font-size: 0.85rem;">
-            <option value="EE">EE (Employee)</option>
-            <option value="ER">ER (Employer)</option>
-            <option value="Peer">Peer (Peer Support)</option>
-            <option value="Supervisor" selected>Supervisor</option>
-            <option value="CNP">CNP (Network Provider)</option>
-            <option value="Partner">Partner</option>
-          </select>
-        </div>
-        
-        <button class="btn" style="background-color: var(--secondary);" onclick="enterPortal()">Yes, Confirm & Enter</button>
-      </div>
+    <!-- 988 Crisis Support Banner -->
+    <div class="crisis-banner">
+      <strong>Need immediate support?</strong> If you or someone you know is facing a mental health or crisis emergency, call or text <strong>988</strong> (Free, Confidential, 24/7 Available Nationwide).
     </div>
 
-    <!-- VIEW 2: DYNAMIC ROLE DASHBOARD -->
-    <div id="dashboardView" style="display: none;">
-      <div class="section-box" style="border-color: var(--primary);">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-          <span class="section-title" id="dashTitle" style="margin-bottom: 0;">Active Role Dashboard</span>
-          <span style="font-size: 0.75rem; background: #e2e8f0; padding: 4px 8px; border-radius: 4px; font-weight: 600;" id="dashRoleTag">Role: Supervisor</span>
-        </div>
-        <p style="font-size: 0.825rem; color: #64748b; margin-bottom: 15px;">Associated Document & Guidance Workspace:</p>
-        
-        <!-- Menu list generated dynamically -->
-        <div id="roleContentArea"></div>
-
-        <button class="btn" style="background-color: #64748b; margin-top: 20px;" onclick="returnHome()">Return Home / Enter New Access Code</button>
-      </div>
+    <!-- Demo Replication Notice -->
+    <div class="demo-notice">
+      <strong>Architecture Demo Notice:</strong> This environment is a static logic and schema replication of the Jan's Dreams enterprise workflow. It is <strong>not</strong> connected to the live production database.
     </div>
-  </div>
 
-  <script>
-    function enterPortal() {
-      const role = document.getElementById('roleSelector').value;
-      const contentArea = document.getElementById('roleContentArea');
-      const dashTitle = document.getElementById('dashTitle');
-      const dashRoleTag = document.getElementById('dashRoleTag');
+    <!-- Accessibility Note -->
+    <div class="accessibility-notice">
+      <strong>Accessibility Commitment:</strong> Designed to meet WCAG 2.1 AA standards. Features high-contrast layouts, full keyboard navigation support, and clean structural hierarchies.
+    </div>
 
-      dashRoleTag.innerText = "Role: " + role;
+    <div class="section-title">Active Role & Portal Navigation</div>
+
+    <!-- Role Cards Grid -->
+    <div class="role-grid">
       
-      let htmlContent = '';
+      <!-- Role 8 -->
+      <div class="role-card">
+        <div>
+          <h3>Role 8: Employee Self-Advocacy</h3>
+          <p>Confidential intake, multi-select barrier routing, HUD/SDOH assessments, and 100% anonymized privacy guarantees.</p>
+        </div>
+        <a href="role8.html" class="btn">Launch Role 8 Portal</a>
+      </div>
 
-      if (role === 'EE') {
-        dashTitle.innerText = "Employee Self-Advocacy Portal";
-        htmlContent = `
-          <ul class="option-list">
-            <li>1. Submit Request for Service (Demo Mode)</li>
-          </ul>
-          <div class="sub-item-box">
-            <strong>Guidance Document: Self-Service Support Request</strong>
-            <p style="margin: 8px 0 0 0; color: #475569;">Allows workers to confidentially flag administrative barriers, onboarding lags, or workplace support requirements without fear of retaliation.</p>
-          </div>
-        `;
-      } else if (role === 'ER') {
-        dashTitle.innerText = "Employer Administration Portal";
-        htmlContent = `
-          <ul class="option-list">
-            <li>1. View Ledgers</li>
-          </ul>
-          <div class="sub-item-box">
-            <strong>Guidance Document: Master Organizational Compliance Ledger</strong>
-            <p style="margin: 8px 0 0 0; color: #475569;">Tracks privacy-masked organizational accommodation metrics, compliance audits, and WIOA Sec. 188 threshold metrics.</p>
-          </div>
-        `;
-      } else if (role === 'Peer') {
-        dashTitle.innerText = "Internal Peer Support Portal";
-        htmlContent = `
-          <ul class="option-list">
-            <li>1. View Peer Log</li>
-          </ul>
-          <div class="sub-item-box">
-            <strong>Guidance Document: Peer Support Engagement Log</strong>
-            <p style="margin: 8px 0 0 0; color: #475569;">Maintains records of non-clinical peer touchpoints, coaching touchpoints, and employee-led advocacy sessions.</p>
-          </div>
-        `;
-      } else if (role === 'Supervisor') {
-        dashTitle.innerText = "Objective Behavioral Observation & Intercept Form";
-        htmlContent = `
-          <ul class="option-list">
-            <li>1. Submit Incident Report</li>
-            <li>2. Access Compliance Steps</li>
-            <li>3. Review Restorative Script</li>
-          </ul>
+      <!-- Role 7 -->
+      <div class="role-card">
+        <div>
+          <h3>Role 7: Partner / Funder Network</h3>
+          <p>Ecosystem funder dashboards, aggregate program impact tracking, and capital allocation oversight.</p>
+        </div>
+        <a href="7.html" class="btn btn-primary">Launch Role 7 Portal</a>
+      </div>
 
-          <div class="sub-item-box">
-            <strong>Worker Identifier / Status</strong><br>
-            <span style="color: #64748b; font-size: 0.8rem;">Department / Facility: NMDWS Santa Fe Hub</span>
-            
-            <div style="margin-top: 12px; font-weight: 600;">Observed Workspace Impacts:</div>
-            <div style="font-size: 0.8rem; color: #334155; margin-top: 4px;">
-              [✔] Personal Hygiene / Clothing State Shift Observed<br>
-              <span style="color: #64748b; font-size: 0.75rem; margin-left: 15px;">Triggers objective accommodation workflow instead of character-based write-up.</span><br>
-              [✔] Altered Responsiveness / Unresponsive During Morning Briefing<br>
-              <span style="color: #64748b; font-size: 0.75rem; margin-left: 15px;">Screens for trauma or medication reaction vs. deliberate insubordination.</span>
-            </div>
+      <!-- Role 6 -->
+      <div class="role-card">
+        <div>
+          <h3>Role 6: Certified Network Liaison (CNL)</h3>
+          <p>Offline release verification (SUP-PRV-001), active barrier resolution, and secure community resource linkage.</p>
+        </div>
+        <a href="role6.html" class="btn">Launch Role 6 Portal</a>
+      </div>
 
-            <div class="alert-box">
-              <strong>🛡️ SYSTEM COMPLIANCE INTERCEPT ENGAGED</strong><br>
-              Automatic 90-day probationary termination is LOCKED OUT. Under WIOA Sec. 188 & Title I ADA regulations, terminating employees for physical symptoms of an unaddressed barrier opens $900k legal lawsuit exposure.<br><br>
-              <strong>System Action Executed:</strong> Generated Privacy-Masked Entry in Master Audit Ledger ("EE Declined Self-Identification").
-            </div>
+      <!-- Role 5 -->
+      <div class="role-card">
+        <div>
+          <h3>Role 5: Safety & Health Officer</h3>
+          <p>SHRM-accredited training compliance (TRN-PSY-001) and read-only firewall integrity audits (AUD-LIA-001).</p>
+        </div>
+        <a href="role5.html" class="btn btn-primary">Launch Role 5 Portal</a>
+      </div>
 
-            <div class="script-box">
-              <strong>📄 Restorative Dialogue Script (Supervisor Deployable):</strong><br><br>
-              "Thank you for taking a moment to sit down with me. I want to address a few recent workplace observations directly. Over the past few days, we noted specific changes in engagement that impact daily workflow. I want to be entirely clear: I am not making diagnoses, assumptions, or character judgments.<br><br>
-              Our goal is keeping you on the team. If there is an administrative accommodation or support resource we can align for you, we want to address that before any disciplinary path is taken."
-            </div>
-          </div>
-        `;
-      } else if (role === 'CNP') {
-        dashTitle.innerText = "Network Provider Portal";
-        htmlContent = `
-          <ul class="option-list">
-            <li>1. Update Service Request Status</li>
-          </ul>
-          <div class="sub-item-box">
-            <strong>Guidance Document: Provider Status Tracking Sheet</strong>
-            <p style="margin: 8px 0 0 0; color: #475569;">Enables community partners to update fulfillment milestones for active employee service requests.</p>
-          </div>
-        `;
-      } else if (role === 'Partner') {
-        dashTitle.innerText = "Network Liaison & Partner Portal";
-        htmlContent = `
-          <ul class="option-list">
-            <li>1. View Ledger</li>
-          </ul>
-          <div class="sub-item-box">
-            <strong>Guidance Document: Shared Ecosystem Liaison Ledger</strong>
-            <p style="margin: 8px 0 0 0; color: #475569;">Provides high-level visibility across regional service tiers and collaborative partner metrics.</p>
-          </div>
-        `;
-      }
+      <!-- Role 4 -->
+      <div class="role-card">
+        <div>
+          <h3>Role 4: Peer Support Navigator</h3>
+          <p>Non-clinical empathetic outreach (POL-RRW-004), trust building, and external SME warm handoff dispatching.</p>
+        </div>
+        <a href="role4.html" class="btn">Launch Role 4 Portal</a>
+      </div>
 
-      document.getElementById('homeView').style.display = 'none';
-      document.getElementById('dashboardView').style.display = 'block';
-    }
+      <!-- Role 3 -->
+      <div class="role-card">
+        <div>
+          <h3>Role 3: Supervisor / Frontline Lead</h3>
+          <p>Early distress observation, non-punitive restorative check-ins (Module 201), and write-up blocking safeguards.</p>
+        </div>
+        <a href="role3.html" class="btn btn-primary">Launch Role 3 Portal</a>
+      </div>
 
-    function returnHome() {
-      document.getElementById('dashboardView').style.display = 'none';
-      document.getElementById('homeView').style.display = 'block';
-    }
-  </script>
+    </div>
+
+    <div class="section-title">Restricted / Administrative Roles (Demo Preview)</div>
+
+    <!-- Greyed Out Admin Roles -->
+    <div class="role-grid">
+      
+      <div class="role-card disabled">
+        <div>
+          <h3>Enterprise Admin</h3>
+          <p>Global tenant management, security policy enforcement, and master system configurations.</p>
+        </div>
+        <button class="btn btn-disabled" disabled>Not Available in Demo</button>
+      </div>
+
+      <div class="role-card disabled">
+        <div>
+          <h3>Employer HR Management</h3>
+          <p>Traditional HR oversight, compliance audit reporting, and company-level workforce analytics.</p>
+        </div>
+        <button class="btn btn-disabled" disabled>Not Available in Demo</button>
+      </div>
+
+    </div>
+
+    <!-- Curriculum Portal Reference Note -->
+    <div style="background: #f8fafc; border: 1px solid var(--border); padding: 12px; border-radius: 6px; font-size: 0.8rem; color: #475569; text-align: center; margin-top: 15px;">
+      <em>Curriculum & Training Module Repository:</em> Fully integrated within Roles 5, 4, and 3 workflows under strict SHRM and DOL frameworks.
+    </div>
+
+    <div class="footer">
+      Jan’s Dreams Non-Profit Organization &copy; 2026. All rights reserved. | Mission Guardian™ Architecture
+    </div>
+
+  </div>
 
 </body>
 </html>

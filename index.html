@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Role Gateway & Home | Jan's Dreams Mission Guardian™ Network</title>
+  <title>Retention-Ready Ecosystem™ | Secure Access Gateway</title>
   <style>
     :root {
       --primary: #1e3a8a;
@@ -30,13 +30,13 @@
       border-radius: 12px;
       box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
       width: 100%;
-      max-width: 950px;
-      padding: 30px;
+      max-width: 900px;
+      padding: 35px;
       box-sizing: border-box;
     }
     .header {
       text-align: center;
-      margin-bottom: 20px;
+      margin-bottom: 25px;
     }
     .header h1 {
       font-size: 1.4rem;
@@ -48,106 +48,100 @@
       color: #64748b;
       margin: 0;
     }
-    
-    /* Notices & Banners */
-    .crisis-banner {
+    .notice-box {
       background: #eff6ff;
-      border: 1px solid #3b82f6;
+      border: 1px solid #bfdbfe;
+      padding: 15px;
+      border-radius: 8px;
+      font-size: 0.85rem;
       color: #1e40af;
-      padding: 12px 15px;
-      border-radius: 6px;
-      font-size: 0.82rem;
-      margin-bottom: 15px;
+      margin-bottom: 25px;
       text-align: center;
-      font-weight: 500;
+      line-height: 1.5;
     }
-    .demo-notice {
-      background: #fef3c7;
-      border: 1px solid #f59e0b;
-      color: #92400e;
-      padding: 10px 15px;
+    .error-box {
+      background: #ffeeec;
+      border: 1px solid #f98080;
+      color: #9b1c1c;
+      padding: 12px;
       border-radius: 6px;
-      font-size: 0.8rem;
+      font-size: 0.85rem;
       margin-bottom: 15px;
+      display: none;
       text-align: center;
     }
-    .accessibility-notice {
-      background: #f1f5f9;
-      border: 1px solid var(--border);
-      color: #475569;
-      padding: 10px 15px;
-      border-radius: 6px;
-      font-size: 0.78rem;
+    .form-group {
       margin-bottom: 20px;
-      text-align: center;
     }
-
-    .section-title {
-      font-size: 1.05rem;
+    .form-group label {
+      display: block;
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-bottom: 8px;
       color: var(--primary);
-      border-bottom: 2px solid var(--border);
-      padding-bottom: 6px;
-      margin-top: 25px;
-      margin-bottom: 15px;
+    }
+    .form-control {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-size: 1rem;
+      box-sizing: border-box;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .btn {
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 6px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      width: 100%;
+      cursor: pointer;
+    }
+    .btn:hover { opacity: 0.9; }
+    .btn-secondary {
+      background-color: #64748b;
+      margin-top: 15px;
     }
 
-    /* Role Grid Layout */
-    .role-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 15px;
-      margin-bottom: 20px;
+    /* Portal Dashboards */
+    .dashboard-section {
+      display: none;
     }
-    .role-card {
+    .resource-card {
       border: 1px solid var(--border);
       border-radius: 8px;
       padding: 18px;
+      margin-bottom: 15px;
       background: #ffffff;
       display: flex;
-      flex-direction: column;
       justify-content: space-between;
+      align-items: center;
     }
-    .role-card h3 {
-      font-size: 0.95rem;
+    .resource-info h3 {
+      font-size: 1rem;
       color: var(--primary);
-      margin: 0 0 6px 0;
+      margin: 0 0 5px 0;
     }
-    .role-card p {
+    .resource-info p {
       font-size: 0.8rem;
       color: #64748b;
-      margin: 0 0 15px 0;
-      line-height: 1.4;
+      margin: 0;
     }
-    
-    /* Card States */
-    .role-card.disabled {
-      background: #f1f5f9;
-      opacity: 0.65;
-      border-style: dashed;
-    }
-    .role-card.disabled h3 {
-      color: #64748b;
-    }
-
-    .btn {
+    .link-btn {
       background-color: var(--secondary);
       color: white;
-      border: none;
-      padding: 9px 14px;
-      border-radius: 6px;
-      font-size: 0.82rem;
-      font-weight: 600;
-      cursor: pointer;
-      text-align: center;
       text-decoration: none;
-      display: inline-block;
-      width: 100%;
-      box-sizing: border-box;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      white-space: nowrap;
     }
-    .btn-primary { background-color: var(--primary); }
-    .btn-disabled { background-color: #94a3b8; cursor: not-allowed; }
-    .btn:hover:not(.btn-disabled) { opacity: 0.9; }
-
+    .link-btn:hover { opacity: 0.9; }
     .footer {
       text-align: center;
       margin-top: 30px;
@@ -162,112 +156,141 @@
 
   <div class="container">
     <div class="header">
-      <h1>Jan's Dreams Mission Guardian™ Network</h1>
-      <p>Retention-Ready™ Enterprise Architecture & Role Gateway</p>
+      <h1>Jan's Dreams Executive Portal</h1>
+      <p>Retention-Ready Ecosystem™ Secure Access Gateway</p>
     </div>
 
-    <!-- 988 Crisis Support Banner -->
-    <div class="crisis-banner">
-      <strong>Need immediate support?</strong> If you or someone you know is facing a mental health or crisis emergency, call or text <strong>988</strong> (Free, Confidential, 24/7 Available Nationwide).
+    <!-- ACCESS CODE GATEWAY FORM -->
+    <div id="gatewaySection">
+      <div class="notice-box">
+        <strong>SECURE ACCESS REQUIRED:</strong> Please enter your authorized access key below to enter the evaluation portal. Your session and credentials will be logged for administrative metadata tracking.
+      </div>
+
+      <div id="errorMsg" class="error-box">Invalid Access Key. Please check your code and try again.</div>
+
+      <form id="accessForm">
+        <div class="form-group">
+          <label for="accessKey">Enter Access Key:</label>
+          <input type="text" id="accessKey" class="form-control" placeholder="e.g. SPORREDEMO26" required>
+        </div>
+        <button type="submit" class="btn">Authenticate & Enter Portal</button>
+      </form>
     </div>
 
-    <!-- Demo Replication Notice -->
-    <div class="demo-notice">
-      <strong>Architecture Demo Notice:</strong> This environment is a static logic and schema replication of the Jan's Dreams enterprise workflow. It is <strong>not</strong> connected to the live production database.
+    <!-- INTERNAL DASHBOARD (Shown for SPORREDEMO26 & DWSRREDEMO26) -->
+    <div id="internalDashboard" class="dashboard-section">
+      <div style="background: #f0fdf4; border: 1px solid #bbf7d0; padding: 15px; border-radius: 8px; margin-bottom: 20px; text-align: center;">
+        <h2 style="color: #166534; margin: 0 0 5px 0; font-size: 1.1rem;">Authorized Access: Internal Government Directory</h2>
+        <p style="margin: 0; font-size: 0.85rem; color: #15803d;">Select a document or resource below to begin your review.</p>
+      </div>
+
+      <div class="resource-card">
+        <div class="resource-info">
+          <h3>Proposal</h3>
+          <p>Comprehensive operational proposal and structural framework.</p>
+        </div>
+        <a href="Internal_Proposal_RRE.pdf" target="_blank" class="link-btn">Open Document</a>
+      </div>
+
+      <div class="resource-card">
+        <div class="resource-info">
+          <h3>Supplemental Documents</h3>
+          <p>Supporting administrative exhibits and background data.</p>
+        </div>
+        <a href="Internal_Supplemental_Documents_RRE.pdf" target="_blank" class="link-btn">Open Document</a>
+      </div>
+
+      <div class="resource-card">
+        <div class="resource-info">
+          <h3>Curriculum</h3>
+          <p>Detailed module outlines, training tracks, and certifications.</p>
+        </div>
+        <a href="Certifications_Curriculum_RRW_External.pdf" target="_blank" class="link-btn">Open Document</a>
+      </div>
+
+      <div class="resource-card">
+        <div class="resource-info">
+          <h3>Powerpoint Presentation Printout</h3>
+          <p>Visual slide deck printout for leadership and audit reviews.</p>
+        </div>
+        <a href="07_Internal_RRE_Presentation.pdf" target="_blank" class="link-btn">Open Document</a>
+      </div>
+
+      <div class="resource-card">
+        <div class="resource-info">
+          <h3>Activate RRE Adoption</h3>
+          <p>Onboarding activation instructions and committee guidelines.</p>
+        </div>
+        <a href="RRE_Activation_External.pdf" target="_blank" class="link-btn">Open Document</a>
+      </div>
+
+      <div class="resource-card">
+        <div class="resource-info">
+          <h3>System Demo</h3>
+          <p>Launch the standalone interactive database compliance demo.</p>
+        </div>
+        <a href="https://jdreamsinfoadmin.github.io/rrw-portal/index.html" target="_blank" class="link-btn" style="background-color: var(--primary);">Launch System Demo</a>
+      </div>
+
+      <div class="resource-card">
+        <div class="resource-info">
+          <h3>Is your workplace psychologically safe?</h3>
+          <p>Complete the interactive baseline diagnostic audit.</p>
+        </div>
+        <a href="demo_audit.html" class="link-btn" style="background-color: var(--primary);">Take Audit</a>
+      </div>
+
+      <button onclick="resetPortal()" class="btn btn-secondary">Switch Access Key / Log Out</button>
     </div>
 
-    <!-- Accessibility Note -->
-    <div class="accessibility-notice">
-      <strong>Accessibility Commitment:</strong> Designed to meet WCAG 2.1 AA standards. Features high-contrast layouts, full keyboard navigation support, and clean structural hierarchies.
-    </div>
-
-    <div class="section-title">Active Role & Portal Navigation</div>
-
-    <!-- Role Cards Grid -->
-    <div class="role-grid">
-      
-      <!-- Role 8 -->
-      <div class="role-card">
-        <div>
-          <h3>Role 8: Employee Self-Advocacy</h3>
-          <p>Confidential intake, multi-select barrier routing, HUD/SDOH assessments, and 100% anonymized privacy guarantees.</p>
-        </div>
-        <a href="role8.html" class="btn">Launch Role 8 Portal</a>
+    <!-- EXTERNAL DASHBOARD (Shown for EXTSPORRE26 & EXTDWSRRE26) -->
+    <div id="externalDashboard" class="dashboard-section">
+      <div style="background: #f0fdf4; border: 1px solid #bbf7d0; padding: 15px; border-radius: 8px; margin-bottom: 20px; text-align: center;">
+        <h2 style="color: #166534; margin: 0 0 5px 0; font-size: 1.1rem;">Authorized Access: Employer Partner Directory</h2>
+        <p style="margin: 0; font-size: 0.85rem; color: #15803d;">Select a resource below to review core program materials.</p>
       </div>
 
-      <!-- Role 7 -->
-      <div class="role-card">
-        <div>
-          <h3>Role 7: Partner / Funder Network</h3>
-          <p>Ecosystem funder dashboards, aggregate program impact tracking, and capital allocation oversight.</p>
+      <div class="resource-card">
+        <div class="resource-info">
+          <h3>RRE/RRW Basics</h3>
+          <p>Core foundational principles and introductory framework guide.</p>
         </div>
-        <a href="7.html" class="btn btn-primary">Launch Role 7 Portal</a>
+        <a href="RRW-RRE_Basics_External.pdf" target="_blank" class="link-btn">Open Document</a>
       </div>
 
-      <!-- Role 6 -->
-      <div class="role-card">
-        <div>
-          <h3>Role 6: Certified Network Liaison (CNL)</h3>
-          <p>Offline release verification (SUP-PRV-001), active barrier resolution, and secure community resource linkage.</p>
+      <div class="resource-card">
+        <div class="resource-info">
+          <h3>Curriculum</h3>
+          <p>Detailed module outlines, training tracks, and certifications.</p>
         </div>
-        <a href="role6.html" class="btn">Launch Role 6 Portal</a>
+        <a href="Certifications_Curriculum_RRW_External.pdf" target="_blank" class="link-btn">Open Document</a>
       </div>
 
-      <!-- Role 5 -->
-      <div class="role-card">
-        <div>
-          <h3>Role 5: Safety & Health Officer</h3>
-          <p>SHRM-accredited training compliance (TRN-PSY-001) and read-only firewall integrity audits (AUD-LIA-001).</p>
+      <div class="resource-card">
+        <div class="resource-info">
+          <h3>Activate RRE Adoption</h3>
+          <p>Onboarding activation instructions and committee guidelines.</p>
         </div>
-        <a href="role5.html" class="btn btn-primary">Launch Role 5 Portal</a>
+        <a href="RRE_Activation_External.pdf" target="_blank" class="link-btn">Open Document</a>
       </div>
 
-      <!-- Role 4 -->
-      <div class="role-card">
-        <div>
-          <h3>Role 4: Peer Support Navigator</h3>
-          <p>Non-clinical empathetic outreach (POL-RRW-004), trust building, and external SME warm handoff dispatching.</p>
+      <div class="resource-card">
+        <div class="resource-info">
+          <h3>System Demo</h3>
+          <p>Launch the standalone interactive database compliance demo.</p>
         </div>
-        <a href="role4.html" class="btn">Launch Role 4 Portal</a>
+        <a href="https://jdreamsinfoadmin.github.io/rrw-portal/index.html" target="_blank" class="link-btn" style="background-color: var(--primary);">Launch System Demo</a>
       </div>
 
-      <!-- Role 3 -->
-      <div class="role-card">
-        <div>
-          <h3>Role 3: Supervisor / Frontline Lead</h3>
-          <p>Early distress observation, non-punitive restorative check-ins (Module 201), and write-up blocking safeguards.</p>
+      <div class="resource-card">
+        <div class="resource-info">
+          <h3>Is your workplace psychologically safe?</h3>
+          <p>Complete the interactive baseline diagnostic audit.</p>
         </div>
-        <a href="role3.html" class="btn btn-primary">Launch Role 3 Portal</a>
+        <a href="demo_audit.html" class="link-btn" style="background-color: var(--primary);">Take Audit</a>
       </div>
 
-    </div>
-
-    <div class="section-title">Restricted / Administrative Roles (Demo Preview)</div>
-
-    <!-- Greyed Out Admin Roles -->
-    <div class="role-grid">
-      
-      <div class="role-card disabled">
-        <div>
-          <h3>Enterprise Admin</h3>
-          <p>Global tenant management, security policy enforcement, and master system configurations.</p>
-        </div>
-        <button class="btn btn-disabled" disabled>Not Available in Demo</button>
-      </div>
-
-      <div class="role-card disabled">
-        <div>
-          <h3>Employer HR Management</h3>
-          <p>Traditional HR oversight, compliance audit reporting, and company-level workforce analytics.</p>
-        </div>
-        <button class="btn btn-disabled" disabled>Not Available in Demo</button>
-      </div>
-
-    </div>
-
-    <!-- Curriculum Portal Reference Note -->
-    <div style="background: #f8fafc; border: 1px solid var(--border); padding: 12px; border-radius: 6px; font-size: 0.8rem; color: #475569; text-align: center; margin-top: 15px;">
-      <em>Curriculum & Training Module Repository:</em> Fully integrated within Roles 5, 4, and 3 workflows under strict SHRM and DOL frameworks.
+      <button onclick="resetPortal()" class="btn btn-secondary">Switch Access Key / Log Out</button>
     </div>
 
     <div class="footer">
@@ -275,6 +298,64 @@
     </div>
 
   </div>
+
+  <script>
+    document.getElementById('accessForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const code = document.getElementById('accessKey').value.trim().toUpperCase();
+      const errorDiv = document.getElementById('errorMsg');
+
+      // Metadata tracking submission to Formspree endpoint in the background
+      const formData = new FormData();
+      formData.append('email', 'access-tracker@jansdreams.org');
+      formData.append('message', 'User accessed portal with access code: ' + code);
+      formData.append('access_code', code);
+
+      fetch('https://formspree.io/f/meeyyonj', {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      }).catch(err => console.log('Metadata tracking logged'));
+
+      // Validate codes and route screens
+      if (code === 'SPORREDEMO26' || code === 'DWSRREDEMO26') {
+        errorDiv.style.display = 'none';
+        document.getElementById('gatewaySection').style.display = 'none';
+        document.getElementById('internalDashboard').style.display = 'block';
+        localStorage.setItem('activeAccessCode', code);
+      } else if (code === 'EXTSPORRE26' || code === 'EXTDWSRRE26') {
+        errorDiv.style.display = 'none';
+        document.getElementById('gatewaySection').style.display = 'none';
+        document.getElementById('externalDashboard').style.display = 'block';
+        localStorage.setItem('activeAccessCode', code);
+      } else {
+        errorDiv.style.display = 'block';
+      }
+    });
+
+    function resetPortal() {
+      localStorage.removeItem('activeAccessCode');
+      document.getElementById('internalDashboard').style.display = 'none';
+      document.getElementById('externalDashboard').style.display = 'none';
+      document.getElementById('gatewaySection').style.display = 'block';
+      document.getElementById('accessKey').value = '';
+    }
+
+    // Auto-login if session already verified on this browser
+    window.onload = function() {
+      const savedCode = localStorage.getItem('activeAccessCode');
+      if (savedCode) {
+        document.getElementById('accessKey').value = savedCode;
+        if (savedCode === 'SPORREDEMO26' || savedCode === 'DWSRREDEMO26') {
+          document.getElementById('gatewaySection').style.display = 'none';
+          document.getElementById('internalDashboard').style.display = 'block';
+        } else if (savedCode === 'EXTSPORRE26' || savedCode === 'EXTDWSRRE26') {
+          document.getElementById('gatewaySection').style.display = 'none';
+          document.getElementById('externalDashboard').style.display = 'block';
+        }
+      }
+    };
+  </script>
 
 </body>
 </html>

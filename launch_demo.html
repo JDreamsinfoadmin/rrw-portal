@@ -1,280 +1,280 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Role Gateway & Home | Jan's Dreams Mission Guardian™ Network</title>
-  <style>
-    :root {
-      --primary: #1e3a8a;
-      --secondary: #0d9488;
-      --bg: #f8fafc;
-      --card-bg: #ffffff;
-      --text: #1e293b;
-      --border: #cbd5e1;
-    }
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background-color: var(--bg);
-      color: var(--text);
-      margin: 0;
-      padding: 20px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-    }
-    .container {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-      width: 100%;
-      max-width: 950px;
-      padding: 30px;
-      box-sizing: border-box;
-    }
-    .header {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-    .header h1 {
-      font-size: 1.4rem;
-      color: var(--primary);
-      margin: 0 0 5px 0;
-    }
-    .header p {
-      font-size: 0.9rem;
-      color: #64748b;
-      margin: 0;
-    }
-    
-    /* Notices & Banners */
-    .crisis-banner {
-      background: #eff6ff;
-      border: 1px solid #3b82f6;
-      color: #1e40af;
-      padding: 12px 15px;
-      border-radius: 6px;
-      font-size: 0.82rem;
-      margin-bottom: 15px;
-      text-align: center;
-      font-weight: 500;
-    }
-    .demo-notice {
-      background: #fef3c7;
-      border: 1px solid #f59e0b;
-      color: #92400e;
-      padding: 10px 15px;
-      border-radius: 6px;
-      font-size: 0.8rem;
-      margin-bottom: 15px;
-      text-align: center;
-    }
-    .accessibility-notice {
-      background: #f1f5f9;
-      border: 1px solid var(--border);
-      color: #475569;
-      padding: 10px 15px;
-      border-radius: 6px;
-      font-size: 0.78rem;
-      margin-bottom: 20px;
-      text-align: center;
-    }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Role Gateway & Home | Jan's Dreams Mission Guardian™ Network</title>
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --secondary: #0d9488;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #1e293b;
+      --border: #cbd5e1;
+    }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .container {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+      width: 100%;
+      max-width: 950px;
+      padding: 30px;
+      box-sizing: border-box;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .header h1 {
+      font-size: 1.4rem;
+      color: var(--primary);
+      margin: 0 0 5px 0;
+    }
+    .header p {
+      font-size: 0.9rem;
+      color: #64748b;
+      margin: 0;
+    }
+    
+    /* Notices & Banners */
+    .crisis-banner {
+      background: #eff6ff;
+      border: 1px solid #3b82f6;
+      color: #1e40af;
+      padding: 12px 15px;
+      border-radius: 6px;
+      font-size: 0.82rem;
+      margin-bottom: 15px;
+      text-align: center;
+      font-weight: 500;
+    }
+    .demo-notice {
+      background: #fef3c7;
+      border: 1px solid #f59e0b;
+      color: #92400e;
+      padding: 10px 15px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+    .accessibility-notice {
+      background: #f1f5f9;
+      border: 1px solid var(--border);
+      color: #475569;
+      padding: 10px 15px;
+      border-radius: 6px;
+      font-size: 0.78rem;
+      margin-bottom: 20px;
+      text-align: center;
+    }
 
-    .section-title {
-      font-size: 1.05rem;
-      color: var(--primary);
-      border-bottom: 2px solid var(--border);
-      padding-bottom: 6px;
-      margin-top: 25px;
-      margin-bottom: 15px;
-    }
+    .section-title {
+      font-size: 1.05rem;
+      color: var(--primary);
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 6px;
+      margin-top: 25px;
+      margin-bottom: 15px;
+    }
 
-    /* Role Grid Layout */
-    .role-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 15px;
-      margin-bottom: 20px;
-    }
-    .role-card {
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 18px;
-      background: #ffffff;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    .role-card h3 {
-      font-size: 0.95rem;
-      color: var(--primary);
-      margin: 0 0 6px 0;
-    }
-    .role-card p {
-      font-size: 0.8rem;
-      color: #64748b;
-      margin: 0 0 15px 0;
-      line-height: 1.4;
-    }
-    
-    /* Card States */
-    .role-card.disabled {
-      background: #f1f5f9;
-      opacity: 0.65;
-      border-style: dashed;
-    }
-    .role-card.disabled h3 {
-      color: #64748b;
-    }
+    /* Role Grid Layout */
+    .role-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+    .role-card {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 18px;
+      background: #ffffff;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .role-card h3 {
+      font-size: 0.95rem;
+      color: var(--primary);
+      margin: 0 0 6px 0;
+    }
+    .role-card p {
+      font-size: 0.8rem;
+      color: #64748b;
+      margin: 0 0 15px 0;
+      line-height: 1.4;
+    }
+    
+    /* Card States */
+    .role-card.disabled {
+      background: #f1f5f9;
+      opacity: 0.65;
+      border-style: dashed;
+    }
+    .role-card.disabled h3 {
+      color: #64748b;
+    }
 
-    .btn {
-      background-color: var(--secondary);
-      color: white;
-      border: none;
-      padding: 9px 14px;
-      border-radius: 6px;
-      font-size: 0.82rem;
-      font-weight: 600;
-      cursor: pointer;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      width: 100%;
-      box-sizing: border-box;
-    }
-    .btn-primary { background-color: var(--primary); }
-    .btn-disabled { background-color: #94a3b8; cursor: not-allowed; }
-    .btn:hover:not(.btn-disabled) { opacity: 0.9; }
+    .btn {
+      background-color: var(--secondary);
+      color: white;
+      border: none;
+      padding: 9px 14px;
+      border-radius: 6px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .btn-primary { background-color: var(--primary); }
+    .btn-disabled { background-color: #94a3b8; cursor: not-allowed; }
+    .btn:hover:not(.btn-disabled) { opacity: 0.9; }
 
-    .footer {
-      text-align: center;
-      margin-top: 30px;
-      padding-top: 15px;
-      border-top: 1px solid var(--border);
-      font-size: 0.78rem;
-      color: #64748b;
-    }
-  </style>
+    .footer {
+      text-align: center;
+      margin-top: 30px;
+      padding-top: 15px;
+      border-top: 1px solid var(--border);
+      font-size: 0.78rem;
+      color: #64748b;
+    }
+  </style>
 </head>
 <body>
 
-  <div class="container">
-    <div class="header">
-      <h1>Jan's Dreams Mission Guardian™ Network</h1>
-      <p>Retention-Ready™ Enterprise Architecture & Role Gateway</p>
-    </div>
+  <div class="container">
+    <div class="header">
+      <h1>Jan's Dreams Mission Guardian™ Network</h1>
+      <p>Retention-Ready™ Enterprise Architecture & Role Gateway</p>
+    </div>
 
-    <!-- 988 Crisis Support Banner -->
-    <div class="crisis-banner">
-      <strong>Need immediate support?</strong> If you or someone you know is facing a mental health or crisis emergency, call or text <strong>988</strong> (Free, Confidential, 24/7 Available Nationwide).
-    </div>
+    <!-- 988 Crisis Support Banner -->
+    <div class="crisis-banner">
+      <strong>Need immediate support?</strong> If you or someone you know is facing a mental health or crisis emergency, call or text <strong>988</strong> (Free, Confidential, 24/7 Available Nationwide).
+    </div>
 
-    <!-- Demo Replication Notice -->
-    <div class="demo-notice">
-      <strong>Architecture Demo Notice:</strong> This environment is a static logic and schema replication of the Jan's Dreams enterprise workflow. It is <strong>not</strong> connected to the live production database.
-    </div>
+    <!-- Demo Replication Notice -->
+    <div class="demo-notice">
+      <strong>Architecture Demo Notice:</strong> This environment is a static logic and schema replication of the Jan's Dreams enterprise workflow. It is <strong>not</strong> connected to the live production database.
+    </div>
 
-    <!-- Accessibility Note -->
-    <div class="accessibility-notice">
-      <strong>Accessibility Commitment:</strong> Designed to meet WCAG 2.1 AA standards. Features high-contrast layouts, full keyboard navigation support, and clean structural hierarchies.
-    </div>
+    <!-- Accessibility Note -->
+    <div class="accessibility-notice">
+      <strong>Accessibility Commitment:</strong> Designed to meet WCAG 2.1 AA standards. Features high-contrast layouts, full keyboard navigation support, and clean structural hierarchies.
+    </div>
 
-    <div class="section-title">Active Role & Portal Navigation</div>
+    <div class="section-title">Active Role & Portal Navigation</div>
 
-    <!-- Role Cards Grid -->
-    <div class="role-grid">
-      
-      <!-- Role 8 -->
-      <div class="role-card">
-        <div>
-          <h3>Role 8: Employee Self-Advocacy</h3>
-          <p>Confidential intake, multi-select barrier routing, HUD/SDOH assessments, and 100% anonymized privacy guarantees.</p>
-        </div>
-        <a href="role8.html" class="btn">Launch Role 8 Portal</a>
-      </div>
+    <!-- Role Cards Grid -->
+    <div class="role-grid">
+      
+      <!-- Role 8 -->
+      <div class="role-card">
+        <div>
+          <h3>Role 8: Employee Self-Advocacy</h3>
+          <p>Confidential intake, multi-select barrier routing, HUD/SDOH assessments, and 100% anonymized privacy guarantees.</p>
+        </div>
+        <a href="role8.html" class="btn">Launch Role 8 Portal</a>
+      </div>
 
-      <!-- Role 7 -->
-      <div class="role-card">
-        <div>
-          <h3>Role 7: Partner / Funder Network</h3>
-          <p>Ecosystem funder dashboards, aggregate program impact tracking, and capital allocation oversight.</p>
-        </div>
-        <a href="7.html" class="btn btn-primary">Launch Role 7 Portal</a>
-      </div>
+      <!-- Role 7 -->
+      <div class="role-card">
+        <div>
+          <h3>Role 7: Partner / Funder Network</h3>
+          <p>Ecosystem funder dashboards, aggregate program impact tracking, and capital allocation oversight.</p>
+        </div>
+        <a href="7.html" class="btn btn-primary">Launch Role 7 Portal</a>
+      </div>
 
-      <!-- Role 6 -->
-      <div class="role-card">
-        <div>
-          <h3>Role 6: Certified Network Liaison (CNL)</h3>
-          <p>Offline release verification (SUP-PRV-001), active barrier resolution, and secure community resource linkage.</p>
-        </div>
-        <a href="role6.html" class="btn">Launch Role 6 Portal</a>
-      </div>
+      <!-- Role 6 -->
+      <div class="role-card">
+        <div>
+          <h3>Role 6: Certified Network Liaison (CNL)</h3>
+          <p>Offline release verification (SUP-PRV-001), active barrier resolution, and secure community resource linkage.</p>
+        </div>
+        <a href="role6.html" class="btn">Launch Role 6 Portal</a>
+      </div>
 
-      <!-- Role 5 -->
-      <div class="role-card">
-        <div>
-          <h3>Role 5: Safety & Health Officer</h3>
-          <p>SHRM-accredited training compliance (TRN-PSY-001) and read-only firewall integrity audits (AUD-LIA-001).</p>
-        </div>
-        <a href="role5.html" class="btn btn-primary">Launch Role 5 Portal</a>
-      </div>
+      <!-- Role 5 -->
+      <div class="role-card">
+        <div>
+          <h3>Role 5: Safety & Health Officer</h3>
+          <p>SHRM-accredited training compliance (TRN-PSY-001) and read-only firewall integrity audits (AUD-LIA-001).</p>
+        </div>
+        <a href="role5.html" class="btn btn-primary">Launch Role 5 Portal</a>
+      </div>
 
-      <!-- Role 4 -->
-      <div class="role-card">
-        <div>
-          <h3>Role 4: Peer Support Navigator</h3>
-          <p>Non-clinical empathetic outreach (POL-RRW-004), trust building, and external SME warm handoff dispatching.</p>
-        </div>
-        <a href="role4.html" class="btn">Launch Role 4 Portal</a>
-      </div>
+      <!-- Role 4 -->
+      <div class="role-card">
+        <div>
+          <h3>Role 4: Peer Support Navigator</h3>
+          <p>Non-clinical empathetic outreach (POL-RRW-004), trust building, and external SME warm handoff dispatching.</p>
+        </div>
+        <a href="role4.html" class="btn">Launch Role 4 Portal</a>
+      </div>
 
-      <!-- Role 3 -->
-      <div class="role-card">
-        <div>
-          <h3>Role 3: Supervisor / Frontline Lead</h3>
-          <p>Early distress observation, non-punitive restorative check-ins (Module 201), and write-up blocking safeguards.</p>
-        </div>
-        <a href="role3.html" class="btn btn-primary">Launch Role 3 Portal</a>
-      </div>
+      <!-- Role 3 -->
+      <div class="role-card">
+        <div>
+          <h3>Role 3: Supervisor / Frontline Lead</h3>
+          <p>Early distress observation, non-punitive restorative check-ins (Module 201), and write-up blocking safeguards.</p>
+        </div>
+        <a href="role3.html" class="btn btn-primary">Launch Role 3 Portal</a>
+      </div>
 
-    </div>
+    </div>
 
-    <div class="section-title">Restricted / Administrative Roles (Demo Preview)</div>
+    <div class="section-title">Restricted / Administrative Roles (Demo Preview)</div>
 
-    <!-- Greyed Out Admin Roles -->
-    <div class="role-grid">
-      
-      <div class="role-card disabled">
-        <div>
-          <h3>Enterprise Admin</h3>
-          <p>Global tenant management, security policy enforcement, and master system configurations.</p>
-        </div>
-        <button class="btn btn-disabled" disabled>Not Available in Demo</button>
-      </div>
+    <!-- Greyed Out Admin Roles -->
+    <div class="role-grid">
+      
+      <div class="role-card disabled">
+        <div>
+          <h3>Enterprise Admin</h3>
+          <p>Global tenant management, security policy enforcement, and master system configurations.</p>
+        </div>
+        <button class="btn btn-disabled" disabled>Not Available in Demo</button>
+      </div>
 
-      <div class="role-card disabled">
-        <div>
-          <h3>Employer HR Management</h3>
-          <p>Traditional HR oversight, compliance audit reporting, and company-level workforce analytics.</p>
-        </div>
-        <button class="btn btn-disabled" disabled>Not Available in Demo</button>
-      </div>
+      <div class="role-card disabled">
+        <div>
+          <h3>Employer HR Management</h3>
+          <p>Traditional HR oversight, compliance audit reporting, and company-level workforce analytics.</p>
+        </div>
+        <button class="btn btn-disabled" disabled>Not Available in Demo</button>
+      </div>
 
-    </div>
+    </div>
 
-    <!-- Curriculum Portal Reference Note -->
-    <div style="background: #f8fafc; border: 1px solid var(--border); padding: 12px; border-radius: 6px; font-size: 0.8rem; color: #475569; text-align: center; margin-top: 15px;">
-      <em>Curriculum & Training Module Repository:</em> Fully integrated within Roles 5, 4, and 3 workflows under strict SHRM and DOL frameworks.
-    </div>
+    <!-- Curriculum Portal Reference Note -->
+    <div style="background: #f8fafc; border: 1px solid var(--border); padding: 12px; border-radius: 6px; font-size: 0.8rem; color: #475569; text-align: center; margin-top: 15px;">
+      <em>Curriculum & Training Module Repository:</em> Fully integrated within Roles 5, 4, and 3 workflows under strict SHRM and DOL frameworks.
+    </div>
 
-    <div class="footer">
-      Jan’s Dreams Non-Profit Organization &copy; 2026. All rights reserved. | Mission Guardian™ Architecture
-    </div>
+    <div class="footer">
+      Jan’s Dreams Non-Profit Organization &copy; 2026. All rights reserved. | Mission Guardian™ Architecture
+    </div>
 
-  </div>
+  </div>
 
 </body>
 </html>

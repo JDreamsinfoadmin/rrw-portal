@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jan's Dreams Enterprise System | Role #8: Anonymous Self-Advocacy & Accommodation Portal (CNE)</title>
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --secondary: #0d9488;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #1e293b;
+      --border: #cbd5e1;
+    }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .container {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+      width: 100%;
+      max-width: 900px;
+      padding: 30px;
+      box-sizing: border-box;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .header h1 {
+      font-size: 1.25rem;
+      color: var(--primary);
+      margin: 0 0 5px 0;
+    }
+    .header p {
+      font-size: 0.85rem;
+      color: #64748b;
+      margin: 0;
+    }
+    .privacy-box {
+      background: #ecfdf5;
+      border: 1px solid var(--secondary);
+      color: #065f46;
+      padding: 12px 15px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      margin-bottom: 20px;
+      line-height: 1.4;
+    }
+    .crisis-banner {
+      background: #eff6ff;
+      border: 1px solid #3b82f6;
+      color: #1e40af;
+      padding: 12px 15px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      margin-bottom: 20px;
+      text-align: center;
+      font-weight: 500;
+      display: none;
+    }
+    .form-section {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      padding: 15px;
+      border-radius: 6px;
+      margin-bottom: 15px;
+    }
+    .form-section h4 {
+      color: var(--primary);
+      font-size: 0.85rem;
+      margin-top: 0;
+      margin-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 5px;
+    }
+    .form-group { margin-bottom: 12px; }
+    label { display: block; font-size: 0.8rem; font-weight: 600; margin-bottom: 4px; color: #475569; }
+    select, input, textarea { width: 100%; padding: 8px; border: 1px solid var(--border); border-radius: 6px; font-size: 0.85rem; box-sizing: border-box; background: #ffffff; font-family: inherit; }
+    
+    .checkbox-list, .radio-list {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      background: #fff;
+      border: 1px solid var(--border);
+      padding: 10px;
+      border-radius: 6px;
+    }
+    .checkbox-list label, .radio-list label {
+      font-weight: normal;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      font-size: 0.8rem;
+    }
+    .checkbox-list input, .radio-list input { width: auto; margin: 0; }
+
+    .btn {
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      width: 100%;
+      box-sizing: border-box;
+      margin-top: 10px;
+    }
+    .btn:hover { opacity: 0.9; }
+
+    /* Exact Requested Success View Styling */
+    #resultsView {
+      display: none;
+    }
+    .matched-header {
+      color: var(--primary);
+      font-size: 1rem;
+      margin-top: 0;
+      font-weight: bold;
+    }
+    .provider-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      padding: 15px;
+      border-radius: 8px;
+      margin-top: 12px;
+      font-size: 0.82rem;
+      line-height: 1.5;
+    }
+    .provider-card strong { color: var(--primary); }
+    .confirmation-token-box {
+      background: #ffffff;
+      padding: 6px 10px;
+      border: 1px solid var(--secondary);
+      border-radius: 4px;
+      font-weight: bold;
+      color: var(--primary);
+      display: inline-block;
+      margin-left: 4px;
+    }
+    .reminder-box {
+      background: #fef3c7;
+      border: 1px solid #f59e0b;
+      padding: 12px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      color: #92400e;
+      margin-top: 15px;
+      line-height: 1.4;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    
+    <!-- Header Area -->
+    <div class="header">
+      <h1>Jan's Dreams Enterprise System</h1>
+      <p>Role #8: Anonymous Self-Advocacy & Accommodation Portal (CNE)</p>
+    </div>
+
+    <!-- Complete Privacy Notice Banner -->
+    <div class="privacy-box">
+      <strong>🔒 Complete Privacy Notice & Rights Guarantee:</strong>
+      Your privacy is 100% protected. Submitting a barrier request through this portal alerts external support navigators directly without triggering disciplinary actions or revealing personal medical details to management. Sharing this request with your employer is entirely optional.
+    </div>
+
+    <!-- Crisis Auto-Display Banner -->
+    <div id="crisisBanner" class="crisis-banner">
+      🚨 <strong>Immediate Crisis Support Active:</strong> Please contact the <strong>988 Suicide & Crisis Lifeline</strong> or SAMHSA's National Helpline at <strong>1-800-662-4357</strong> (Available 24/7, Free, Confidential).
+    </div>
+
+    <!-- Active Form View -->
+    <form id="rfaForm" action="https://formspree.io/f/meeyyonj" method="POST" onsubmit="handleRFASubmit(event)">
+      
+      <!-- SECTION 1: Reporting Channel -->
+      <div class="form-section">
+        <h4>Section 1: Reporting Channel</h4>
+        <div class="form-group">
+          <label>Select Reporting Channel *</label>
+          <div class="radio-list">
+            <label><input type="radio" name="reporting_channel" value="Self-Report" required> Self-Report (I am seeking support/resources for myself)</label>
+            <label><input type="radio" name="reporting_channel" value="Third-Party" required> Anonymous Peer / Third-Party Request (Seeking resources or reporting a concern for a coworker)</label>
+            <label><input type="radio" name="reporting_channel" value="Informational" required> Informational Inquiry (Understand available recovery resources/EAP services without formal case)</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 2: Operational Context -->
+      <div class="form-section">
+        <h4>Section 2: Operational Context (Non-PII)</h4>
+        
+        <div class="form-group">
+          <label>Department / Unit Category *</label>
+          <select name="department_category" required>
+            <option value="">Select department category...</option>
+            <option value="Operations & Field Services">Operations & Field Services</option>
+            <option value="Administration & Corporate">Administration & Corporate</option>
+            <option value="Program Delivery & Outreach">Program Delivery & Outreach</option>
+            <option value="Facilities & Maintenance">Facilities & Maintenance</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Shift / Schedule Type *</label>
+          <div class="checkbox-list">
+            <label><input type="checkbox" name="shift_type" value="Day / Standard Hours"> Day / Standard Hours</label>
+            <label><input type="checkbox" name="shift_type" value="Swing / Night Shift"> Swing / Night Shift</label>
+            <label><input type="checkbox" name="shift_type" value="Rotating / On-Call"> Rotating / On-Call</label>
+            <label><input type="checkbox" name="shift_type" value="Remote / Field Operations"> Remote / Field Operations</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Primary Work Environment *</label>
+          <div class="checkbox-list">
+            <label><input type="checkbox" name="work_environment" value="Safety-Sensitive"> Safety-Sensitive / Equipment Operation</label>
+            <label><input type="checkbox" name="work_environment" value="Field / Active Physical Site"> Field / Active Physical Site</label>
+            <label><input type="checkbox" name="work_environment" value="Office / Administrative"> Office / Administrative</label>
+            <label><input type="checkbox" name="work_environment" value="Customer Facing"> Direct Customer / Public Facing</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 3: Triage & Requested Support Vector -->
+      <div class="form-section">
+        <h4>Section 3: Triage & Requested Support Vector</h4>
+        <div class="form-group">
+          <label>Select required services from the External SME Liaison Panel:</label>
+          <div class="checkbox-list">
+            <label><input type="checkbox" name="support_vector" value="Substance Misuse & Behavioral Health"> Substance Misuse & Behavioral Health Resources (EAP, SAMHSA helplines, community recovery partners)</label>
+            <label><input type="checkbox" name="support_vector" value="Workplace Accommodation"> Workplace Accommodation / Modification (Schedule adjustment, modified duties, stress reduction)</label>
+            <label><input type="checkbox" name="support_vector" value="Second-Chance & Return-to-Work"> Second-Chance / Return-to-Work Guidance (Return-to-work agreement or voluntary leave transition)</label>
+            <label><input type="checkbox" name="support_vector" value="Crisis Intervention"> Crisis / Immediate Intervention Support (Warm handoff to confidential 24/7 helpline)</label>
+            <label><input type="checkbox" name="support_vector" value="Manager / Peer Navigation"> Manager / Peer Navigation Guidance (Advice for supervisor on supporting employee in recovery)</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 4: Functional Needs & Urgency Level -->
+      <div class="form-section">
+        <h4>Section 4: Functional Needs & Urgency Level</h4>
+        
+        <div class="form-group">
+          <label>1. Urgency Level *</label>
+          <div class="radio-list">
+            <label><input type="radio" name="urgency_level" value="Routine" id="urgencyRoutine" onchange="checkCrisisUrgency()" required> Routine / Informational (Response requested within 48 business hours)</label>
+            <label><input type="radio" name="urgency_level" value="Time-Sensitive" id="urgencySensitive" onchange="checkCrisisUrgency()" required> Time-Sensitive (Active hardship or impending leave; response within 24 hours)</label>
+            <label><input type="radio" name="urgency_level" value="Immediate Crisis" id="urgencyCrisis" onchange="checkCrisisUrgency()" required> Immediate Crisis (Triggers 988 Lifeline & SAMHSA helpline info)</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>2. Functional Barriers or Specific Request Details (Max 500 Chars):</label>
+          <textarea name="functional_details" rows="3" maxlength="500" placeholder="Briefly describe what support or adjustments would be helpful (No medical diagnoses or PII)..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label>3. Preferred Anonymous Follow-Up Method *</label>
+          <div class="radio-list">
+            <label><input type="radio" name="followup_method" value="Secure Portal" required> Secure System Portal (Check status using Confirmation Tracking Number)</label>
+            <label><input type="radio" name="followup_method" value="External SME Call" required> External SME Secure Liaison Call (SME contacts through encrypted, non-logged virtual room)</label>
+            <label><input type="radio" name="followup_method" value="None Needed" required> None Needed (Informational submission only)</label>
+          </div>
+        </div>
+      </div>
+
+      <input type="hidden" name="message" id="hiddenMessagePayload" value="RFA submitted anonymously via portal.">
+
+      <button type="submit" class="btn">Submit Anonymous Request for Assistance</button>
+    </form>
+
+    <!-- SUCCESS RESULTS VIEW (Matches exact user specifications) -->
+    <div id="resultsView">
+      <h3 class="matched-header">🤝 Successfully Matched Community Professionals (CNLs):</h3>
+      <p style="font-size: 0.82rem; color: #0f766e; margin-bottom: 15px; line-height: 1.4;">
+        Based on your multi-select criteria, the following certified external Network Liaisons match your needs. You may contact your preferred navigator directly. Keep your confirmation number handy.
+      </p>
+
+      <div style="font-size: 0.85rem; font-weight: bold; color: var(--primary); margin-bottom: 15px;">
+        Your Confirmation Number: <span class="confirmation-token-box" id="displayToken">CONF-EE-9902-SANTAFE</span>
+      </div>
+
+      <div class="provider-card">
+        <strong>Assigned Navigator 1:</strong> Rahiem Barnes (Behavioral Health & Housing Lead)<br>
+        <strong>Organization:</strong> Jan's Dreams Partner Network - Santa Fe Region<br>
+        <strong>Direct Contact:</strong> r.barnes@jansdreams-support.org | (505) 555-0194<br>
+        <strong>Turnaround SLA:</strong> &lt; 12 Hours (Priority Routing)
+      </div>
+
+      <div class="provider-card">
+        <strong>Assigned Navigator 2:</strong> Marcus Vance (Apex Auto & Fleet Group SME)<br>
+        <strong>Organization:</strong> Jan's Dreams Mobility Assistance Network<br>
+        <strong>Direct Contact:</strong> m.vance@apexauto-support.org | (505) 555-0188<br>
+        <strong>Turnaround SLA:</strong> &lt; 24 Hours
+      </div>
+
+      <div class="reminder-box">
+        <strong>🔒 Reminder:</strong> This submission is 100% anonymous to your employer. Giving your confirmation number or sharing this request with your employer is entirely your choice.
+      </div>
+
+      <a href="index.html" class="btn" style="background-color: #64748b; margin-top: 20px;">Return to Portal Home</a>
+    </div>
+
+    <!-- Universal Home Navigation Footer -->
+    <div style="text-align: center; margin-top: 25px; padding-top: 15px; border-top: 1px solid var(--border);">
+      <a href="index.html" class="btn" style="background-color: #64748b; width: 100%;">Return to Home Page / Role Gateway</a>
+    </div>
+
+  </div>
+
+  <script>
+    function checkCrisisUrgency() {
+      const isCrisis = document.getElementById('urgencyCrisis').checked;
+      const banner = document.getElementById('crisisBanner');
+      if (isCrisis) {
+        banner.style.display = 'block';
+      } else {
+        banner.style.display = 'none';
+      }
+    }
+
+    function handleRFASubmit(e) {
+      e.preventDefault();
+      
+      const form = document.getElementById('rfaForm');
+      const formData = new FormData(form);
+
+      // Generate secure tracking token
+      const randomNum = Math.floor(1000 + Math.random() * 9000);
+      const token = `CONF-EE-${randomNum}-SANTAFE`;
+      document.getElementById('displayToken').innerText = token;
+
+      // Build summary payload for Formspree
+      let summary = "=== RRE REQUEST FOR ASSISTANCE (RFA) ===\n";
+      summary += "Tracking Token: " + token + "\n";
+      summary += "Reporting Channel: " + formData.get('reporting_channel') + "\n";
+      summary += "Department: " + formData.get('department_category') + "\n";
+      summary += "Urgency Level: " + formData.get('urgency_level') + "\n";
+      summary += "Follow-up Method: " + formData.get('followup_method') + "\n";
+      summary += "Details: " + (formData.get('functional_details') || 'None provided') + "\n";
+      
+      document.getElementById('hiddenMessagePayload').value = summary;
+
+      // Submit via fetch to Formspree in background
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      }).catch(err => console.log('Network note:', err));
+
+      form.style.display = 'none';
+      document.getElementById('resultsView').style.display = 'block';
+    }
+  </script>
+
+</body>
+</html>

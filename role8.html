@@ -189,6 +189,32 @@
     label { display: block; font-size: 0.8rem; font-weight: 600; margin-bottom: 4px; color: #475569; }
     select, input, textarea { width: 100%; padding: 8px; border: 1px solid var(--border); border-radius: 6px; font-size: 0.85rem; box-sizing: border-box; background: #ffffff; font-family: inherit; }
     
+    /* Checkbox Group Grid for Multi-Select SDOH */
+    .checkbox-group {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      padding: 10px;
+      border-radius: 6px;
+      max-height: 180px;
+      overflow-y: auto;
+    }
+    .checkbox-group label {
+      font-weight: normal;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      font-size: 0.8rem;
+    }
+    .checkbox-group input[type="checkbox"] {
+      width: auto;
+      margin: 0;
+    }
+
     /* Results View Box */
     #resultsView {
       display: none;
@@ -239,7 +265,7 @@
     <!-- Role Blurb -->
     <div class="role-blurb" id="mainMenuArea">
       <strong>About this portal:</strong> 
-      As a valued participant or team member, you have guaranteed rights to confidential support, zero-retaliation navigation, and direct access to specialized Network Liaisons (CNLs)[cite: 2]. Use the categorized directory below to complete your onboarding, review rights, submit check-ins, or request comprehensive multi-category assistance complete with Social Determinants of Health (SDOH) & HUD screening.
+      As a valued participant or team member, you have guaranteed rights to confidential support, zero-retaliation navigation, and direct access to specialized Network Liaisons (CNLs)[cite: 2]. Use the categorized directory below to complete your onboarding, review rights, submit check-ins, or request comprehensive multi-category assistance complete with federal HUD/SDOH "select all that apply" screenings.
     </div>
 
     <!-- CATEGORIZED ACTION MENU -->
@@ -270,7 +296,7 @@
         </div>
         <div class="action-card">
           <h3>Request for Assistance (RFA)</h3>
-          <p>Request robust multi-category support spanning housing, transportation, health, and legal aid with comprehensive SDOH/HUD screening.</p>
+          <p>Request robust multi-category support spanning housing, transportation, health, and legal aid with multi-select SDOH/HUD screening.</p>
           <button class="btn" onclick="showView('rfaFormView')">Open Assistance Request</button>
         </div>
       </div>
@@ -286,28 +312,28 @@
 
       <div class="form-section">
         <h4>1. THE "HOW": Zero-Retaliation Confidentiality</h4>
-        <p style="font-size: 0.8rem; color: #334155; margin: 0 0 10px 0;">
+        <p style="font-size: 0.80rem; color: #334155; margin: 0 0 10px 0;">
           When you submit a request for assistance or housing/recovery navigation through this portal, your data routes directly to certified external Network Liaisons (CNLs). It bypasses internal HR disciplinary pipelines entirely. Sharing your confirmation token with management is strictly your choice.
         </p>
       </div>
 
       <div class="form-section">
         <h4>2. THE "WHERE": Accessing Multi-Category Support</h4>
-        <p style="font-size: 0.8rem; color: #334155; margin: 0 0 10px 0;">
+        <p style="font-size: 0.80rem; color: #334155; margin: 0 0 10px 0;">
           You can access this portal 24/7 from any device. Whether you need help with vehicle repair, rental navigation, substance use support, or schedule adjustments, everything is consolidated in one secure gateway.
         </p>
       </div>
 
       <div class="form-section">
         <h4>3. THE "WHEN": Early Intervention & Check-Ins</h4>
-        <p style="font-size: 0.8rem; color: #334155; margin: 0 0 10px 0;">
+        <p style="font-size: 0.80rem; color: #334155; margin: 0 0 10px 0;">
           Use the check-in form whenever you feel mounting stress, life disruptions, or burnout—long before it affects your employment. If you ever decide to leave or quit, our exit feedback tool ensures your voice helps shape a better workplace for others.
         </p>
       </div>
 
       <div class="form-section">
         <h4>4. THE "WHY": Fostering a Recovery-Ready Culture</h4>
-        <p style="font-size: 0.8rem; color: #334155; margin: 0 0 10px 0;">
+        <p style="font-size: 0.80rem; color: #334155; margin: 0 0 10px 0;">
           We believe that stability breeds excellence. By removing outside barriers (housing, transit, health), we protect your well-being and build a truly resilient workforce.
         </p>
       </div>
@@ -428,60 +454,63 @@
         </div>
       </div>
 
-      <!-- SECTION 4: Voluntary SDOH & HUD Screening -->
+      <!-- SECTION 4: Voluntary SDOH & HUD Screening (Multi-Select Checkboxes) -->
       <div class="form-section">
-        <h4>Section 4: Voluntary SDOH & HUD Screening (Housing Stability & AMI)</h4>
-        <p style="font-size: 0.75rem; color: #64748b; margin-top: 0;">Optional - Complete to help route appropriate housing and community support resources.</p>
+        <h4>Section 4: Voluntary SDOH & HUD Screening (Check all that apply)</h4>
+        <p style="font-size: 0.75rem; color: #64748b; margin-top: 0;">Optional - Select all conditions that apply to route correct community support.</p>
         
         <div class="form-group">
-          <label>HUD Housing Stability Status:</label>
-          <select>
-            <option>Housed - Stable</option>
-            <option>Housed - Threat of Eviction / Foreclosure / Rent Burden</option>
-            <option>Unhoused - Emergency Shelter / Transitional / Unsheltered</option>
-          </select>
+          <label>1. Housing Status (HUD & SDOH Focus):</label>
+          <div class="checkbox-group">
+            <label><input type="checkbox" name="housing_status" value="Stably Housed"> Stably Housed</label>
+            <label><input type="checkbox" name="housing_status" value="At Imminent Risk of Homelessness"> At Imminent Risk of Homelessness (Worried about losing housing in next 60 days)</label>
+            <label><input type="checkbox" name="housing_status" value="Literally Homeless"> Literally Homeless / Emergency Shelter / Unsheltered</label>
+            <label><input type="checkbox" name="housing_status" value="Fleeing Domestic Violence"> Fleeing Domestic Violence</label>
+          </div>
         </div>
+
         <div class="form-group">
-          <label>HUD Household AMI Level (Area Median Income):</label>
-          <select>
-            <option>Extremely Low Income (&lt;30% AMI)</option>
-            <option>Very Low Income (30-50% AMI)</option>
-            <option>Low Income (50-80% AMI)</option>
-            <option>Moderate Income (&gt;80% AMI)</option>
-          </select>
+          <label>2. Income Level & Eligibility (HUD AMI Focus):</label>
+          <div class="checkbox-group">
+            <label><input type="checkbox" name="income_level" value="Extremely Low Income"> Extremely Low-Income (At or below 30% AMI)</label>
+            <label><input type="checkbox" name="income_level" value="Low Income"> Low-Income (At or below 80% AMI)</label>
+            <label><input type="checkbox" name="income_level" value="Moderate Income"> Moderate Income (Above 80% AMI)</label>
+            <label><input type="checkbox" name="income_level" value="Financial Strain"> Financial Strain (Struggling to cover basic monthly expenses)</label>
+          </div>
         </div>
+
         <div class="form-group">
-          <label>Utilities & Energy Security:</label>
-          <select>
-            <option>Stable</option>
-            <option>Utility Shutoff Notice Received</option>
-            <option>Unstable utility access (water, power, heat)</option>
-          </select>
+          <label>3. Employment Barriers & Workforce Needs (DOL Focus):</label>
+          <div class="checkbox-group">
+            <label><input type="checkbox" name="barriers" value="Transportation"> Lack of reliable transportation / vehicle repair needed</label>
+            <label><input type="checkbox" name="barriers" value="Childcare"> Active lack of childcare or eldercare assistance</label>
+            <label><input type="checkbox" name="barriers" value="Work Schedule"> Shift timing or predictable scheduling conflict</label>
+          </div>
         </div>
+
         <div class="form-group">
-          <label>Food & Nutrition Security:</label>
-          <select>
-            <option>Food secure</option>
-            <option>Worried food will run out before I can buy more</option>
-            <option>Skipped meals in the last 30 days due to cost</option>
-          </select>
+          <label>4. Justice System Involvement (DOJ/DOL Focus):</label>
+          <div class="checkbox-group">
+            <label><input type="checkbox" name="justice" value="Prior Legal Record"> Prior legal record or reentry support needed</label>
+            <label><input type="checkbox" name="justice" value="Pending Court Dates"> Pending court dates or legal appointments interfering with schedule</label>
+          </div>
         </div>
+
         <div class="form-group">
-          <label>Transportation Access:</label>
-          <select>
-            <option>Reliable transportation</option>
-            <option>Unreliable vehicle/transit / Vehicle repair needed</option>
-            <option>Lacking public transit funds</option>
-          </select>
+          <label>5. Health Insurance & Care Access (HHS Focus):</label>
+          <div class="checkbox-group">
+            <label><input type="checkbox" name="health" value="Medicaid Active"> Active Medicaid enrollment</label>
+            <label><input type="checkbox" name="health" value="Employer Plan"> Employer-sponsored health plan</label>
+            <label><input type="checkbox" name="health" value="Care Gaps"> Difficulty paying for medical care, prescriptions, or recovery support</label>
+          </div>
         </div>
+
         <div class="form-group">
-          <label>Healthcare & Caregiving:</label>
-          <select>
-            <option>No gaps</option>
-            <option>Difficulty paying for medication/doctor</option>
-            <option>Need childcare assistance</option>
-            <option>Need eldercare support</option>
-          </select>
+          <label>6. Food & Utilities Security:</label>
+          <div class="checkbox-group">
+            <label><input type="checkbox" name="food_util" value="Food Insecure"> Worried food will run out or skipped meals in last 30 days</label>
+            <label><input type="checkbox" name="food_util" value="Utility Shutoff"> Utility shutoff notice received / unstable water, power, or heat</label>
+          </div>
         </div>
       </div>
 
@@ -489,10 +518,10 @@
       <button class="btn btn-primary" style="background-color: #64748b; margin-top: 8px;" onclick="returnToRole()">Return to Portal Home</button>
     </div>
 
-    <!-- VIEW 2: Request for Assistance (RFA) Form with Full SDOH & HUD Integration -->
+    <!-- VIEW 2: Request for Assistance (RFA) Form with Multi-Select SDOH & HUD Integration -->
     <div id="rfaFormView" class="view-panel">
       <h3>Comprehensive Request for Assistance (RFA) & SDOH Intake</h3>
-      <p style="font-size: 0.8rem; color: #64748b; margin-bottom: 15px;">Select specific resources and complete the voluntary screening below to connect with specialized Network Liaisons.</p>
+      <p style="font-size: 0.8rem; color: #64748b; margin-bottom: 15px;">Select specific resources and check all applicable SDOH factors below to connect with specialized Network Liaisons.</p>
 
       <div class="form-section">
         <h4>Resource & Service Selection</h4>
@@ -513,45 +542,54 @@
         </div>
       </div>
 
-      <!-- Comprehensive SDOH & HUD Screener Section Inside RFA -->
+      <!-- Comprehensive SDOH & HUD Screener Section (Multi-Select Checkboxes) Inside RFA -->
       <div class="form-section">
-        <h4>Voluntary SDOH & HUD Screening (Required Assessment Data)</h4>
+        <h4>Voluntary SDOH & HUD Screening (Check all that apply)</h4>
         
         <div class="form-group">
-          <label>HUD Housing Stability Status:</label>
-          <select>
-            <option>Housed - Stable</option>
-            <option>Housed - Threat of Eviction / Foreclosure / Rent Burden</option>
-            <option>Unhoused - Emergency Shelter / Transitional / Unsheltered</option>
-          </select>
+          <label>1. Housing Status (HUD & SDOH Focus):[cite: 1]</label>
+          <div class="checkbox-group">
+            <label><input type="checkbox" name="rfa_housing" value="Stably Housed"> Stably Housed[cite: 1]</label>
+            <label><input type="checkbox" name="rfa_housing" value="At Imminent Risk of Homelessness"> At Imminent Risk of Homelessness (Worried about losing housing in next 60 days)[cite: 1]</label>
+            <label><input type="checkbox" name="rfa_housing" value="Literally Homeless"> Literally Homeless / Emergency Shelter / Unsheltered[cite: 1]</label>
+            <label><input type="checkbox" name="rfa_housing" value="Fleeing Domestic Violence"> Fleeing Domestic Violence[cite: 1]</label>
+          </div>
         </div>
 
         <div class="form-group">
-          <label>HUD Household AMI Level (Area Median Income):</label>
-          <select>
-            <option>Extremely Low Income (&lt;30% AMI)</option>
-            <option>Very Low Income (30-50% AMI)</option>
-            <option>Low Income (50-80% AMI)</option>
-            <option>Moderate Income (&gt;80% AMI)</option>
-          </select>
+          <label>2. Income Level & Eligibility (HUD AMI Focus):[cite: 1, 2]</label>
+          <div class="checkbox-group">
+            <label><input type="checkbox" name="rfa_income" value="Extremely Low Income"> Extremely Low-Income (At or below 30% AMI)[cite: 1, 2]</label>
+            <label><input type="checkbox" name="rfa_income" value="Low Income"> Low-Income (At or below 80% AMI)[cite: 1, 2]</label>
+            <label><input type="checkbox" name="rfa_income" value="Moderate Income"> Moderate Income (Above 80% AMI)</label>
+            <label><input type="checkbox" name="rfa_income" value="Financial Strain"> Financial Strain (Struggling to cover basic monthly expenses)</label>
+          </div>
         </div>
 
         <div class="form-group">
-          <label>Food Security Status:</label>
-          <select>
-            <option>Food secure</option>
-            <option>Worried food will run out before I can buy more</option>
-            <option>Skipped meals in the last 30 days due to cost</option>
-          </select>
+          <label>3. Employment Barriers & Workforce Needs (DOL Focus):</label>
+          <div class="checkbox-group">
+            <label><input type="checkbox" name="rfa_barriers" value="Transportation"> Lack of reliable transportation / vehicle repair needed</label>
+            <label><input type="checkbox" name="rfa_barriers" value="Childcare"> Active lack of childcare or eldercare assistance</label>
+            <label><input type="checkbox" name="rfa_barriers" value="Work Schedule"> Shift timing or predictable scheduling conflict</label>
+          </div>
         </div>
 
         <div class="form-group">
-          <label>Transportation & Mobility Status:</label>
-          <select>
-            <option>Reliable transportation</option>
-            <option>Unreliable vehicle/transit / Vehicle repair needed</option>
-            <option>Lacking public transit funds</option>
-          </select>
+          <label>4. Justice System Involvement (DOJ/DOL Focus):</label>
+          <div class="checkbox-group">
+            <label><input type="checkbox" name="rfa_justice" value="Prior Legal Record"> Prior legal record or reentry support needed</label>
+            <label><input type="checkbox" name="rfa_justice" value="Pending Court Dates"> Pending court dates or legal appointments interfering with schedule</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>5. Health Insurance & Care Access (HHS Focus):</label>
+          <div class="checkbox-group">
+            <label><input type="checkbox" name="rfa_health" value="Medicaid Active"> Active Medicaid enrollment</label>
+            <label><input type="checkbox" name="rfa_health" value="Employer Plan"> Employer-sponsored health plan</label>
+            <label><input type="checkbox" name="rfa_health" value="Care Gaps"> Difficulty paying for medical care, prescriptions, or recovery support</label>
+          </div>
         </div>
       </div>
 

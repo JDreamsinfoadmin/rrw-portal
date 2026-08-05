@@ -223,50 +223,77 @@
 
     <!-- INTERNAL DASHBOARD (SPORREDEMO26 & DWSRREDEMO26) -->
     <div id="internalDashboard" class="dashboard-section">
-      <div class="section-title">Authorized Access: Internal Government Directory</div>
-      <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 20px;">Select a resource below to review your rolling master documentation and system interfaces.</p>
+      <div class="section-title">Authorized Access: Internal State Directory</div>
+      <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 20px;">Select a resource below to review your rolling master documentation, open packets, and system interfaces.</p>
 
       <div class="resource-grid">
         <div class="resource-card">
           <div class="resource-info">
-            <h3>Proposal</h3>
-            <p>Comprehensive operational proposal and structural framework.</p>
+            <h3>Open Distribution Packet</h3>
+            <p>Access the core public distribution packet and framework materials (`rre_opendistribution_packet_combined.pdf`).</p>
           </div>
-          <a href="Internal_Proposal_RRE.pdf" target="_blank" class="btn">Open Document</a>
+          <a href="RRE_OpenDistribution_Packet_Combined.pdf" target="_blank" class="btn">Open Document</a>
         </div>
 
         <div class="resource-card">
           <div class="resource-info">
-            <h3>Supplemental Documents</h3>
-            <p>Supporting administrative exhibits and background data.</p>
+            <h3>State Internal Access Codes Packet</h3>
+            <p>Restricted internal compliance documentation (`07_combined_rre_internal_only.pdf`).</p>
           </div>
-          <a href="Internal_Supplemental_Documents_RRE.pdf" target="_blank" class="btn">Open Document</a>
+          <a href="07_Combined_RRE_INTERNAL_ONLY.pdf" target="_blank" class="btn">Open Document</a>
         </div>
 
         <div class="resource-card">
           <div class="resource-info">
-            <h3>Curriculum</h3>
-            <p>Detailed module outlines, training tracks, and certifications.</p>
+            <h3>Consultation & Meeting Intake Form</h3>
+            <p>Submit questions, request team meetings, or book consultations directly.</p>
           </div>
-          <a href="Certifications_Curriculum_RRW_External.pdf" target="_blank" class="btn">Open Document</a>
+          <a href="Consult_Form_RRE.html" target="_blank" class="btn btn-primary">Open Intake Form</a>
         </div>
 
         <div class="resource-card">
           <div class="resource-info">
-            <h3>Powerpoint Presentation Printout</h3>
-            <p>Visual slide deck printout for leadership and audit reviews.</p>
+            <h3>Meet the Team</h3>
+            <p>Watch our team introduction video embed.</p>
           </div>
-          <a href="07_Internal_RRE_Presentation.pdf" target="_blank" class="btn">Open Document</a>
+          <button onclick="toggleVideoInternal()" class="btn">View Video</button>
+        </div>
+      </div>
+
+      <!-- Hidden Video Container Internal -->
+      <div id="videoContainerInternal" style="display:none; margin-bottom: 20px; border: 1px solid var(--border); border-radius: 8px; padding: 15px; background: #fff;">
+        <h3 style="color: var(--primary); font-size: 0.95rem; margin-top: 0;">Meet the Team Video</h3>
+        <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%;">  
+          <iframe src="https://drive.google.com/file/d/1xZyL_uLUM8TV5as1qUEvFINl52-WCPUY/preview"         
+                  style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"         
+                  allowfullscreen>  
+          </iframe>  
+        </div>
+      </div>
+
+      <!-- Employer Listening Sessions Section -->
+      <div class="section-title">Employer Listening Sessions</div>
+      <div class="resource-grid">
+        <div class="resource-card">
+          <div class="resource-info">
+            <h3>August 13, 2026 Session</h3>
+            <p>Register for upcoming Retention-Ready Ecosystem™ Overview & Employer Listening Sessions.</p>
+          </div>
+          <a href="https://zoom.us/meeting/register/Bf2o1S8fRfCZ53BwDHDyGg" target="_blank" class="btn btn-primary">Register</a>
         </div>
 
         <div class="resource-card">
           <div class="resource-info">
-            <h3>Activate RRE Adoption</h3>
-            <p>Onboarding activation instructions and committee guidelines.</p>
+            <h3>August 18, 2026 Session</h3>
+            <p>Register for upcoming Retention-Ready Ecosystem™ Overview & Employer Listening Sessions.</p>
           </div>
-          <a href="RRE_Activation_External.pdf" target="_blank" class="btn">Open Document</a>
+          <a href="https://zoom.us/meeting/register/G9pTFivARI6nTb2LdIuQVA" target="_blank" class="btn btn-primary">Register</a>
         </div>
+      </div>
 
+      <!-- System Demo at the Bottom -->
+      <div class="section-title">System Demo & Audits</div>
+      <div class="resource-grid">
         <div class="resource-card">
           <div class="resource-info">
             <h3>System Demo</h3>
@@ -295,28 +322,63 @@
       <div class="resource-grid">
         <div class="resource-card">
           <div class="resource-info">
-            <h3>RRE/RRW Basics</h3>
-            <p>Core foundational principles and introductory framework guide.</p>
+            <h3>Open Distribution Packet</h3>
+            <p>Access the core public distribution packet and framework materials (`rre_opendistribution_packet_combined.pdf`).</p>
           </div>
-          <a href="RRW-RRE_Basics_External.pdf" target="_blank" class="btn">Open Document</a>
+          <a href="RRE_OpenDistribution_Packet_Combined.pdf" target="_blank" class="btn">Open Document</a>
         </div>
 
         <div class="resource-card">
           <div class="resource-info">
-            <h3>Curriculum</h3>
-            <p>Detailed module outlines, training tracks, and certifications.</p>
+            <h3>Consultation & Meeting Intake Form</h3>
+            <p>Submit questions, request team meetings, or book consultations directly.</p>
           </div>
-          <a href="Certifications_Curriculum_RRW_External.pdf" target="_blank" class="btn">Open Document</a>
+          <a href="Consult_Form_RRE.html" target="_blank" class="btn btn-primary">Open Intake Form</a>
         </div>
 
         <div class="resource-card">
           <div class="resource-info">
-            <h3>Activate RRE Adoption</h3>
-            <p>Onboarding activation instructions and committee guidelines.</p>
+            <h3>Meet the Team</h3>
+            <p>Watch our team introduction video embed.</p>
           </div>
-          <a href="RRE_Activation_External.pdf" target="_blank" class="btn">Open Document</a>
+          <button onclick="toggleVideoExternal()" class="btn">View Video</button>
+        </div>
+      </div>
+
+      <!-- Hidden Video Container External -->
+      <div id="videoContainerExternal" style="display:none; margin-bottom: 20px; border: 1px solid var(--border); border-radius: 8px; padding: 15px; background: #fff;">
+        <h3 style="color: var(--primary); font-size: 0.95rem; margin-top: 0;">Meet the Team Video</h3>
+        <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%;">  
+          <iframe src="https://drive.google.com/file/d/1xZyL_uLUM8TV5as1qUEvFINl52-WCPUY/preview"         
+                  style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"         
+                  allowfullscreen>  
+          </iframe>  
+        </div>
+      </div>
+
+      <!-- Employer Listening Sessions Section External -->
+      <div class="section-title">Employer Listening Sessions</div>
+      <div class="resource-grid">
+        <div class="resource-card">
+          <div class="resource-info">
+            <h3>August 13, 2026 Session</h3>
+            <p>Register for upcoming Retention-Ready Ecosystem™ Overview & Employer Listening Sessions.</p>
+          </div>
+          <a href="https://zoom.us/meeting/register/Bf2o1S8fRfCZ53BwDHDyGg" target="_blank" class="btn btn-primary">Register</a>
         </div>
 
+        <div class="resource-card">
+          <div class="resource-info">
+            <h3>August 18, 2026 Session</h3>
+            <p>Register for upcoming Retention-Ready Ecosystem™ Overview & Employer Listening Sessions.</p>
+          </div>
+          <a href="https://zoom.us/meeting/register/G9pTFivARI6nTb2LdIuQVA" target="_blank" class="btn btn-primary">Register</a>
+        </div>
+      </div>
+
+      <!-- System Demo at the Bottom External -->
+      <div class="section-title">System Demo & Audits</div>
+      <div class="resource-grid">
         <div class="resource-card">
           <div class="resource-info">
             <h3>System Demo</h3>
@@ -376,6 +438,16 @@
         errorDiv.style.display = 'block';
       }
     });
+
+    function toggleVideoInternal() {
+      const box = document.getElementById('videoContainerInternal');
+      box.style.display = box.style.display === 'none' ? 'block' : 'none';
+    }
+
+    function toggleVideoExternal() {
+      const box = document.getElementById('videoContainerExternal');
+      box.style.display = box.style.display === 'none' ? 'block' : 'none';
+    }
 
     function resetPortal() {
       localStorage.removeItem('activeAccessCode');

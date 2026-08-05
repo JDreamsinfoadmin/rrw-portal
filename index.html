@@ -221,7 +221,7 @@
       </div>
     </div>
 
-    <!-- INTERNAL DASHBOARD (SPORREDEMO26 & DWSRREDEMO26) -->
+    <!-- INTERNAL DASHBOARD -->
     <div id="internalDashboard" class="dashboard-section">
       <div class="section-title">Authorized Access: Internal State Directory</div>
       <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 20px;">Select a resource below to review your rolling master documentation, open packets, and system interfaces.</p>
@@ -314,7 +314,7 @@
       <button onclick="resetPortal()" class="btn btn-secondary">Switch Access Key / Log Out</button>
     </div>
 
-    <!-- EXTERNAL DASHBOARD (EXTSPORRE26 & EXTDWSRRE26) -->
+    <!-- EXTERNAL DASHBOARD -->
     <div id="externalDashboard" class="dashboard-section">
       <div class="section-title">Authorized Access: Employer Partner Directory</div>
       <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 20px;">Select a resource below to review core program materials and system interfaces.</p>
@@ -411,19 +411,7 @@
       const code = document.getElementById('accessKey').value.trim().toUpperCase();
       const errorDiv = document.getElementById('errorMsg');
 
-      // Metadata tracking submission to Formspree endpoint in the background
-      const formData = new FormData();
-      formData.append('email', 'access-tracker@jansdreams.org');
-      formData.append('message', 'User accessed portal with access code: ' + code);
-      formData.append('access_code', code);
-
-      fetch('https://formspree.io/f/meeyyonj', {
-        method: 'POST',
-        body: formData,
-        headers: { 'Accept': 'application/json' }
-      }).catch(err => console.log('Metadata tracking logged'));
-
-      // Validate codes and route screens
+      // Validate codes and route screens locally without hitting Formspree
       if (code === 'SPORREDEMO26' || code === 'DWSRREDEMO26') {
         errorDiv.style.display = 'none';
         document.getElementById('gatewaySection').style.display = 'none';

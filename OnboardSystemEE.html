@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employee Onboarding, Know Your Rights & Compliance Portal | Jan's Dreams</title>
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --secondary: #0d9488;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #1e293b;
+      --border: #cbd5e1;
+    }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .container {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+      width: 100%;
+      max-width: 900px;
+      padding: 30px;
+      box-sizing: border-box;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .header h1 {
+      font-size: 1.25rem;
+      color: var(--primary);
+      margin: 0 0 5px 0;
+    }
+    .header p {
+      font-size: 0.85rem;
+      color: #64748b;
+      margin: 0;
+    }
+    .privacy-box {
+      background: #ecfdf5;
+      border: 1px solid var(--secondary);
+      color: #065f46;
+      padding: 12px 15px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      margin-bottom: 20px;
+      line-height: 1.4;
+    }
+    .checklist-box {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      padding: 18px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      font-size: 0.85rem;
+      color: #1e40af;
+      line-height: 1.6;
+    }
+    .checklist-box h3 {
+      margin-top: 0;
+      color: var(--primary);
+      font-size: 0.95rem;
+      border-bottom: 1px solid #bfdbfe;
+      padding-bottom: 6px;
+    }
+    .checklist-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+      font-weight: 500;
+    }
+    .checklist-item input {
+      width: 18px;
+      height: 18px;
+      cursor: pointer;
+    }
+    .media-links {
+      background: #f8fafc;
+      border: 1px dashed var(--border);
+      padding: 12px;
+      border-radius: 6px;
+      margin-top: 10px;
+      margin-bottom: 15px;
+      font-size: 0.8rem;
+    }
+    .media-links ul {
+      margin: 5px 0 0 20px;
+      padding: 0;
+    }
+    .media-links li {
+      margin-bottom: 4px;
+    }
+    .media-links a {
+      color: var(--secondary);
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .media-links a:hover {
+      text-decoration: underline;
+    }
+    .form-section {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      padding: 15px;
+      border-radius: 6px;
+      margin-bottom: 15px;
+    }
+    .form-section h4 {
+      color: var(--primary);
+      font-size: 0.85rem;
+      margin-top: 0;
+      margin-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 5px;
+    }
+    .form-group { margin-bottom: 12px; }
+    label { display: block; font-size: 0.8rem; font-weight: 600; margin-bottom: 4px; color: #475569; }
+    select, input, textarea { width: 100%; padding: 8px; border: 1px solid var(--border); border-radius: 6px; font-size: 0.85rem; box-sizing: border-box; background: #ffffff; font-family: inherit; }
+    
+    .checkbox-list {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      background: #fff;
+      border: 1px solid var(--border);
+      padding: 10px;
+      border-radius: 6px;
+    }
+    .checkbox-list label {
+      font-weight: normal;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      font-size: 0.8rem;
+    }
+    .checkbox-list input { width: auto; margin: 0; }
+
+    .btn {
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      width: 100%;
+      box-sizing: border-box;
+      margin-top: 10px;
+    }
+    .btn:hover { opacity: 0.9; }
+
+    #resultSection {
+      display: none;
+      background: #f0fdfa;
+      border: 1px solid var(--secondary);
+      padding: 25px;
+      border-radius: 8px;
+      text-align: center;
+    }
+    #resultSection h3 { color: #0f766e; margin-top: 0; }
+    .confirmation-badge {
+      background: #ffffff;
+      border: 2px dashed var(--secondary);
+      padding: 15px;
+      border-radius: 8px;
+      margin: 15px 0;
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: var(--primary);
+      letter-spacing: 1px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="header">
+      <h1>Employee Onboarding & Know Your Rights Portal</h1>
+      <p>Jan's Dreams Mission Guardian™ Compliance Network</p>
+    </div>
+
+    <div class="privacy-box">
+      <strong>🔒 Dual-Route Data Privacy Protection:</strong> 
+      Your supervisor-facing data (hire date, job title, supervisor email, salary, assessment answers) routes to your supervisor/HR. Your sensitive HUD housing stability and income data routes strictly and confidentially to external Network Liaisons (CNLs) with zero visibility to internal management.
+    </div>
+
+    <!-- Interactive Onboarding Checklist Box -->
+    <div class="checklist-box">
+      <h3>📋 Mandatory Onboarding Checklist & Resource Access</h3>
+      <p style="margin-top: 0; font-size: 0.8rem; color: #1e40af;">
+        Please complete the following checklist items by reviewing the required materials before submitting your assessment. Click the resource links below to open documents and audio files.
+      </p>
+
+      <div class="media-links">
+        <strong>📂 Downloadable Resources & Audio Files:</strong>
+        <ul>
+          <li><a href="22-088_EEOC_KnowYourRights6.12.pdf" target="_blank">Read KYR Poster (English - PDF)</a></li>
+          <li><a href="22-088_EEOC_KnowYourRightsSp6.12.pdf" target="_blank">Read KYR Poster (Spanish - PDF)</a></li>
+          <li><a href="https://www.eeoc.gov/poster" target="_blank">Visit Official EEOC Know Your Rights Website</a></li>
+        </ul>
+      </div>
+
+      <div class="checklist-item">
+        <input type="checkbox" id="check1" required>
+        <label for="check1" style="font-weight: 500; color: #1e40af; cursor: pointer;">1. Completed System Tour & Platform Overview</label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="check2" required>
+        <label for="check2" style="font-weight: 500; color: #1e40af; cursor: pointer;">2. Reviewed SDOH Voluntary Questionnaire Guidelines</label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="check3" required>
+        <label for="check3" style="font-weight: 500; color: #1e40af; cursor: pointer;">3. Listened to KYR Audio (English / Spanish)</label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="check4" required>
+        <label for="check4" style="font-weight: 500; color: #1e40af; cursor: pointer;">4. Read KYR Poster (English / Spanish)</label>
+      </div>
+      <div class="checklist-item">
+        <input type="checkbox" id="check5" required>
+        <label for="check5" style="font-weight: 500; color: #1e40af; cursor: pointer;">5. Visited EEOC Portal for Additional Reference</label>
+      </div>
+    </div>
+
+    <form id="onboardingForm" action="https://formspree.io/f/meeyyonj" method="POST" onsubmit="handleOnboardSubmit(event)">
+      
+      <!-- SECTION 1: Supervisor-Facing Onboarding Details -->
+      <div class="form-section">
+        <h4>Section 1: Onboarding Verification & Employment Data (Shared with Supervisor)</h4>
+        
+        <div class="form-group">
+          <label>Hire Date *</label>
+          <input type="date" name="hire_date" required>
+        </div>
+
+        <div class="form-group">
+          <label>Job Title *</label>
+          <select name="job_title" required>
+            <option value="">Select job title...</option>
+            <option value="Frontline Service Specialist">Frontline Service Specialist</option>
+            <option value="Community Navigator">Community Navigator</option>
+            <option value="Administrative Support Lead">Administrative Support Lead</option>
+            <option value="Program Coordinator">Program Coordinator</option>
+            <option value="Apprentice / Trainee">Apprentice / Trainee</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Supervisor Email *</label>
+          <select name="supervisor_email" required>
+            <option value="">Select supervisor...</option>
+            <option value="supervisor1@jansdreams.org">supervisor1@jansdreams.org (Operations Team)</option>
+            <option value="supervisor2@jansdreams.org">supervisor2@jansdreams.org (Compliance Department)</option>
+            <option value="shlewis@jansdreams.org">shlewis@jansdreams.org (Executive Director)</option>
+          </select>
+        </div>
+
+        <div class="form-group" style="display: grid; grid-template-columns: 2fr 1fr; gap: 10px;">
+          <div>
+            <label>Salary / Pay Rate *</label>
+            <input type="number" name="salary_amount" placeholder="e.g. 25.00 or 50000" required>
+          </div>
+          <div>
+            <label>Pay Unit *</label>
+            <select name="salary_unit" required>
+              <option value="Hourly">Hourly</option>
+              <option value="Weekly">Weekly</option>
+              <option value="Monthly">Monthly</option>
+              <option value="Annually">Annually</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Prior Engagement Status (Before starting this role):</label>
+          <select name="prior_engagement" required>
+            <option value="Employed">Immediately employed</option>
+            <option value="School">Enrolled in school</option>
+            <option value="Training">In training or apprenticeship</option>
+            <option value="None">None of the above (Unemployed / Out of workforce)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>If not employed/trained previously, how long were you without employment, training, or education?</label>
+          <select name="duration_without_work">
+            <option value="N/A - Was Employed">N/A - Was actively employed or in school</option>
+            <option value="3-6 months">3 - 6 months</option>
+            <option value="6mo-1y">6 months - 1 year</option>
+            <option value="1-2 years">1 - 2 years</option>
+            <option value="Over 2 years">Over 2 years</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- SECTION 2: Know Your Rights Assessment (Shared with Supervisor) -->
+      <div class="form-section">
+        <h4>Section 2: Know Your Rights Assessment (Multiple Choice)</h4>
+        
+        <div class="form-group">
+          <label>1. Who is protected from discrimination under federal employment law?</label>
+          <select name="q1_protected" required>
+            <option value="">Select answer...</option>
+            <option value="Correct">All employees and applicants against discrimination based on race, color, religion, sex, national origin, age, disability, or genetic information.</option>
+            <option value="Incorrect">Only full-time managers with over 5 years of tenure.</option>
+            <option value="Incorrect">Only employees who pay union dues.</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>2. What agency protects your rights to not be discriminated against in the workplace?</label>
+          <select name="q2_agency" required>
+            <option value="">Select answer...</option>
+            <option value="Correct">EEOC (Equal Employment Opportunity Commission)</option>
+            <option value="Incorrect">Department of Motor Vehicles (DMV)</option>
+            <option value="Incorrect">Internal Revenue Service (IRS)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>3. What does DOL stand for?</label>
+          <select name="q3_dol" required>
+            <option value="">Select answer...</option>
+            <option value="Correct">Department of Labor</option>
+            <option value="Incorrect">Department of Logistics</option>
+            <option value="Incorrect">Division of Licensing</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>4. If you need assistance or an accommodation to perform your job, what should you do? (Check all that apply)</label>
+          <div class="checkbox-list">
+            <label><input type="checkbox" name="q4_action" value="Submit RFA"> Submit a confidential Request for Assistance (RFA) or contact a Network Liaison.</label>
+            <label><input type="checkbox" name="q4_action" value="Talk with Supervisor"> Initiate a supportive conversation with your supervisor or peer advocate.</label>
+            <label><input type="checkbox" name="q4_action" value="Suffering in silence"> Hide the challenge and hope it goes away (Incorrect).</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 3: Confidential HUD Housing & SDOH Intake (Isolated to CNLs) -->
+      <div class="form-section" style="border-color: var(--secondary); background: #f0fdfa;">
+        <h4 style="color: #0f766e;">Section 3: Confidential HUD Housing Stability & SDOH Intake (Isolated to Network Liaisons)</h4>
+        
+        <div class="form-group">
+          <label>What is your current housing situation? (HUD Housing Stability)</label>
+          <select name="hud_housing_status">
+            <option value="Stably Housed">Stably Housed</option>
+            <option value="At Risk">At Imminent Risk of Homelessness (Worried about losing housing in next 60 days)</option>
+            <option value="Homeless">Literally Homeless / Emergency Shelter / Unsheltered</option>
+            <option value="Violence">Fleeing Domestic Violence</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>What is your household income level relative to Area Median Income (AMI)?</label>
+          <select name="hud_income_level">
+            <option value="Extremely Low">Extremely Low-Income (At or below 30% AMI)</option>
+            <option value="Very Low">Very Low-Income (30% to 50% AMI)</option>
+            <option value="Low Income">Low-Income (50% to 80% AMI)</option>
+            <option value="Moderate">Moderate Income (Above 80% AMI)</option>
+          </select>
+        </div>
+      </div>
+
+      <input type="hidden" name="message" id="hiddenMessagePayload" value="Employee onboarding verification and assessment completed successfully.">
+
+      <button type="submit" class="btn">Submit Onboarding Checklist & Assessment</button>
+    </form>
+
+    <!-- Success Result Box -->
+    <div id="resultSection">
+      <h3>✅ Onboarding & Assessment Successfully Completed!</h3>
+      <p style="font-size: 0.85rem; color: #475569; line-height: 1.5; margin-bottom: 10px;">
+        Your onboarding checklist and assessment have been logged. Because our platform is completely anonymous, your supervisor will not know this submission is yours unless you provide them with your unique confirmation number below.
+      </p>
+      
+      <div class="confirmation-badge" id="displayToken">
+        CONF-ONBOARD-9982-SYS
+      </div>
+
+      <p style="font-size: 0.82rem; color: #92400e; background: #fef3c7; border: 1px solid #f59e0b; padding: 10px; border-radius: 6px; margin-bottom: 20px;">
+        <strong>⚠️ Important Next Step:</strong> Please copy your confirmation number above and inform your supervisor so they can verify your onboarding completion on their internal tracking ledger.
+      </p>
+
+      <a href="index.html" class="btn" style="background-color: #64748b; width: auto; display: inline-block;">Return to Portal Home</a>
+    </div>
+
+    <div style="text-align: center; margin-top: 25px; padding-top: 15px; border-top: 1px solid var(--border); font-size: 0.78rem; color: #64748b;">
+      Jan’s Dreams Non-Profit Organization &copy; 2026. All rights reserved. | Mission Guardian™ Architecture
+    </div>
+
+  </div>
+
+  <script>
+    function handleOnboardSubmit(e) {
+      e.preventDefault();
+      
+      const form = document.getElementById('onboardingForm');
+      const formData = new FormData(form);
+
+      // Generate a dynamic tracking token
+      const randomNum = Math.floor(1000 + Math.random() * 9000);
+      const token = `CONF-ONBOARD-${randomNum}-SYS`;
+      document.getElementById('displayToken').innerText = token;
+
+      // Build summary payload for Formspree
+      let summary = "=== ONBOARDING CHECKLIST & RIGHTS ASSESSMENT ===\n";
+      summary += "Confirmation Number: " + token + "\n";
+      summary += "Hire Date: " + formData.get('hire_date') + "\n";
+      summary += "Job Title: " + formData.get('job_title') + "\n";
+      summary += "Supervisor: " + formData.get('supervisor_email') + "\n";
+      summary += "Salary: " + formData.get('salary_amount') + " " + formData.get('salary_unit') + "\n";
+      summary += "Prior Engagement: " + formData.get('prior_engagement') + "\n";
+      summary += "Duration Without Work: " + formData.get('duration_without_work') + "\n\n";
+      summary += "--- ASSESSMENT ANSWERS ---\n";
+      summary += "Q1 (Protected): " + formData.get('q1_protected') + "\n";
+      summary += "Q2 (Agency): " + formData.get('q2_agency') + "\n";
+      summary += "Q3 (DOL): " + formData.get('q3_dol') + "\n";
+      
+      document.getElementById('hiddenMessagePayload').value = summary;
+
+      // Submit via fetch to Formspree in background
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      }).catch(err => console.log('Network note:', err));
+
+      form.style.display = 'none';
+      document.getElementById('resultSection').style.display = 'block';
+    }
+  </script>
+
+</body>
+</html>

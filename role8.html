@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Role #8: Comprehensive Employee Check-In, Retention & Support Portal | Jan's Dreams</title>
+  <title>Role #8: Employee Self-Advocacy, Onboarding & Support Portal | Jan's Dreams</title>
   <style>
     :root {
       --primary: #1e3a8a;
@@ -84,36 +84,50 @@
       color: #334155;
       line-height: 1.4;
     }
+    
+    /* Categorized Action Grid Layout */
+    .category-section-title {
+      font-size: 0.95rem;
+      color: var(--primary);
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 4px;
+      margin-top: 20px;
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
     .action-menu {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 15px;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
     }
     .action-card {
       border: 1px solid var(--border);
       border-radius: 8px;
-      padding: 20px;
+      padding: 18px;
       background: #ffffff;
       text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
     .action-card h3 {
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       color: var(--primary);
-      margin: 0 0 8px 0;
+      margin: 0 0 6px 0;
     }
     .action-card p {
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       color: #64748b;
-      margin: 0 0 15px 0;
+      margin: 0 0 12px 0;
     }
     .btn {
       background-color: var(--secondary);
       color: white;
       border: none;
-      padding: 10px 16px;
+      padding: 9px 14px;
       border-radius: 6px;
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       font-weight: 600;
       cursor: pointer;
       text-align: center;
@@ -143,13 +157,13 @@
     table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 0.72rem;
+      font-size: 0.75rem;
       margin-top: 10px;
       margin-bottom: 15px;
     }
     th, td {
       border: 1px solid var(--border);
-      padding: 7px;
+      padding: 8px;
       text-align: left;
     }
     th {
@@ -208,13 +222,13 @@
   <div class="container">
     <div class="header">
       <h1>Jan's Dreams Enterprise System</h1>
-      <p>Role #8: Employee Check-In, Retention & Comprehensive Support Portal (CNE)</p>
+      <p>Role #8: Employee Self-Advocacy, Onboarding & Support Portal (CNE)</p>
     </div>
 
     <!-- Privacy Notice Banner -->
     <div class="privacy-alert">
-      <strong>🔒 Complete Privacy Notice & Rights Guarantee (HUD / DOL / HHS / RRW Compliance):[cite: 2]</strong>
-      Your privacy is protected under state and federal privacy standards, WIOA Sec. 188, and HHS guidelines[cite: 2]. Answering Social Determinants of Health (SDOH) questions is COMPLETELY VOLUNTARY. Opting out will NOT affect your employment status or access to standard workplace accommodations[cite: 2].
+      <strong>🔒 Complete Privacy Notice & Rights Guarantee[cite: 2]:</strong>
+      Your privacy is 100% protected. Submitting a barrier request through this portal alerts external support navigators directly without triggering disciplinary actions or revealing personal medical details to management. Sharing this request with your employer is entirely optional.
     </div>
 
     <!-- Crisis Support Notice -->
@@ -225,26 +239,80 @@
     <!-- Role Blurb -->
     <div class="role-blurb" id="mainMenuArea">
       <strong>About this portal:</strong> 
-      As a valued participant or team member, you have guaranteed rights to confidential support, zero-retaliation navigation, and direct access to specialized Network Liaisons (CNLs). Use this portal for regular check-ins, reporting retention risks (including exit/quitting feedback), or requesting comprehensive multi-category community assistance.
+      As a valued participant or team member, you have guaranteed rights to confidential support, zero-retaliation navigation, and direct access to specialized Network Liaisons (CNLs)[cite: 2]. Use the categorized directory below to complete your onboarding, review rights, submit check-ins, or request comprehensive multi-category assistance.
     </div>
 
-    <!-- Action Menu Selection -->
-    <div class="action-menu" id="actionMenuArea">
+    <!-- CATEGORIZED ACTION MENU -->
+    <div id="actionMenuArea">
       
-      <!-- Action 1 -->
-      <div class="action-card">
-        <h3>1. Employee & Manager Check-In Form</h3>
-        <p>Assess ongoing retention, report turnover risks, request peer advocates, or provide confidential feedback if leaving/fired.</p>
-        <button class="btn" onclick="showView('checkinFormView')">Open Check-In Form</button>
+      <!-- Category 1: Onboarding & Rights -->
+      <div class="category-section-title">Onboarding & Compliance Training</div>
+      <div class="action-menu">
+        <div class="action-card">
+          <h3>Onboarding Know Your Rights</h3>
+          <p>Interactive walkthrough teaching new hires how, where, when, and why to use the support system safely.</p>
+          <button class="btn btn-primary" onclick="showView('onboardingView')">Start Onboarding</button>
+        </div>
+        <div class="action-card">
+          <h3>Rights & Routing Directory</h3>
+          <p>Review guaranteed workplace rights, retention protections, and multi-select CNL turnaround times.</p>
+          <button class="btn" onclick="showView('rightsDirectoryView')">Open Rights Directory</button>
+        </div>
       </div>
 
-      <!-- Action 2 -->
-      <div class="action-card">
-        <h3>2. Request for Assistance (RFA)</h3>
-        <p>Request robust multi-category support ranging from housing and transportation to behavioral health and legal aid.</p>
-        <button class="btn btn-primary" onclick="showView('rfaFormView')">Open Assistance Request</button>
+      <!-- Category 2: Forms & Check-Ins -->
+      <div class="category-section-title">Forms & Retention Check-Ins</div>
+      <div class="action-menu">
+        <div class="action-card">
+          <h3>Employee & Manager Check-In</h3>
+          <p>Assess ongoing retention, report turnover risks, request peer advocates, or provide exit/quitting feedback.</p>
+          <button class="btn" onclick="showView('checkinFormView')">Open Check-In Form</button>
+        </div>
+        <div class="action-card">
+          <h3>Request for Assistance (RFA)</h3>
+          <p>Request robust multi-category support spanning housing, transportation, health, and legal aid.</p>
+          <button class="btn" onclick="showView('rfaFormView')">Open Assistance Request</button>
+        </div>
       </div>
 
+    </div>
+
+    <!-- VIEW 0: Interactive Onboarding & Know Your Rights Training -->
+    <div id="onboardingView" class="view-panel">
+      <h3>Interactive Onboarding: Know Your Rights & System Training</h3>
+      <p style="font-size: 0.85rem; color: #475569; line-height: 1.5; margin-bottom: 15px;">
+        Welcome to your Recovery-Ready Workplace onboarding! Under federal and state frameworks, you are entitled to a psychologically safe, supportive work environment. This module teaches you <strong>how, where, when, and why</strong> to utilize this portal.
+      </p>
+
+      <div class="form-section">
+        <h4>1. THE "HOW": Zero-Retaliation Confidentiality</h4>
+        <p style="font-size: 0.8rem; color: #334155; margin: 0 0 10px 0;">
+          When you submit a request for assistance or housing/recovery navigation through this portal, your data routes directly to certified external Network Liaisons (CNLs). It bypasses internal HR disciplinary pipelines entirely. Sharing your confirmation token with management is strictly your choice.
+        </p>
+      </div>
+
+      <div class="form-section">
+        <h4>2. THE "WHERE": Accessing Multi-Category Support</h4>
+        <p style="font-size: 0.8rem; color: #334155; margin: 0 0 10px 0;">
+          You can access this portal 24/7 from any device. Whether you need help with vehicle repair, rental navigation, substance use support, or schedule adjustments, everything is consolidated in one secure gateway.
+        </p>
+      </div>
+
+      <div class="form-section">
+        <h4>3. THE "WHEN": Early Intervention & Check-Ins</h4>
+        <p style="font-size: 0.8rem; color: #334155; margin: 0 0 10px 0;">
+          Use the check-in form whenever you feel mounting stress, life disruptions, or burnout—long before it affects your employment. If you ever decide to leave or quit, our exit feedback tool ensures your voice helps shape a better workplace for others.
+        </p>
+      </div>
+
+      <div class="form-section">
+        <h4>4. THE "WHY": Fostering a Recovery-Ready Culture</h4>
+        <p style="font-size: 0.8rem; color: #334155; margin: 0 0 10px 0;">
+          We believe that stability breeds excellence. By removing outside barriers (housing, transit, health), we protect your well-being and build a truly resilient workforce.
+        </p>
+      </div>
+
+      <button class="btn btn-primary" onclick="returnToRole()">I Understand & Complete Onboarding</button>
     </div>
 
     <!-- VIEW 1: Employee & Manager Check-In Form -->
@@ -275,7 +343,7 @@
           </select>
         </div>
 
-        <!-- Conditional Quitting / Separation Deep-Dive (Fulfilling user request for exit/quitting intervention context) -->
+        <!-- Quitting / Separation Deep-Dive -->
         <div id="quittingDeepDive" style="display: none; background: #fffbeb; border: 1px solid #f59e0b; padding: 12px; border-radius: 6px; margin-bottom: 12px;">
           <label style="color: #92400e;">Exit / Quitting Retention Intervention Inquiry: Was there something leadership or company policy could have done differently to retain you?</label>
           <textarea id="quittingReasonText" rows="3" placeholder="Describe environmental, cultural, schedule, or policy factors..."></textarea>
@@ -414,17 +482,17 @@
         <h4>Resource & Service Selection</h4>
         <div class="form-group">
           <label>Primary Category of Need:</label>
-          <select>
-            <option>1. Housing & Shelter (Rent relief, HUD navigation, emergency housing)</option>
-            <option>2. Food & Household Essentials (Food pantry access, SNAP enrollment support)</option>
-            <option>3. Transportation & Mobility (Bus passes, gas cards, vehicle repair grants)</option>
-            <option>4. Mental Health & Counseling (Crisis care, EAP routing, counseling connections)</option>
-            <option>5. Substance Use & Recovery (Recovery-Ready Workplace resources, treatment referrals)</option>
-            <option>6. Childcare & Family Support (Subsidized care navigation, eldercare resources)</option>
-            <option>7. Healthcare & Medical Access (Prescriptions, clinic referrals, vision/dental aid)</option>
-            <option>8. Financial Literacy & Legal Aid (Debt relief counseling, legal assistance referrals)</option>
-            <option>9. Utility & Heating Assistance (LIHEAP routing, emergency utility grants)</option>
-            <option>10. Workplace Accommodation & Ergonomics (Schedule adjustments, ADA physical adjustments)</option>
+          <select id="rfaCategory">
+            <option value="housing">1. Housing & Shelter (Rent relief, HUD navigation, emergency housing)</option>
+            <option value="food">2. Food & Household Essentials (Food pantry access, SNAP enrollment support)</option>
+            <option value="transportation">3. Transportation & Mobility (Bus passes, gas cards, vehicle repair grants)</option>
+            <option value="mentalhealth">4. Mental Health & Counseling (Crisis care, EAP routing, counseling connections)</option>
+            <option value="recovery">5. Substance Use & Recovery (Recovery-Ready Workplace resources, treatment referrals)</option>
+            <option value="childcare">6. Childcare & Family Support (Subsidized care navigation, eldercare resources)</option>
+            <option value="healthcare">7. Healthcare & Medical Access (Prescriptions, clinic referrals, vision/dental aid)</option>
+            <option value="financial">8. Financial Literacy & Legal Aid (Debt relief counseling, legal assistance referrals)</option>
+            <option value="utility">9. Utility & Heating Assistance (LIHEAP routing, emergency utility grants)</option>
+            <option value="accommodation">10. Workplace Accommodation & Ergonomics (Schedule adjustments, ADA physical adjustments)</option>
           </select>
         </div>
       </div>
@@ -452,21 +520,110 @@
       <button class="btn btn-primary" style="background-color: #64748b; margin-top: 8px;" onclick="returnToRole()">Return to Portal Home</button>
     </div>
 
-    <!-- MATCHED PROVIDERS RESULTS VIEW -->
+    <!-- MATCHED PROVIDERS RESULTS VIEW (Fully Restored Dynamic CNL Matching Card) -->
     <div id="resultsView">
-      <h3>✅ Support Request Successfully Logged & Routed!</h3>
+      <h3>🤝 Successfully Matched Community Professionals (CNLs):</h3>
       <p style="font-size: 0.8rem; color: #0f766e; margin-bottom: 15px;">
-        Your information has been handled securely in compliance with strict privacy standards[cite: 2]. Designated Network Liaisons (CNLs) have been notified based on your selections.
+        Based on your multi-select criteria, the following certified external Network Liaisons match your needs. You may contact your preferred navigator directly. Keep your confirmation number handy.
       </p>
 
       <div style="font-size: 0.85rem; font-weight: bold; color: var(--primary); margin-bottom: 10px;">
-        Generated Tracking Token: <span style="background: #ffffff; padding: 3px 8px; border: 1px solid var(--secondary); border-radius: 4px;">CONF-RRE-8820-SYS</span>
+        Your Confirmation Number: <span style="background: #ffffff; padding: 3px 8px; border: 1px solid var(--secondary); border-radius: 4px;">CONF-EE-9902-SANTAFE</span>
       </div>
 
       <div class="provider-card">
-        <strong>Assigned Community Liaison:</strong> External Network Resource Coordinator<br>
-        <strong>Routing SLA:</strong> Verified according to selected priority level.<br>
-        <strong>Privacy Note:</strong> This submission remains completely segregated from disciplinary files.
+        <strong>Assigned Navigator 1:</strong> Rahiem Barnes (Behavioral Health & Housing Lead)<br>
+        <strong>Organization:</strong> Jan's Dreams Partner Network - Santa Fe Region<br>
+        <strong>Direct Contact:</strong> r.barnes@jansdreams-support.org | (505) 555-0194<br>
+        <strong>Turnaround SLA:</strong> &lt; 12 Hours (Priority Routing)
+      </div>
+
+      <div class="provider-card">
+        <strong>Assigned Navigator 2:</strong> Marcus Vance (Apex Auto & Fleet Group SME)<br>
+        <strong>Organization:</strong> Jan's Dreams Mobility Assistance Network<br>
+        <strong>Direct Contact:</strong> m.vance@apexauto-support.org | (505) 555-0188<br>
+        <strong>Turnaround SLA:</strong> &lt; 24 Hours
+      </div>
+
+      <div style="background: #fef3c7; border: 1px solid #f59e0b; padding: 10px; border-radius: 6px; font-size: 0.78rem; color: #92400e; margin-top: 15px;">
+        <strong>🔒 Reminder:</strong> This submission is 100% anonymous to your employer. Giving your confirmation number or sharing this request with your employer is entirely your choice.
+      </div>
+
+      <button class="btn" style="margin-top: 15px;" onclick="returnToRole()">Return to Portal Home</button>
+    </div>
+
+    <!-- VIEW 3: Rights & Routing Directory (REV-EMP-001 Restored) -->
+    <div id="rightsDirectoryView" class="view-panel">
+      <h3>Employee Rights & Network Routing Guide (REV-EMP-001)</h3>
+      <p style="font-size: 0.78rem; color: #64748b; margin-bottom: 12px;">READ-ONLY Participant Rights & Support Guidance Portal.</p>
+      
+      <h4 style="color: var(--primary); font-size: 0.85rem; margin-bottom: 5px;">Workplace Retention Rights & Psychological Safety</h4>
+      <div style="overflow-x: auto;">
+        <table>
+          <thead>
+            <tr>
+              <th>Workplace Area</th>
+              <th>Guaranteed Network Right</th>
+              <th>Protection Standard</th>
+              <th>CNL Handoff Support</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Employment Protection</strong></td>
+              <td>No HR Retaliation for seeking support.</td>
+              <td>POL-RRW-003 Firewall</td>
+              <td>Liaison coordinates offline; zero HR entries.</td>
+            </tr>
+            <tr>
+              <td><strong>Psychological Safety</strong></td>
+              <td>Right to non-punitive conversation.</td>
+              <td>Module 101 Peer Safety</td>
+              <td>Internal Peers offer active listening.</td>
+            </tr>
+            <tr>
+              <td><strong>Privacy & Data Rights</strong></td>
+              <td>Complete isolation of medical/housing data.</td>
+              <td>HIPAA & 42 CFR Part 2</td>
+              <td>All releases signed strictly offline.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4 style="color: var(--primary); font-size: 0.85rem; margin-top: 15px; margin-bottom: 5px;">CNL Expertise Routing Directory</h4>
+      <div style="overflow-x: auto;">
+        <table>
+          <thead>
+            <tr>
+              <th>Support Category</th>
+              <th>Matched CNL Industry SME Sector</th>
+              <th>Turnaround Time</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Auto Purchase / Repair</strong></td>
+              <td>Apex Auto / Fleet Group SME</td>
+              <td>&lt; 24 Hours</td>
+            </tr>
+            <tr>
+              <td><strong>Safety Boots / Workwear</strong></td>
+              <td>Red Iron Apparel SME</td>
+              <td>Same-Day / 24 Hours</td>
+            </tr>
+            <tr>
+              <td><strong>Housing / Eviction</strong></td>
+              <td>Hope Housing Alliance SME</td>
+              <td>24 - 48 Hours</td>
+            </tr>
+            <tr>
+              <td><strong>Recovery / SUD Care</strong></td>
+              <td>Bernalillo Health Hub SME</td>
+              <td>&lt; 12 Hours (Priority)</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
 
       <button class="btn" style="margin-top: 15px;" onclick="returnToRole()">Return to Portal Home</button>
@@ -483,8 +640,10 @@
     function showView(viewId) {
       document.getElementById('actionMenuArea').style.display = 'none';
       document.getElementById('mainMenuArea').style.display = 'none';
+      document.getElementById('onboardingView').style.display = 'none';
       document.getElementById('checkinFormView').style.display = 'none';
       document.getElementById('rfaFormView').style.display = 'none';
+      document.getElementById('rightsDirectoryView').style.display = 'none';
       document.getElementById('resultsView').style.display = 'none';
       
       document.getElementById(viewId).style.display = 'block';
@@ -518,17 +677,21 @@
     }
 
     function submitCheckinForm() {
+      document.getElementById('onboardingView').style.display = 'none';
       document.getElementById('checkinFormView').style.display = 'none';
       document.getElementById('rfaFormView').style.display = 'none';
+      document.getElementById('rightsDirectoryView').style.display = 'none';
       document.getElementById('resultsView').style.display = 'block';
     }
 
     function returnToRole() {
+      document.getElementById('onboardingView').style.display = 'none';
       document.getElementById('checkinFormView').style.display = 'none';
       document.getElementById('rfaFormView').style.display = 'none';
+      document.getElementById('rightsDirectoryView').style.display = 'none';
       document.getElementById('resultsView').style.display = 'none';
       
-      document.getElementById('actionMenuArea').style.display = 'grid';
+      document.getElementById('actionMenuArea').style.display = 'block';
       document.getElementById('mainMenuArea').style.display = 'block';
     }
   </script>

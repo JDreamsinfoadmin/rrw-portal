@@ -1,88 +1,395 @@
-====================================================================================================
-                    RETENTION-READY ECOSYSTEM (RRE) ADMINISTRATIVE PORTAL
-                  REASONABLE SUSPICION OBSERVED BEHAVIOR REPORT & COMPLIANCE CHECK
-====================================================================================================
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manager Reroute & Reasonable Suspicion Portal | Jan's Dreams</title>
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --secondary: #0d9488;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #1e293b;
+      --border: #cbd5e1;
+    }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .container {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+      width: 100%;
+      max-width: 950px;
+      padding: 30px;
+      box-sizing: border-box;
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .header h1 {
+      font-size: 1.25rem;
+      color: var(--primary);
+      margin: 0 0 5px 0;
+    }
+    .header p {
+      font-size: 0.85rem;
+      color: #64748b;
+      margin: 0;
+    }
+    .compliance-warning {
+      background: #fef2f2;
+      border: 2px solid #dc2626;
+      color: #991b1b;
+      padding: 15px;
+      border-radius: 8px;
+      font-size: 0.82rem;
+      margin-bottom: 20px;
+      line-height: 1.4;
+    }
+    .compliance-warning strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+    }
+    .pause-box {
+      background: #fffbeb;
+      border: 1px solid #f59e0b;
+      color: #92400e;
+      padding: 12px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      margin: 10px 0;
+      display: none;
+    }
+    .script-box {
+      background: #eff6ff;
+      border: 1px solid #3b82f6;
+      color: #1e40af;
+      padding: 15px;
+      border-radius: 8px;
+      font-size: 0.82rem;
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+    .script-box strong {
+      display: block;
+      margin-bottom: 6px;
+    }
+    .form-section {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      padding: 15px;
+      border-radius: 6px;
+      margin-bottom: 15px;
+    }
+    .form-section h4 {
+      color: var(--primary);
+      font-size: 0.85rem;
+      margin-top: 0;
+      margin-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 5px;
+    }
+    .form-group { margin-bottom: 12px; }
+    label { display: block; font-size: 0.8rem; font-weight: 600; margin-bottom: 4px; color: #475569; }
+    select { width: 100%; padding: 8px; border: 1px solid var(--border); border-radius: 6px; font-size: 0.85rem; box-sizing: border-box; background: #ffffff; font-family: inherit; }
+    
+    .btn {
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .btn:hover { opacity: 0.9; }
 
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-!                                   *** COMPLIANCE WARNING ***                                     !
-! STOP AND READ BEFORE PROCEEDING:                                                                 !
-! Unilateral discipline or termination based solely on unverified physical observations exposes    !
-! the organization to substantial liability under ADA Title I, DOL Recovery-Ready Guidelines, and   !
-! state employment statutes.                                                                 !
-!                                                                                                  !
-! YOU MUST COMPLETE THE MANDATORY CONVERSATION & CHECK-IN PROCESS PRIOR TO SUBMITTING DISCIPLINE. !
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    #resultSection {
+      display: none;
+      background: #f0fdfa;
+      border: 1px solid var(--secondary);
+      padding: 20px;
+      border-radius: 8px;
+      margin-top: 20px;
+      text-align: center;
+    }
+    #resultSection h3 { color: #0f766e; margin-top: 0; }
 
-----------------------------------------------------------------------------------------------------
-STEP 1: SUPERVISORY & TENURE VERIFICATION (MANDATORY GATEKEEPING)
-----------------------------------------------------------------------------------------------------
-* How long has the employee been with the company?
-  [ Dropdown: Less than 90 days | 90 days to 1 year | 1 to 3 years | 3+ years ]
+    .nav-footer {
+      text-align: center;
+      margin-top: 25px;
+      padding-top: 15px;
+      border-top: 1px solid var(--border);
+    }
+  </style>
+</head>
+<body>
 
-* How long have you directly supervised this employee?
-  [ Dropdown: Less than 30 days | 1 to 6 months | 6 to 12 months | 1+ years ]
+  <div class="container">
+    <div class="header">
+      <h1>Retention-Ready Ecosystem (RRE) Administrative Portal</h1>
+      <p>Reasonable Suspicion Observed Behavior Report & Compliance Check</p>
+    </div>
 
-* Is this the first time you have witnessed this particular behavior/action?
-  [ Dropdown: Yes | No ]
+    <!-- Compliance Warning -->
+    <div class="compliance-warning">
+      <strong>⚠️ Compliance Warning — Stop and Read Before Proceeding:</strong>
+      Unilateral discipline or termination based solely on unverified physical observations exposes the organization to substantial liability under ADA Title I, DOL Recovery-Ready Guidelines, and state employment statutes.<br><br>
+      YOU MUST COMPLETE THE MANDATORY CONVERSATION & CHECK-IN PROCESS PRIOR TO SUBMITTING DISCIPLINE.
+    </div>
 
-* Is this the first time the employee is being disciplined or documented?
-  [ Dropdown: Yes | No ]
+    <!-- Restorative Script Box -->
+    <div class="script-box">
+      <strong>Mandatory Restorative Script & Compliance Note:</strong>
+      "Thank you for taking a moment to sit down with me. I want to address a few recent workplace observations directly. Over the past few days, we noted specific changes in engagement that impact daily workflow. I want to be entirely clear: I am not making diagnoses, assumptions, or character judgments. Our goal is keeping a safe and productive work environment. If there is an administrative accommodation or support resource we can align for you, we want to address that before any disciplinary path is taken."
+    </div>
 
-* Have you directly spoken with the employee about today's observed behavior?
-  [ Dropdown: Yes | No ]
+    <form id="suspicionForm" onsubmit="handleFormSubmit(event)">
+      
+      <!-- STEP 1: Supervisory & Tenure Verification -->
+      <div class="form-section">
+        <h4>Step 1: Supervisory & Tenure Verification (Mandatory Gatekeeping)</h4>
+        
+        <div class="form-group">
+          <label>How long has the employee been with the company?</label>
+          <select required>
+            <option value="">Select duration...</option>
+            <option>Less than 90 days</option>
+            <option>90 days to 1 year</option>
+            <option>1 to 3 years</option>
+            <option>3+ years</option>
+          </select>
+        </div>
 
-  [!] IF "NO" IS SELECTED ABOVE:
-      **********************************************************************************************
-      * PAUSE WORKFLOW WARNING:                                                                    *
-      * You cannot proceed without initiating a direct, supportive conversation.                    *
-      * Please pause this transaction and consult with your Internal Peer Support representative   *
-      * or submit a Request for Assistance (RFA) on behalf of the team member.                     *
-      **********************************************************************************************
+        <div class="form-group">
+          <label>How long have you directly supervised this employee?</label>
+          <select required>
+            <option value="">Select duration...</option>
+            <option>Less than 30 days</option>
+            <option>1 to 6 months</option>
+            <option>6 to 12 months</option>
+            <option>1+ years</option>
+          </select>
+        </div>
 
-* Was the employee able to understand the impact of their behavior during your discussion?
-  [ Dropdown: Yes | No | Conversation not held ]
+        <div class="form-group">
+          <label>Is this the first time you have witnessed this particular behavior/action?</label>
+          <select required>
+            <option value="">Select...</option>
+            <option>Yes</option>
+            <option>No</option>
+          </select>
+        </div>
 
-* Did the employee agree to work on the issue or accept supportive routing?
-  [ Dropdown: Yes | No | Pending ]
+        <div class="form-group">
+          <label>Is this the first time the employee is being disciplined or documented?</label>
+          <select required>
+            <option value="">Select...</option>
+            <option>Yes</option>
+            <option>No</option>
+          </select>
+        </div>
 
-* Did you contact or consult with your Internal Peer Support / Advocate before filling this out?
-  [ Dropdown: Yes | No ]
+        <div class="form-group">
+          <label>Have you directly spoken with the employee about today's observed behavior?</label>
+          <select id="spokenWithEmp" onchange="checkPauseWorkflow()" required>
+            <option value="">Select...</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+          </select>
+          <div id="pauseWarning" class="pause-box">
+            <strong>🛑 Pause Workflow Warning:</strong> You cannot proceed without initiating a direct, supportive conversation. Please pause this transaction and consult with your Internal Peer Support representative or submit a Request for Assistance (RFA) on behalf of the team member.
+          </div>
+        </div>
 
-* Does the employee currently have an active and open Request for Assistance (RFA) in the system?
-  [ Dropdown: Yes | No | Unknown ]
+        <div class="form-group">
+          <label>Was the employee able to understand the impact of their behavior during your discussion?</label>
+          <select required>
+            <option value="">Select...</option>
+            <option>Yes</option>
+            <option>No</option>
+            <option>Conversation not held</option>
+          </select>
+        </div>
 
-  [!] IF "YES" IS SELECTED ABOVE:
-      **********************************************************************************************
-      * MANDATORY COMPLIANCE HALT:                                                                 *
-      * STOP IMMEDIATELY. An active Request for Assistance is open for this employee.              *
-      * Notify HR and seek additional administrative compliance guidance prior to taking any action.*
-      **********************************************************************************************
+        <div class="form-group">
+          <label>Did the employee agree to work on the issue or accept supportive routing?</label>
+          <select required>
+            <option value="">Select...</option>
+            <option>Yes</option>
+            <option>No</option>
+            <option>Pending</option>
+          </select>
+        </div>
 
-----------------------------------------------------------------------------------------------------
-STEP 2: FACTUAL OBSERVED BEHAVIOR CHECKLIST (NO WRITTEN OPINIONS / DROPDOWNS ONLY)
-----------------------------------------------------------------------------------------------------
-Select only directly observed physical, objective indicators[cite: 1]:
+        <div class="form-group">
+          <label>Did you contact or consult with your Internal Peer Support / Advocate before filling this out?</label>
+          <select required>
+            <option value="">Select...</option>
+            <option>Yes</option>
+            <option>No</option>
+          </select>
+        </div>
 
-* Physical Appearance & Face:[cite: 1, 6]
-  [ Dropdown: Normal | Flushed/pale/sweaty face | Red/bloodshot eyes | Glassy/watery eyes | Droopy eyelids ][cite: 6]
+        <div class="form-group">
+          <label>Does the employee currently have an active and open Request for Assistance (RFA) in the system?</label>
+          <select id="activeRFA" onchange="checkHaltWorkflow()" required>
+            <option value="">Select...</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+            <option value="Unknown">Unknown</option>
+          </select>
+          <div id="haltWarning" class="pause-box" style="background: #ffeeec; border-color: #f98080; color: #9b1c1c;">
+            <strong>🛑 Mandatory Compliance Halt:</strong> STOP IMMEDIATELY. An active Request for Assistance is open for this employee. Notify HR and seek additional administrative compliance guidance prior to taking any action.
+          </div>
+        </div>
+      </div>
 
-* Speech Patterns:[cite: 1, 6]
-  [ Dropdown: Normal | Slurred/incoherent speech | Rapid/rambling speech | Thick/delayed speech | Shouting/loud ][cite: 6]
+      <!-- STEP 2: Factual Observed Behavior Checklist -->
+      <div class="form-section">
+        <h4>Step 2: Factual Observed Behavior Checklist (Dropdowns Only — No Written Opinions)[cite: 1]</h4>
+        
+        <div class="form-group">
+          <label>Physical Appearance & Face:[cite: 1]</label>
+          <select required>
+            <option value="">Select appearance indicator...</option>
+            <option>Normal</option>
+            <option>Flushed/pale/sweaty face</option>
+            <option>Red/bloodshot eyes</option>
+            <option>Glassy/watery eyes</option>
+            <option>Droopy eyelids</option>
+          </select>
+        </div>
 
-* Movement & Balance:[cite: 1, 6]
-  [ Dropdown: Normal | Stumbling/staggering/swaying | Needing wall support | Tremors/shaking hands ][cite: 1, 6]
+        <div class="form-group">
+          <label>Speech Patterns:[cite: 1]</label>
+          <select required>
+            <option value="">Select speech pattern...</option>
+            <option>Normal</option>
+            <option>Slurred/incoherent speech</option>
+            <option>Rapid/rambling speech</option>
+            <option>Thick/delayed speech</option>
+            <option>Shouting/loud</option>
+          </select>
+        </div>
 
-* Odor:[cite: 1, 6]
-  [ Dropdown: None observed | Distinct odor of alcohol | Distinct odor of marijuana | Chemical odor ][cite: 6]
+        <div class="form-group">
+          <label>Movement & Balance:[cite: 1]</label>
+          <select required>
+            <option value="">Select movement/balance indicator...</option>
+            <option>Normal</option>
+            <option>Stumbling/staggering/swaying</option>
+            <option>Needing wall support</option>
+            <option>Tremors/shaking hands</option>
+          </select>
+        </div>
 
-----------------------------------------------------------------------------------------------------
-STEP 3: EMPLOYEE INTERVIEW RESPONSE & ACTION TAKEN
-----------------------------------------------------------------------------------------------------
-* Employee Explanation / Statement provided during discussion:[cite: 1]
-  [ Dropdown: Medical condition / Acute Health Flare-Up | Adverse reaction to prescription medication | 
-    Personal crisis / Extreme exhaustion | Denied any issue | Refused to comment ]
+        <div class="form-group">
+          <label>Odor:[cite: 1]</label>
+          <select required>
+            <option value="">Select odor indicator...</option>
+            <option>None observed</option>
+            <option>Distinct odor of alcohol</option>
+            <option>Distinct odor of marijuana</option>
+            <option>Chemical odor</option>
+          </select>
+        </div>
+      </div>
 
-* Immediate Action Taken:
-  [ Dropdown: Provided quiet resting space & hydration (Medical Accommodation) | 
-    Routed to Internal Peer Support / EAP | Safe transport arranged home (Taxi/Rideshare) | 
-    Referred for medical evaluation ]
+      <!-- STEP 3: Employee Interview Response & Action Taken -->
+      <div class="form-section">
+        <h4>Step 3: Employee Interview Response & Action Taken</h4>
+        
+        <div class="form-group">
+          <label>Employee Explanation / Statement provided during discussion:[cite: 1]</label>
+          <select required>
+            <option value="">Select explanation...</option>
+            <option>Medical condition / Acute Health Flare-Up</option>
+            <option>Adverse reaction to prescription medication</option>
+            <option>Personal crisis / Extreme exhaustion</option>
+            <option>Denied any issue</option>
+            <option>Refused to comment</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Immediate Action Taken:</label>
+          <select required>
+            <option value="">Select immediate action...</option>
+            <option>Provided quiet resting space & hydration (Medical Accommodation)</option>
+            <option>Routed to Internal Peer Support / EAP</option>
+            <option>Safe transport arranged home (Taxi/Rideshare)</option>
+            <option>Referred for medical evaluation</option>
+          </select>
+        </div>
+      </div>
+
+      <button type="submit" class="btn">Submit Compliance & Reasonable Suspicion Report</button>
+    </form>
+
+    <!-- Success Result Box -->
+    <div id="resultSection">
+      <h3>✅ Compliance Protocol Successfully Logged</h3>
+      <p style="font-size: 0.85rem; color: #475569; line-height: 1.5;">
+        Your reasonable suspicion report and restorative conversation protocols have been recorded securely. Peer support coordination has been initiated.
+      </p>
+      <button class="btn" style="width: auto; margin-top: 15px;" onclick="location.reload()">Submit Another Report</button>
+    </div>
+
+    <!-- Universal Home Navigation Footer -->
+    <div class="nav-footer">
+      <a href="index.html" class="btn" style="background-color: #64748b; width: 100%;">Return to Home Page / Role Gateway</a>
+    </div>
+
+  </div>
+
+  <script>
+    function checkPauseWorkflow() {
+      const val = document.getElementById('spokenWithEmp').value;
+      const warn = document.getElementById('pauseWarning');
+      if (val === 'No') {
+        warn.style.display = 'block';
+      } else {
+        warn.style.display = 'none';
+      }
+    }
+
+    function checkHaltWorkflow() {
+      const val = document.getElementById('activeRFA').value;
+      const warn = document.getElementById('haltWarning');
+      if (val === 'Yes') {
+        warn.style.display = 'block';
+      } else {
+        warn.style.display = 'none';
+      }
+    }
+
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      document.getElementById('suspicionForm').style.display = 'none';
+      document.getElementById('resultSection').style.display = 'block';
+    }
+  </script>
+
+</body>
+</html>

@@ -239,7 +239,7 @@
     <!-- Role Blurb -->
     <div class="role-blurb" id="mainMenuArea">
       <strong>About this portal:</strong> 
-      As a valued participant or team member, you have guaranteed rights to confidential support, zero-retaliation navigation, and direct access to specialized Network Liaisons (CNLs)[cite: 2]. Use the categorized directory below to complete your onboarding, review rights, submit check-ins, or request comprehensive multi-category assistance.
+      As a valued participant or team member, you have guaranteed rights to confidential support, zero-retaliation navigation, and direct access to specialized Network Liaisons (CNLs)[cite: 2]. Use the categorized directory below to complete your onboarding, review rights, submit check-ins, or request comprehensive multi-category assistance complete with Social Determinants of Health (SDOH) & HUD screening.
     </div>
 
     <!-- CATEGORIZED ACTION MENU -->
@@ -270,7 +270,7 @@
         </div>
         <div class="action-card">
           <h3>Request for Assistance (RFA)</h3>
-          <p>Request robust multi-category support spanning housing, transportation, health, and legal aid.</p>
+          <p>Request robust multi-category support spanning housing, transportation, health, and legal aid with comprehensive SDOH/HUD screening.</p>
           <button class="btn" onclick="showView('rfaFormView')">Open Assistance Request</button>
         </div>
       </div>
@@ -428,17 +428,33 @@
         </div>
       </div>
 
-      <!-- SECTION 4: Voluntary SDOH Screening -->
+      <!-- SECTION 4: Voluntary SDOH & HUD Screening -->
       <div class="form-section">
-        <h4>Section 4: Voluntary SDOH (Social Determinants of Health) Screening</h4>
-        <p style="font-size: 0.75rem; color: #64748b; margin-top: 0;">Optional - Select conditions that apply to route correct community support.</p>
+        <h4>Section 4: Voluntary SDOH & HUD Screening (Housing Stability & AMI)</h4>
+        <p style="font-size: 0.75rem; color: #64748b; margin-top: 0;">Optional - Complete to help route appropriate housing and community support resources.</p>
         
         <div class="form-group">
-          <label>Housing & Utilities:</label>
+          <label>HUD Housing Stability Status:</label>
           <select>
-            <option>Stably housed</option>
-            <option>Concerned about rent/mortgage</option>
-            <option>Facing eviction/displacement</option>
+            <option>Housed - Stable</option>
+            <option>Housed - Threat of Eviction / Foreclosure / Rent Burden</option>
+            <option>Unhoused - Emergency Shelter / Transitional / Unsheltered</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>HUD Household AMI Level (Area Median Income):</label>
+          <select>
+            <option>Extremely Low Income (&lt;30% AMI)</option>
+            <option>Very Low Income (30-50% AMI)</option>
+            <option>Low Income (50-80% AMI)</option>
+            <option>Moderate Income (&gt;80% AMI)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Utilities & Energy Security:</label>
+          <select>
+            <option>Stable</option>
+            <option>Utility Shutoff Notice Received</option>
             <option>Unstable utility access (water, power, heat)</option>
           </select>
         </div>
@@ -454,7 +470,7 @@
           <label>Transportation Access:</label>
           <select>
             <option>Reliable transportation</option>
-            <option>Unreliable vehicle/transit</option>
+            <option>Unreliable vehicle/transit / Vehicle repair needed</option>
             <option>Lacking public transit funds</option>
           </select>
         </div>
@@ -473,10 +489,10 @@
       <button class="btn btn-primary" style="background-color: #64748b; margin-top: 8px;" onclick="returnToRole()">Return to Portal Home</button>
     </div>
 
-    <!-- VIEW 2: Request for Assistance (RFA) Form -->
+    <!-- VIEW 2: Request for Assistance (RFA) Form with Full SDOH & HUD Integration -->
     <div id="rfaFormView" class="view-panel">
-      <h3>Comprehensive Request for Assistance (RFA)</h3>
-      <p style="font-size: 0.8rem; color: #64748b; margin-bottom: 15px;">Select specific resources or supportive services you are requesting assistance with.</p>
+      <h3>Comprehensive Request for Assistance (RFA) & SDOH Intake</h3>
+      <p style="font-size: 0.8rem; color: #64748b; margin-bottom: 15px;">Select specific resources and complete the voluntary screening below to connect with specialized Network Liaisons.</p>
 
       <div class="form-section">
         <h4>Resource & Service Selection</h4>
@@ -493,6 +509,48 @@
             <option value="financial">8. Financial Literacy & Legal Aid (Debt relief counseling, legal assistance referrals)</option>
             <option value="utility">9. Utility & Heating Assistance (LIHEAP routing, emergency utility grants)</option>
             <option value="accommodation">10. Workplace Accommodation & Ergonomics (Schedule adjustments, ADA physical adjustments)</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Comprehensive SDOH & HUD Screener Section Inside RFA -->
+      <div class="form-section">
+        <h4>Voluntary SDOH & HUD Screening (Required Assessment Data)</h4>
+        
+        <div class="form-group">
+          <label>HUD Housing Stability Status:</label>
+          <select>
+            <option>Housed - Stable</option>
+            <option>Housed - Threat of Eviction / Foreclosure / Rent Burden</option>
+            <option>Unhoused - Emergency Shelter / Transitional / Unsheltered</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>HUD Household AMI Level (Area Median Income):</label>
+          <select>
+            <option>Extremely Low Income (&lt;30% AMI)</option>
+            <option>Very Low Income (30-50% AMI)</option>
+            <option>Low Income (50-80% AMI)</option>
+            <option>Moderate Income (&gt;80% AMI)</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Food Security Status:</label>
+          <select>
+            <option>Food secure</option>
+            <option>Worried food will run out before I can buy more</option>
+            <option>Skipped meals in the last 30 days due to cost</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Transportation & Mobility Status:</label>
+          <select>
+            <option>Reliable transportation</option>
+            <option>Unreliable vehicle/transit / Vehicle repair needed</option>
+            <option>Lacking public transit funds</option>
           </select>
         </div>
       </div>
@@ -520,7 +578,7 @@
       <button class="btn btn-primary" style="background-color: #64748b; margin-top: 8px;" onclick="returnToRole()">Return to Portal Home</button>
     </div>
 
-    <!-- MATCHED PROVIDERS RESULTS VIEW (Fully Restored Dynamic CNL Matching Card) -->
+    <!-- MATCHED PROVIDERS RESULTS VIEW (Fully Restored Dynamic CNL Matching Card & Instructions) -->
     <div id="resultsView">
       <h3>🤝 Successfully Matched Community Professionals (CNLs):</h3>
       <p style="font-size: 0.8rem; color: #0f766e; margin-bottom: 15px;">
